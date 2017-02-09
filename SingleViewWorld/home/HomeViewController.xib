@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
+            <connections>
+                <outlet property="MenuView" destination="7Sh-Ha-nRS" id="f5q-vx-ZOE"/>
+                <outlet property="btnCameraApp" destination="VOe-vh-67a" id="E1g-wW-c6r"/>
+                <outlet property="btnChangeAP" destination="Hay-gl-4JR" id="mId-4v-neK"/>
+                <outlet property="btnReserved" destination="sEu-jd-jM7" id="jZO-QG-LOl"/>
+                <outlet property="cameraView" destination="5ao-a8-7hX" id="mfr-Uk-Oos"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hay-gl-4JR" userLabel="CurrentAP">
+                    <rect key="frame" x="58" y="627" width="72" height="30"/>
+                    <state key="normal" title="CurrentAP">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="ChangeAPBtn:" destination="-1" eventType="touchUpInside" id="Wa8-aO-kUb"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VOe-vh-67a" userLabel="CameraApp">
+                    <rect key="frame" x="160.5" y="627" width="54" height="30"/>
+                    <state key="normal" title="Camera">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="CameraAppBtn:" destination="-1" eventType="touchUpInside" id="hAa-la-ixA"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sEu-jd-jM7" userLabel="Reserved">
+                    <rect key="frame" x="249" y="627" width="65" height="30"/>
+                    <state key="normal" title="Reserved">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="ReservedBtn:" destination="-1" eventType="touchUpInside" id="da9-EN-mf8"/>
+                    </connections>
+                </button>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7Sh-Ha-nRS">
+                    <rect key="frame" x="5" y="10" width="365" height="607"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KJc-L4-7tz">
+                        <size key="itemSize" width="100" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5ao-a8-7hX">
+                    <rect key="frame" x="5" y="10" width="365" height="607"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="5ao-a8-7hX" firstAttribute="bottom" secondItem="7Sh-Ha-nRS" secondAttribute="bottom" id="3R0-ZX-ecr"/>
+                <constraint firstAttribute="bottom" secondItem="Hay-gl-4JR" secondAttribute="bottom" constant="10" id="B5h-uF-7QZ"/>
+                <constraint firstItem="Hay-gl-4JR" firstAttribute="centerX" secondItem="VOe-vh-67a" secondAttribute="centerX" multiplier="0.5" id="CQg-Mu-INf"/>
+                <constraint firstItem="7Sh-Ha-nRS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="D35-7U-J1g"/>
+                <constraint firstItem="sEu-jd-jM7" firstAttribute="baseline" secondItem="VOe-vh-67a" secondAttribute="baseline" id="Jhl-ec-Gdh"/>
+                <constraint firstItem="Hay-gl-4JR" firstAttribute="baseline" secondItem="VOe-vh-67a" secondAttribute="baseline" id="Nna-N6-nlk"/>
+                <constraint firstItem="sEu-jd-jM7" firstAttribute="centerX" secondItem="VOe-vh-67a" secondAttribute="centerX" multiplier="1.5" id="R0j-Bw-Bym"/>
+                <constraint firstItem="7Sh-Ha-nRS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="UEj-hd-Fbz"/>
+                <constraint firstItem="5ao-a8-7hX" firstAttribute="leading" secondItem="7Sh-Ha-nRS" secondAttribute="leading" id="ahj-O4-Rnz"/>
+                <constraint firstItem="5ao-a8-7hX" firstAttribute="top" secondItem="7Sh-Ha-nRS" secondAttribute="top" id="drM-WH-e1A"/>
+                <constraint firstAttribute="bottom" secondItem="7Sh-Ha-nRS" secondAttribute="bottom" constant="50" id="lcc-XS-7sG"/>
+                <constraint firstItem="VOe-vh-67a" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="np2-7h-6jG"/>
+                <constraint firstAttribute="trailing" secondItem="7Sh-Ha-nRS" secondAttribute="trailing" constant="5" id="qen-Hq-bnU"/>
+                <constraint firstItem="5ao-a8-7hX" firstAttribute="trailing" secondItem="7Sh-Ha-nRS" secondAttribute="trailing" id="zjV-vn-pBl"/>
+            </constraints>
+            <point key="canvasLocation" x="120" y="311"/>
+        </view>
+    </objects>
+</document>
