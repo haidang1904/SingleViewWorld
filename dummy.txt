@@ -1,0 +1,32 @@
+v5 GPT								
+partitionID	flash_device_name	flash_device_size	flash_image_name	flash_device_type	flash_upgrade_type	flash_partition_map	flash_mount_path	flash_writable
+0	/dev/mmcblk0p0	512K	onboot.bin	MLC	OTHER	BOOTLOADER0	NONE	RO
+1	/dev/mmcblk0p1	512K	ddr.init	MLC	USER	INIT0	NONE	RO
+2	/dev/mmcblk0p2	512K	ddr.init	MLC	USER	INIT1	NONE	RO
+3	/dev/mmcblk0p3	2048K	seret.bin	MLC	USER	SERET0	NONE	RO
+4	/dev/mmcblk0p4	2048K	seret.bin	MLC	USER	SERET1	NONE	RO
+5	/dev/mmcblk0p5	15360K	uImage	MLC	USER	KERNEL0	NONE	RO
+6	/dev/mmcblk0p6	15360K	uImage	MLC	USER	KERNEL1	NONE	RO
+7	/dev/mmcblk0p7	512K	dtb.bin	MLC	USER	DTB0	NONE	RO
+8	/dev/mmcblk0p8	512K	dtb.bin	MLC	USER	DTB1	NONE	RO
+9	/dev/mmcblk0p9	64K	sign.bin	MLC	USER	SIGN0	NONE	RO
+10	/dev/mmcblk0p10	64K	sign.bin	MLC	USER	SIGN1	NONE	RO
+11	/dev/mmcblk0p11	64K	VD-HEADER	MLC	NONE	NONE	NONE	RO
+12	/dev/mmcblk0p12	1024K	secos.bin	MLC	USER	SECOS0	NONE	RO
+13	/dev/mmcblk0p13	1024K	secos.bin	MLC	USER	SECOS1	NONE	RO
+14	/dev/mmcblk0p14	1024K	secos_drv.bin	MLC	USER	S_DRV0	NONE	RO
+15	/dev/mmcblk0p15	1024K	secos_drv.bin	MLC	USER	S_DRV1	NONE	RO
+16	/dev/mmcblk0p16	2048K	NONE	MLC	NONE	K_DUMP	NONE	RW
+17	/dev/mmcblk0p17	12288K	NONE	MLC	NONE	DRM0	/mnt/drm	RW
+18	/dev/mmcblk0p18	1740800K	platform.img	MLC	USER	PLATFORM0	NONE	RO
+19	/dev/mmcblk0p19	1740800K	platform.img	MLC	USER	PLATFORM1	NONE	RO
+20	/dev/mmcblk0p20	51200K	systemrw.img	MLC	OTHER	CONTENT0	/opt/systemrw	RW
+21	/dev/mmcblk0p21	4042432K	data.img	MLC	OTHER	CONTENT1	/opt	RW
+22	/dev/mmcblk0p22	4096K	reserved	MLC	NONE	NONE	NONE	RO
+
+# flash_device_type	is used by SLC NAND nand.otp.dump		
+# flash_upgrade_type	is used by SERET and SWU		
+# flash_partition_map	is used to distinguish dual partitions in SERET		
+# flash_mount_path	is used by SWU and easy to recognize mounting point		
+# Samsung 8G MAX 	7,818,182,656 	7634944KB	7456MB
+
