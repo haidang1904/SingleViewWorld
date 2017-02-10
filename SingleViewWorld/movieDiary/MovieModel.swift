@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MovieModel : NSObject {
+open class MovieModel {
     var actor: String = ""
     var director: String = ""
     var image: String = ""
@@ -17,7 +17,14 @@ class MovieModel : NSObject {
     var title: String = ""
     var userRating: String = ""
     
-    override init() {
+    init?(data: [String:AnyObject]) {
+        let id = data["appId"] as? String
         
+        let type = data["appType"] as? String
+    
+    }
+    
+    var description: String {
+        return "MovieModel title \(title)  subtitle \(subtitle) director \(director) actor \(actor)"
     }
 }
