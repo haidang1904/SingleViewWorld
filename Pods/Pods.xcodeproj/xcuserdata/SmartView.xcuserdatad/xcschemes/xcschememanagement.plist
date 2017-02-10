@@ -4,7 +4,27 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Alamofire.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SingleViewWorld.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RealmSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RxSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +37,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0677DD65543156A7CB17A74E2BD949E2</key>
+		<key>24B397C55CDBBA9955EAC2602EAE9EB9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F5CEA8DB5C8FAE8E498DAD04E7CADDCF</key>
+		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B42B31F15A3DBA71E1D78D9865E75F00</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D0D0B63C0CB264B1E59028D0F358B908</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E1B1796E1766F42C3C8D57C0F28DF314</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E9D37DB92E3EDCF2E0C886CA877BD997</key>
 		<dict>
 			<key>primary</key>
 			<true/>

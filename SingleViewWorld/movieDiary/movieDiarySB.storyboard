@@ -90,25 +90,26 @@
                                     <action selector="goSearch:" destination="8JS-Po-dYr" eventType="touchUpInside" id="Fuy-MZ-3o5"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="48" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1ar-3B-QBe">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="110" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1ar-3B-QBe">
                                 <rect key="frame" x="0.0" y="88" width="375" height="515"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" id="X1X-X0-30i" customClass="SearchResultCell" customModule="SingleViewWorld" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="48"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" rowHeight="110" id="X1X-X0-30i" customClass="SearchResultCell" customModule="SingleViewWorld" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X1X-X0-30i" id="XZh-zv-rXm">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="109"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yxw-3P-34b">
-                                                    <rect key="frame" x="8" y="0.0" width="55" height="47"/>
+                                                    <rect key="frame" x="8" y="0.0" width="77" height="109.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="55" id="zgp-8Y-vgf"/>
+                                                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="110" id="6PQ-O4-0a6"/>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="77" id="AtL-gR-yJM"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeD-AJ-Ufw">
-                                                    <rect key="frame" x="71" y="0.0" width="296" height="47"/>
+                                                    <rect key="frame" x="93" y="0.0" width="274" height="109.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

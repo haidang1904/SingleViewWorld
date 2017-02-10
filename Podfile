@@ -6,6 +6,9 @@ target 'SingleViewWorld' do
   use_frameworks!
   pod 'SDWebImage', '~>3.8'
   # Pods for SingleViewWorld
-
-
+  pod 'RealmSwift'
+  pod 'RxSwift', '~> 3.2'
+  pod 'Alamofire', '~> 4.3'
+  
 end
+
