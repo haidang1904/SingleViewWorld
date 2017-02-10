@@ -34,6 +34,7 @@
 		345D98A91D5C7F3C009A2EAF /* ballburst.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 345D98A31D5C7F3C009A2EAF /* ballburst.mp3 */; };
 		345D99021D5DA313009A2EAF /* BurstParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 345D99001D5DA313009A2EAF /* BurstParticle.sks */; };
 		345D99031D5DA313009A2EAF /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 345D99011D5DA313009A2EAF /* spark.png */; };
+		3482C4A41E4D5ED300842B9C /* SearchDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482C4A31E4D5ED300842B9C /* SearchDetailsVC.swift */; };
 		348F5C481D62B3D000E24FA9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 348F5C471D62B3D000E24FA9 /* MobileCoreServices.framework */; };
 		348F5C501D62CCF400E24FA9 /* CardGameModeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348F5C4E1D62CCF400E24FA9 /* CardGameModeVC.swift */; };
 		348F5C511D62CCF400E24FA9 /* CardGameModeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 348F5C4F1D62CCF400E24FA9 /* CardGameModeVC.xib */; };
@@ -59,7 +60,6 @@
 		34C674F21D65868A000138DD /* Ka-Ching.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34C674EC1D65868A000138DD /* Ka-Ching.wav */; };
 		34C674F31D65868A000138DD /* Mining by Moonlight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34C674ED1D65868A000138DD /* Mining by Moonlight.mp3 */; };
 		34C674F41D65868A000138DD /* Scrape.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34C674EE1D65868A000138DD /* Scrape.wav */; };
-		34DFB6641DDEB59200CC8768 /* ca_crt.cer in Resources */ = {isa = PBXBuildFile; fileRef = 34DFB6631DDEB59100CC8768 /* ca_crt.cer */; };
 		34EDBB771D3DC73D001743EF /* JPSVolumeButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EDBB761D3DC73D001743EF /* JPSVolumeButtonHandler.m */; };
 		34F774571D7E979D001ED21E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F774561D7E979D001ED21E /* Accelerate.framework */; };
 		34F774591D7E97A7001ED21E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F774581D7E97A7001ED21E /* AudioToolbox.framework */; };
@@ -175,6 +175,7 @@
 		345D98A31D5C7F3C009A2EAF /* ballburst.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ballburst.mp3; path = SingleViewWorld/SpriteKit/SpriteImages/ballburst.mp3; sourceTree = SOURCE_ROOT; };
 		345D99001D5DA313009A2EAF /* BurstParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = BurstParticle.sks; path = SpriteKit/BurstParticle.sks; sourceTree = "<group>"; };
 		345D99011D5DA313009A2EAF /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = SpriteKit/spark.png; sourceTree = "<group>"; };
+		3482C4A31E4D5ED300842B9C /* SearchDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchDetailsVC.swift; path = movieDiary/SearchDetailsVC.swift; sourceTree = "<group>"; };
 		348F5C471D62B3D000E24FA9 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		348F5C4E1D62CCF400E24FA9 /* CardGameModeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardGameModeVC.swift; path = CardGameMode/CardGameModeVC.swift; sourceTree = "<group>"; };
 		348F5C4F1D62CCF400E24FA9 /* CardGameModeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CardGameModeVC.xib; path = CardGameMode/CardGameModeVC.xib; sourceTree = "<group>"; };
@@ -200,7 +201,6 @@
 		34C674EC1D65868A000138DD /* Ka-Ching.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Ka-Ching.wav"; path = "CandyCrushGame/Sound/Ka-Ching.wav"; sourceTree = "<group>"; };
 		34C674ED1D65868A000138DD /* Mining by Moonlight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Mining by Moonlight.mp3"; path = "CandyCrushGame/Sound/Mining by Moonlight.mp3"; sourceTree = "<group>"; };
 		34C674EE1D65868A000138DD /* Scrape.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Scrape.wav; path = CandyCrushGame/Sound/Scrape.wav; sourceTree = "<group>"; };
-		34DFB6631DDEB59100CC8768 /* ca_crt.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = ca_crt.cer; path = SingleViewWorld/LibFromGithub/SmartViewSDK/SmartViewSDK/ca_crt.cer; sourceTree = "<group>"; };
 		34EDBB751D3DC73D001743EF /* JPSVolumeButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPSVolumeButtonHandler.h; path = LibFromGithub/JSPVolumeButtonHandler/JPSVolumeButtonHandler.h; sourceTree = "<group>"; };
 		34EDBB761D3DC73D001743EF /* JPSVolumeButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPSVolumeButtonHandler.m; path = LibFromGithub/JSPVolumeButtonHandler/JPSVolumeButtonHandler.m; sourceTree = "<group>"; };
 		34F774561D7E979D001ED21E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -381,6 +381,7 @@
 				34319D8C1E49910700A4731B /* movieDiaryVC.swift */,
 				34319D8E1E49912400A4731B /* movieDiarySB.storyboard */,
 				34319D901E49929D00A4731B /* movieDiaryVM.swift */,
+				3482C4A31E4D5ED300842B9C /* SearchDetailsVC.swift */,
 				34319D951E49EB8C00A4731B /* SearchResultCell.swift */,
 			);
 			name = movieDiary;
@@ -510,7 +511,6 @@
 			isa = PBXGroup;
 			children = (
 				34319E4C1E4C449400A4731B /* SmartView.framework */,
-				34DFB6631DDEB59100CC8768 /* ca_crt.cer */,
 				34FC825B1D6449DB0009ED81 /* frameworks */,
 				F109ECBE1B5E15E40078B366 /* Resources */,
 				F109EC561B5DE7670078B366 /* SingleViewWorld */,
@@ -796,7 +796,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = samsung;
 				TargetAttributes = {
 					F109EC531B5DE7670078B366 = {
@@ -865,7 +865,6 @@
 				345D98A91D5C7F3C009A2EAF /* ballburst.mp3 in Resources */,
 				F1B73A741B944757003CFF05 /* AudioPlayerViewController.xib in Resources */,
 				F109EC651B5DE7670078B366 /* Images.xcassets in Resources */,
-				34DFB6641DDEB59200CC8768 /* ca_crt.cer in Resources */,
 				34319D8F1E49912400A4731B /* movieDiarySB.storyboard in Resources */,
 				F1B73A561B8DA0A6003CFF05 /* PhotoListViewController.xib in Resources */,
 				F1B73A671B9018EE003CFF05 /* MenuCollectionViewCell.xib in Resources */,
@@ -997,6 +996,7 @@
 				F109EC821B5E00A40078B366 /* HomeViewController.m in Sources */,
 				34319D911E49929D00A4731B /* movieDiaryVM.swift in Sources */,
 				34A73A121DE2FE1400645108 /* LocalNotificationVC.swift in Sources */,
+				3482C4A41E4D5ED300842B9C /* SearchDetailsVC.swift in Sources */,
 				F1B73A6D1B9059D7003CFF05 /* DynamicsViewController.m in Sources */,
 				34319E741E4C450200A4731B /* SDKPrivateTestVM.swift in Sources */,
 				F1B73A7B1B959268003CFF05 /* MusicListTableViewCell.m in Sources */,
@@ -1049,8 +1049,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1100,8 +1102,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1126,6 +1130,7 @@
 					"-lc++",
 				);
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1135,12 +1140,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CF8CE1DCAA5020F2478B2682 /* Pods-SingleViewWorld.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 9BA8G3LBM6;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SingleViewWorld",
@@ -1176,12 +1181,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 49FA371650FEBAFEA5A687FE /* Pods-SingleViewWorld.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 9BA8G3LBM6;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SingleViewWorld",
