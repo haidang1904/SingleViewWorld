@@ -18,10 +18,7 @@ open class MovieModel {
     var userRating: String = ""
     
     init?(data: [String:AnyObject]) {
-        let id = data["appId"] as? String
-        
-        let type = data["appType"] as? String
-    
+
     }
     
     var description: String {

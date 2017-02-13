@@ -1155,7 +1155,7 @@
 				);
 				GCC_PREFIX_HEADER = "${SRCROOT}/SingleViewWorld/SingleViewWorld-Prefix.pch";
 				INFOPLIST_FILE = SingleViewWorld/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1196,7 +1196,7 @@
 				);
 				GCC_PREFIX_HEADER = "${SRCROOT}/SingleViewWorld/SingleViewWorld-Prefix.pch";
 				INFOPLIST_FILE = SingleViewWorld/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

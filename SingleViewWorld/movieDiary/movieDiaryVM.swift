@@ -24,6 +24,7 @@ class movieDiaryVM {
     var nAPIparameter : Parameters? = nil
     var resultList : [[String:Any]]? = nil
     var resultCount : Int = 0
+    let displayCount : Int = 100
     
     fileprivate let isSearchSubject = BehaviorSubject<Bool>(value: false)
     internal var isSearch: Observable<Bool> {
@@ -50,7 +51,7 @@ class movieDiaryVM {
         
         let urlString : String = "\(nAPImovieSearchURLJson)"
         let url = URL(string: urlString)
-        self.nAPIparameter = ["query":keyword]
+        self.nAPIparameter = ["query":keyword,"display":displayCount]
         
         queue?.async(execute: {
             

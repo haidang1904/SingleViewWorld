@@ -31,15 +31,7 @@ import SDWebImage
     override open func viewDidLoad() {
         super.viewDidLoad()
 
-        searchTextField.text = "라라랜드"
-        
-//        
-//        VarietyTest.connectData
-//            .observeOn(MainScheduler.instance)
-//            .subscribe(onNext : { [weak self] (mode:Bool) in
-//                self!.VarietyList.reloadData()
-//            })
-//            .addDisposableTo(disposeBag)
+        searchTextField.text = "서유기"
         
         diaryVM.isSearch
             .observeOn(MainScheduler.instance)
