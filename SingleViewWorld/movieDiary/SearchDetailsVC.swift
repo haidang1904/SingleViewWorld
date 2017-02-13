@@ -10,9 +10,13 @@ import UIKit
 
 class SearchDetailsVC: UIViewController {
 
+    var viewModel: SearchDetailsVM?
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        Log.test("viewDidLoad: \(viewModel?.movieDetail?.description)")
         // Do any additional setup after loading the view.
     }
 

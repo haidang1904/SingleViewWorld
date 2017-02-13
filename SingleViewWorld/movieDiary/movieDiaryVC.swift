@@ -10,10 +10,13 @@ import UIKit
 import RxSwift
 import SDWebImage
 
+
+
 @objc open class movieDiaryVC: UIViewController {
 
     let diaryVM = movieDiaryVM()
     fileprivate let disposeBag = DisposeBag()
+    var showDetailView: ((_ selectedMovie: MovieModel?) -> Void)? = nil
     
     @IBOutlet weak var searchResultTable: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
@@ -58,6 +61,10 @@ import SDWebImage
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
 
     /*
     // MARK: - Navigation
@@ -85,7 +92,9 @@ extension movieDiaryVC: UITableViewDelegate,UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        
+        tableView.deselectRow(at: indexPath, animated: false)
+        let movieInfo = diaryVM.getMovieInfo((indexPath as NSIndexPath).row)! as? MovieModel
+        self.showDetailView?(movieInfo)
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -101,6 +110,8 @@ extension movieDiaryVC: UITableViewDelegate,UITableViewDataSource {
         }
         if let image = diaryVM.getImage((indexPath as NSIndexPath).row){
             cell.providerIcon?.image = image
+        } else {
+            cell.providerIcon?.image = UIImage(named: "poster_placeholder")
         }
         
         return cell

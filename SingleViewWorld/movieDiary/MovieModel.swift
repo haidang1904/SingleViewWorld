@@ -17,8 +17,10 @@ open class MovieModel {
     var title: String = ""
     var userRating: String = ""
     
-    init?(data: [String:AnyObject]) {
-
+    init?(data: [String:Any]?) {
+        if let title = data?["title"] as? String{
+            self.title = title
+        }
     }
     
     var description: String {

@@ -123,6 +123,8 @@ class movieDiaryVM {
     }
     
     func getImage(_ index:Int) -> UIImage? {
+        let placeholder : UIImage = UIImage(named: "poster_placeholder")!
+        
         if (self.resultList?.count)! > index {
             if let iconPath = self.resultList?[index]["image"] as? String {
                 if let image = customImageManager.sharedInstance.imageCache.imageFromDiskCache(forKey: iconPath) {
@@ -132,13 +134,22 @@ class movieDiaryVM {
                     Log.test("\(iconPath) image in MemoryCache")
                     return image
                 } else {
-                    return UIImage(named: "poster_placeholder")
+                    return placeholder
                 }
             } else {
-                return UIImage(named: "poster_placeholder")
+                return placeholder
             }
         } else {
-            return UIImage(named: "poster_placeholder")
+            return placeholder
+        }
+    }
+    
+    func getMovieInfo(_ index:Int) -> MovieModel? {
+        // to do
+        if let movieData = self.resultList?[index] {
+                return MovieModel(data: movieData)
+        } else {
+            return MovieModel(data: nil)
         }
     }
     

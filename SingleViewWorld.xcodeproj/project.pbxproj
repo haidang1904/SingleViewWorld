@@ -35,6 +35,9 @@
 		345D99021D5DA313009A2EAF /* BurstParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 345D99001D5DA313009A2EAF /* BurstParticle.sks */; };
 		345D99031D5DA313009A2EAF /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 345D99011D5DA313009A2EAF /* spark.png */; };
 		3482C4A41E4D5ED300842B9C /* SearchDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482C4A31E4D5ED300842B9C /* SearchDetailsVC.swift */; };
+		3482C4E91E51BA6000842B9C /* movieDiaryBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482C4E81E51BA6000842B9C /* movieDiaryBaseVC.swift */; };
+		3482C4EB1E51BAA500842B9C /* movieDiaryBaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482C4EA1E51BAA500842B9C /* movieDiaryBaseVM.swift */; };
+		3482C4ED1E51C18600842B9C /* SearchDetailsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3482C4EC1E51C18600842B9C /* SearchDetailsVM.swift */; };
 		348F5C481D62B3D000E24FA9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 348F5C471D62B3D000E24FA9 /* MobileCoreServices.framework */; };
 		348F5C501D62CCF400E24FA9 /* CardGameModeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348F5C4E1D62CCF400E24FA9 /* CardGameModeVC.swift */; };
 		348F5C511D62CCF400E24FA9 /* CardGameModeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 348F5C4F1D62CCF400E24FA9 /* CardGameModeVC.xib */; };
@@ -176,6 +179,9 @@
 		345D99001D5DA313009A2EAF /* BurstParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = BurstParticle.sks; path = SpriteKit/BurstParticle.sks; sourceTree = "<group>"; };
 		345D99011D5DA313009A2EAF /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = SpriteKit/spark.png; sourceTree = "<group>"; };
 		3482C4A31E4D5ED300842B9C /* SearchDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchDetailsVC.swift; path = movieDiary/SearchDetailsVC.swift; sourceTree = "<group>"; };
+		3482C4E81E51BA6000842B9C /* movieDiaryBaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = movieDiaryBaseVC.swift; path = movieDiary/movieDiaryBaseVC.swift; sourceTree = "<group>"; };
+		3482C4EA1E51BAA500842B9C /* movieDiaryBaseVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = movieDiaryBaseVM.swift; path = movieDiary/movieDiaryBaseVM.swift; sourceTree = "<group>"; };
+		3482C4EC1E51C18600842B9C /* SearchDetailsVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchDetailsVM.swift; path = movieDiary/SearchDetailsVM.swift; sourceTree = "<group>"; };
 		348F5C471D62B3D000E24FA9 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		348F5C4E1D62CCF400E24FA9 /* CardGameModeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardGameModeVC.swift; path = CardGameMode/CardGameModeVC.swift; sourceTree = "<group>"; };
 		348F5C4F1D62CCF400E24FA9 /* CardGameModeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CardGameModeVC.xib; path = CardGameMode/CardGameModeVC.xib; sourceTree = "<group>"; };
@@ -382,7 +388,10 @@
 				34319D8E1E49912400A4731B /* movieDiarySB.storyboard */,
 				34319D901E49929D00A4731B /* movieDiaryVM.swift */,
 				3482C4A31E4D5ED300842B9C /* SearchDetailsVC.swift */,
+				3482C4EC1E51C18600842B9C /* SearchDetailsVM.swift */,
 				34319D951E49EB8C00A4731B /* SearchResultCell.swift */,
+				3482C4E81E51BA6000842B9C /* movieDiaryBaseVC.swift */,
+				3482C4EA1E51BAA500842B9C /* movieDiaryBaseVM.swift */,
 			);
 			name = movieDiary;
 			sourceTree = "<group>";
@@ -961,6 +970,7 @@
 				F1FF53841CD1F42900A3F3BD /* WowMacInfo.m in Sources */,
 				34C674BD1D657839000138DD /* Cookies.swift in Sources */,
 				34C674C11D657978000138DD /* Level.swift in Sources */,
+				3482C4E91E51BA6000842B9C /* movieDiaryBaseVC.swift in Sources */,
 				34319E781E4C556800A4731B /* customImageManager.swift in Sources */,
 				F109EC5A1B5DE7670078B366 /* main.m in Sources */,
 				F14235A71B871AC600EE2B6D /* BLESingleton.m in Sources */,
@@ -983,6 +993,7 @@
 				F1B73A611B901479003CFF05 /* RecognizerViewController.m in Sources */,
 				F12683981B8AD5AE004C92E4 /* BLEDetailViewCell.m in Sources */,
 				34EDBB771D3DC73D001743EF /* JPSVolumeButtonHandler.m in Sources */,
+				3482C4EB1E51BAA500842B9C /* movieDiaryBaseVM.swift in Sources */,
 				34FC7FCD1D6305E50009ED81 /* MenuScene.swift in Sources */,
 				F14F01401B81FC13009190E6 /* BLEDetailViewController.m in Sources */,
 				34319D8D1E49910700A4731B /* movieDiaryVC.swift in Sources */,
@@ -1003,6 +1014,7 @@
 				F1B73A661B9018EE003CFF05 /* MenuCollectionViewCell.m in Sources */,
 				340E46401D547D110027078C /* ArcheryScene.swift in Sources */,
 				F121A1581D2B91760007BAA0 /* Log.swift in Sources */,
+				3482C4ED1E51C18600842B9C /* SearchDetailsVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

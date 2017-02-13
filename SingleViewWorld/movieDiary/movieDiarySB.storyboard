@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--view Controller-->
+        <!--movieDiaryBaseVC-->
         <scene sceneID="Gir-AU-cr6">
             <objects>
-                <viewController id="PBw-Fe-QDR" userLabel="view Controller" sceneMemberID="viewController">
+                <viewController id="PBw-Fe-QDR" userLabel="movieDiaryBaseVC" customClass="movieDiaryBaseVC" customModule="SingleViewWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gVA-Zo-xz3"/>
                         <viewControllerLayoutGuide type="bottom" id="IIo-X3-hcE"/>
@@ -24,7 +24,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B8a-Vw-B1F">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <connections>
-                                    <segue destination="gQd-lB-DY6" kind="embed" id="Hku-Oe-STc"/>
+                                    <segue destination="8JS-Po-dYr" kind="embed" identifier="SearchSegue" id="jah-r2-eyv"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -37,26 +37,13 @@
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <segue destination="am9-uu-nuc" kind="show" identifier="SearchDetailSegue" id="bde-OU-cvf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JrL-dh-AoB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1500" y="71.83098591549296"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="IW0-8a-LYz">
-            <objects>
-                <navigationController navigationBarHidden="YES" id="gQd-lB-DY6" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="GxP-3f-A8y">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="8JS-Po-dYr" kind="relationship" relationship="rootViewController" id="pXw-Ch-aBW"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aEW-hv-kDa" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-546" y="74"/>
         </scene>
         <!--SearchDetailsVC-->
         <scene sceneID="N8B-BS-rQA">
@@ -67,7 +54,7 @@
                         <viewControllerLayoutGuide type="bottom" id="xPg-fl-KxI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Sg4-rv-Rj4">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -185,7 +172,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VVa-4S-Yq3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="213.59999999999999" y="71.514242878560722"/>
+            <point key="canvasLocation" x="-553" y="72"/>
         </scene>
     </scenes>
 </document>
