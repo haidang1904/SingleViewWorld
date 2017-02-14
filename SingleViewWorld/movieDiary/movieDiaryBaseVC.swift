@@ -40,7 +40,7 @@ class movieDiaryBaseVC: UIViewController {
             }
             
         } else if segue.identifier == "SearchDetailSegue" {
-             let searchDetailVC = segue.destination as! SearchDetailsVC
+            let searchDetailVC = segue.destination as! SearchDetailsVC
             searchDetailVC.viewModel = SearchDetailsVM(detail: self.selectedMovieItem)
         }
     }

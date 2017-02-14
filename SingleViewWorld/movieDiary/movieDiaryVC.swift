@@ -93,8 +93,9 @@ extension movieDiaryVC: UITableViewDelegate,UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         tableView.deselectRow(at: indexPath, animated: false)
-        let movieInfo = diaryVM.getMovieInfo((indexPath as NSIndexPath).row)! as MovieModel
-        self.showDetailView?(movieInfo)
+        if let movieInfo = diaryVM.getMovieInfo((indexPath as NSIndexPath).row) {
+            self.showDetailView?(movieInfo)
+        }
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{

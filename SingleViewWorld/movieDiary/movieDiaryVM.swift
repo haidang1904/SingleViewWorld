@@ -24,6 +24,7 @@ class movieDiaryVM {
     var nAPIparameter : Parameters? = nil
     var resultList : [[String:Any]]? = nil
     var resultCount : Int = 0
+    var resultDisplay : Int = 0
     let displayCount : Int = 100
     
     fileprivate let isSearchSubject = BehaviorSubject<Bool>(value: false)
@@ -58,7 +59,6 @@ class movieDiaryVM {
             Alamofire.request(url!, method: .get, parameters: self.nAPIparameter, encoding: URLEncoding.default, headers: self.nAPIheader)
                 .response(completionHandler: {[weak self] (data) in
                     Log.test("request \(data.request?.url?.absoluteString) is received")
-                    Log.test("response data \(data.data)")
                     if let _ = data.response, data.response?.statusCode == 200 {
                         self?.parsingData(data: data.data!, ip:(data.request?.url?.absoluteString)!)
                     }
@@ -69,9 +69,10 @@ class movieDiaryVM {
     func parsingData(data:Data, ip:String) {
         do {
             if let jsonResult = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
-                if let resultListTemp = jsonResult["items"] as? [[String:Any]], let resultCountTemp = jsonResult["total"] as? Int {
-                    self.resultList = resultListTemp
-                    self.resultCount = resultCountTemp
+                if let resultList = jsonResult["items"] as? [[String:Any]], let resultCount = jsonResult["total"] as? Int {
+                    Log.test("There are \(resultCount) results")
+                    self.resultList = resultList
+                    self.resultCount = resultCount
                     isSearchSubject.onNext(true)
                     self.storeImageToCache(datas: self.resultList!, count: self.resultCount)
                 } else {
@@ -88,7 +89,7 @@ class movieDiaryVM {
         
         for data in datas {
             if let iconpath = data["image"] as? String {
-                if !customImageManager.sharedInstance.imageCache.diskImageExists(withKey: iconpath) {
+                if (!customImageManager.sharedInstance.imageCache.diskImageExists(withKey: iconpath)) && (iconpath != "") {
                     Log.test("\(iconpath) is not exist")
                     let url = NSURL(string: iconpath)!
                     customImageManager.sharedInstance.imageManager
@@ -97,7 +98,7 @@ class movieDiaryVM {
                                        progress: nil,
                                        completed: { [weak self] (image, error, cacheType, finished, url) in
                                         if image != nil  && finished {
-                                            Log.test("\(iconpath) download complete \(cacheType)")
+                                            //Log.test("\(iconpath) download complete \(cacheType)")
                                             customImageManager.sharedInstance.imageCache.store(image, forKey: iconpath)
                                             self?.isDownloadImageSubject.onNext(true)
                                         }
@@ -128,10 +129,10 @@ class movieDiaryVM {
         if (self.resultList?.count)! > index {
             if let iconPath = self.resultList?[index]["image"] as? String {
                 if let image = customImageManager.sharedInstance.imageCache.imageFromDiskCache(forKey: iconPath) {
-                    Log.test("\(iconPath) image in DiskCache")
+                    //Log.test("\(iconPath) image in DiskCache")
                     return image
                 } else if let image = customImageManager.sharedInstance.imageCache.imageFromMemoryCache(forKey: iconPath) {
-                    Log.test("\(iconPath) image in MemoryCache")
+                    //Log.test("\(iconPath) image in MemoryCache")
                     return image
                 } else {
                     return placeholder
@@ -149,7 +150,7 @@ class movieDiaryVM {
         if let movieData = self.resultList?[index] {
                 return MovieModel(data: movieData)
         } else {
-            return MovieModel(data: nil)
+            return nil
         }
     }
     

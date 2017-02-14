@@ -7,15 +7,22 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SearchDetailsVC: UIViewController {
 
     var viewModel: SearchDetailsVM?
 
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        imageView.sd_setImage(with: URL(string: (viewModel?.movieDetail?.image)!), placeholderImage: UIImage(named: "poster_placeholder"))
+        
+        fillOutDetails()
         Log.test("viewDidLoad: \(viewModel?.movieDetail?.description)")
         // Do any additional setup after loading the view.
     }
@@ -23,6 +30,12 @@ class SearchDetailsVC: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func fillOutDetails() {
+        
+        titleLabel.text = viewModel?.movieDetail?.title
+        subtitleLabel.text = "(\(viewModel?.movieDetail?.subtitle))"
     }
     
 
