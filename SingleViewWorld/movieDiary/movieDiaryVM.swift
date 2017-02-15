@@ -89,7 +89,7 @@ class movieDiaryVM {
         
         for data in datas {
             if let iconpath = data["image"] as? String {
-                if (!customImageManager.sharedInstance.imageCache.diskImageExists(withKey: iconpath)) && (iconpath != "") {
+                if (!customImageManager.sharedInstance.imageCache.diskImageExists(withKey: iconpath)) && (iconpath != "nil") {
                     Log.test("\(iconpath) is not exist")
                     let url = NSURL(string: iconpath)!
                     customImageManager.sharedInstance.imageManager
@@ -123,7 +123,7 @@ class movieDiaryVM {
         }
     }
     
-    func getImage(_ index:Int) -> UIImage? {
+    func getImage(_ index:Int) -> UIImage {
         let placeholder : UIImage = UIImage(named: "poster_placeholder")!
         
         if (self.resultList?.count)! > index {
@@ -134,20 +134,16 @@ class movieDiaryVM {
                 } else if let image = customImageManager.sharedInstance.imageCache.imageFromMemoryCache(forKey: iconPath) {
                     //Log.test("\(iconPath) image in MemoryCache")
                     return image
-                } else {
-                    return placeholder
                 }
-            } else {
-                return placeholder
             }
-        } else {
-            return placeholder
         }
+        return placeholder
     }
     
     func getMovieInfo(_ index:Int) -> MovieModel? {
         // to do
         if let movieData = self.resultList?[index] {
+            Log.test("\(movieData)")
                 return MovieModel(data: movieData)
         } else {
             return nil

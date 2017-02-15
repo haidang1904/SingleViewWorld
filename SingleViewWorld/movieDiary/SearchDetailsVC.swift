@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import RealmSwift
 
 class SearchDetailsVC: UIViewController {
 
@@ -16,6 +17,12 @@ class SearchDetailsVC: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var closeButton: UIButton!
+    
+    @IBAction func closeButtonAction(_ sender: UIButton) {
+        Log.test("dismiss SearchDetailsVC")
+        performSegue(withIdentifier: "SearchBackSegue", sender: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +41,20 @@ class SearchDetailsVC: UIViewController {
     
     func fillOutDetails() {
         
-        titleLabel.text = viewModel?.movieDetail?.title
-        subtitleLabel.text = "(\(viewModel?.movieDetail?.subtitle))"
+        titleLabel.text = String(htmlEncodedString: (viewModel?.movieDetail?.title)!)
+        if let subtitle = viewModel?.movieDetail?.subtitle {
+            subtitleLabel.text = subtitle
+        }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+
     
 
     /*
@@ -49,4 +67,25 @@ class SearchDetailsVC: UIViewController {
     }
     */
 
+}
+
+extension String {
+    
+    init(htmlEncodedString: String) {
+        self.init()
+        guard let encodedData = htmlEncodedString.data(using: .utf8) else {
+            self = htmlEncodedString
+            return
+        }
+        let attributedOptions : [String:Any] = [
+            NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType as Any,
+            NSCharacterEncodingDocumentAttribute:String.Encoding.utf8.rawValue as Any
+        ]
+        do {
+            let attributedString = try NSAttributedString(data: encodedData, options: attributedOptions, documentAttributes: nil)
+            self = attributedString.string
+        } catch {
+            self = htmlEncodedString
+        }
+    }
 }

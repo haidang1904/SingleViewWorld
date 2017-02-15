@@ -17,7 +17,7 @@ class movieDiaryBaseVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         // Do any additional setup after loading the view.
     }
 
@@ -45,6 +45,9 @@ class movieDiaryBaseVC: UIViewController {
         }
     }
     
+    @IBAction func backFromOtherController(segue: UIStoryboardSegue) {
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+    }
     
     /*
     // MARK: - Navigation

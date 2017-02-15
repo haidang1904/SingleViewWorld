@@ -109,11 +109,7 @@ extension movieDiaryVC: UITableViewDelegate,UITableViewDataSource {
         if let appName = diaryVM.getName((indexPath as NSIndexPath).row){
             cell.providerDesc?.text = appName
         }
-        if let image = diaryVM.getImage((indexPath as NSIndexPath).row){
-            cell.providerIcon?.image = image
-        } else {
-            cell.providerIcon?.image = UIImage(named: "poster_placeholder")
-        }
+        cell.providerIcon?.image = diaryVM.getImage((indexPath as NSIndexPath).row)
         
         return cell
     }
