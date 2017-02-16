@@ -17,7 +17,8 @@ class movieDiaryBaseVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        
+        setCustomButtonOnNavigationBar()
         // Do any additional setup after loading the view.
     }
 
@@ -31,8 +32,9 @@ class movieDiaryBaseVC: UIViewController {
         
         if segue.identifier == "SearchSegue" {
             
-            let vc = segue.destination as! movieDiaryVC
+
             
+            let vc = segue.destination as! movieDiaryVC
             vc.showDetailView = {
                 [weak self] details in
                 self?.selectedMovieItem = details
@@ -49,6 +51,15 @@ class movieDiaryBaseVC: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    func presentSearch(_ sender: AnyObject) {
+        performSegue(withIdentifier: "SearchSegue", sender: nil)
+    }
+    
+    func setCustomButtonOnNavigationBar() {
+        let buttonItem : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "Search_Icon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(movieDiaryBaseVC.presentSearch(_:)))
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationItem.setRightBarButton(buttonItem, animated: false)
+    }
     /*
     // MARK: - Navigation
 

@@ -7,19 +7,25 @@
 //
 
 import Foundation
+import RealmSwift
 
-open class MovieModel {
-    var title: String!
-    var subtitle: String!
-    var pubDate : String!
-    var director: String!
-    var actor: String!
-    var image: String!
-    var link: String!
-    var userRating: String!
-    var comment: String!
-    var dateOfWatch: String!
+class MovieModel : Object {
+    dynamic var title: String! = ""
+    dynamic var subtitle: String? = nil
+    dynamic var pubDate : String? = nil
+    dynamic var director: String? = nil
+    dynamic var actor: String? = nil
+    dynamic var image: String? = nil
+    dynamic var link: String? = nil
+    dynamic var userRating: String? = nil
+    dynamic var comment: String? = nil
+    dynamic var dateOfWatch: String? = nil
     
+    override class func primaryKey() -> String? {
+        return "title"
+    }
+    
+    /*
     init(data: [String:Any]) {
 
         title = data["title"] as? String? ?? "nil"
@@ -58,8 +64,13 @@ open class MovieModel {
 //            self.userRating = userRating
 //        }
     }
+     */
     
-    var description: String {
-        return "MovieModel title \(title!)  subtitle \(subtitle!) director \(director!) actor \(actor!) pubDate \(pubDate!) comment \(comment) dateOfWatch \(dateOfWatch)"
+
+}
+
+extension MovieModel {
+    override var description: String {
+        return "MovieModel title \(title) director \(director) pubDate \(pubDate)"
     }
 }

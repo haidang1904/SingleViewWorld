@@ -31,6 +31,12 @@ import SDWebImage
         }
     }
     
+    override open func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+
+    }
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,6 +60,10 @@ import SDWebImage
                 }
             })
             .addDisposableTo(disposeBag)
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back to"
+        self.navigationItem.backBarButtonItem = backItem
         // Do any additional setup after loading the view.
     }
 
