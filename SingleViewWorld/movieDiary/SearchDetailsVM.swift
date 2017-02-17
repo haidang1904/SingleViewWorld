@@ -7,11 +7,30 @@
 //
 
 import Foundation
+import RealmSwift
 
 class SearchDetailsVM {
     var movieDetail: MovieModel?
     
     init (detail : MovieModel?) {
         self.movieDetail = detail
+    }
+    
+    func saveMovie() {
+        
+        // Query and update from any thread
+        DispatchQueue(label: "background").async {
+            if let movieData = self.movieDetail {
+                let realm = try! Realm()
+                if let movieObject = realm.objects(MovieModel.self).filter("title == %@", movieData.title).first {
+                    Log.test("\(movieObject.title) is already exist in the DB")
+                } else {
+                    realm.beginWrite()
+                    realm.create(MovieModel.self, value: movieData, update: true)
+                    try! realm.commitWrite()
+                    Log.test("\(movieData.title) is saved in the DB")
+                }
+            }
+        }
     }
 }

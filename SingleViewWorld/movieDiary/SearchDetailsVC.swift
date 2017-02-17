@@ -20,7 +20,13 @@ class SearchDetailsVC: UIViewController {
     @IBOutlet weak var closeButton: UIButton!
     
     @IBAction func closeButtonAction(_ sender: UIButton) {
-        Log.test("dismiss SearchDetailsVC")
+//        dismiss(animated: false) { 
+//            Log.test("dismiss SearchDetailsVC")
+//        }
+//        
+//        presentingViewController?.dismiss(animated: false, completion: {
+//            Log.test("dismiss SearchDetailsVC")
+//        })
         performSegue(withIdentifier: "SearchBackSegue", sender: nil)
     }
     
@@ -30,7 +36,8 @@ class SearchDetailsVC: UIViewController {
         imageView.sd_setImage(with: URL(string: (viewModel?.movieDetail?.image)!), placeholderImage: UIImage(named: "poster_placeholder"))
         
         fillOutDetails()
-        Log.test("viewDidLoad: \(viewModel?.movieDetail?.description)")
+        viewModel?.saveMovie()
+        
         // Do any additional setup after loading the view.
     }
 

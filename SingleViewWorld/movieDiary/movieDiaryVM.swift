@@ -89,7 +89,7 @@ class movieDiaryVM {
         
         for data in datas {
             if let iconpath = data["image"] as? String {
-                if (!customImageManager.sharedInstance.imageCache.diskImageExists(withKey: iconpath)) && (iconpath != "nil") {
+                if (!customImageManager.sharedInstance.imageCache.diskImageExists(withKey: iconpath)) && (iconpath != "") {
                     Log.test("\(iconpath) is not exist")
                     let url = NSURL(string: iconpath)!
                     customImageManager.sharedInstance.imageManager
@@ -143,8 +143,7 @@ class movieDiaryVM {
     func getMovieInfo(_ index:Int) -> MovieModel? {
         // to do
         if let movieData = self.resultList?[index] {
-            Log.test("\(movieData)")
-                return createMovieModel(data: movieData)
+            return createMovieModel(data: movieData)
         } else {
             return nil
         }
@@ -156,7 +155,7 @@ class movieDiaryVM {
     
     func createMovieModel(data : [String:Any]) -> MovieModel {
         let movieModel = MovieModel()
-        movieModel.title = data["title"] as? String? ?? "nil"
+        movieModel.title = data["title"] as! String!
         movieModel.subtitle = data["subtitle"] as? String? ?? "nil"
         movieModel.pubDate = data["pubDate"] as? String? ?? "nil"
         movieModel.director = data["director"] as? String? ?? "nil"

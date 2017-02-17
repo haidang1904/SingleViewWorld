@@ -10,8 +10,6 @@ import UIKit
 import RxSwift
 import SDWebImage
 
-
-
 @objc open class movieDiaryVC: UIViewController {
 
     let diaryVM = movieDiaryVM()
@@ -31,11 +29,11 @@ import SDWebImage
         }
     }
     
-    override open func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-
-    }
+//    override open func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//
+//    }
     
     override open func viewDidLoad() {
         super.viewDidLoad()

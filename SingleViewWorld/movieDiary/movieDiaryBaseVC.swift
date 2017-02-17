@@ -12,13 +12,15 @@ import RxSwift
 class movieDiaryBaseVC: UIViewController {
 
     let disposeBag = DisposeBag()
-    var viewModel: movieDiaryBaseVM?
+    let viewModel = movieDiaryBaseVM()
     var selectedMovieItem : MovieModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setCustomButtonOnNavigationBar()
+        
+        viewModel.printMovieListInDB()
         // Do any additional setup after loading the view.
     }
 
@@ -31,9 +33,7 @@ class movieDiaryBaseVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "SearchSegue" {
-            
-
-            
+             
             let vc = segue.destination as! movieDiaryVC
             vc.showDetailView = {
                 [weak self] details in
@@ -52,6 +52,7 @@ class movieDiaryBaseVC: UIViewController {
     }
     
     func presentSearch(_ sender: AnyObject) {
+        //viewModel.printMovieListInDB()
         performSegue(withIdentifier: "SearchSegue", sender: nil)
     }
     
