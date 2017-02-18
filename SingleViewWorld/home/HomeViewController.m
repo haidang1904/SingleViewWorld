@@ -278,6 +278,10 @@ static NSString *cellID = @"MenuCollectionViewCell";
     NSArray *ifs = (__bridge_transfer id)CNCopySupportedInterfaces();
     SVLogTEST(@"ifs - %@",ifs);
     
+    if (ifs == nil) {
+        return @"no AP";
+    }
+    
     for (NSString *ifnam in ifs)
     {
         NSDictionary *info = (__bridge_transfer id)CNCopyCurrentNetworkInfo((__bridge CFStringRef)ifnam);

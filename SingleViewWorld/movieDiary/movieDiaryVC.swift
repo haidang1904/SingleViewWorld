@@ -29,12 +29,6 @@ import SDWebImage
         }
     }
     
-//    override open func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        
-//
-//    }
-    
     override open func viewDidLoad() {
         super.viewDidLoad()
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -68,15 +68,15 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="5ao-a8-7hX" firstAttribute="bottom" secondItem="7Sh-Ha-nRS" secondAttribute="bottom" id="3R0-ZX-ecr"/>
-                <constraint firstAttribute="bottom" secondItem="Hay-gl-4JR" secondAttribute="bottom" constant="10" id="B5h-uF-7QZ"/>
                 <constraint firstItem="Hay-gl-4JR" firstAttribute="centerX" secondItem="VOe-vh-67a" secondAttribute="centerX" multiplier="0.5" id="CQg-Mu-INf"/>
                 <constraint firstItem="7Sh-Ha-nRS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="5" id="D35-7U-J1g"/>
-                <constraint firstItem="sEu-jd-jM7" firstAttribute="baseline" secondItem="VOe-vh-67a" secondAttribute="baseline" id="Jhl-ec-Gdh"/>
-                <constraint firstItem="Hay-gl-4JR" firstAttribute="baseline" secondItem="VOe-vh-67a" secondAttribute="baseline" id="Nna-N6-nlk"/>
+                <constraint firstItem="sEu-jd-jM7" firstAttribute="top" secondItem="VOe-vh-67a" secondAttribute="top" id="Jhl-ec-Gdh"/>
+                <constraint firstItem="Hay-gl-4JR" firstAttribute="top" secondItem="VOe-vh-67a" secondAttribute="top" id="Nna-N6-nlk"/>
                 <constraint firstItem="sEu-jd-jM7" firstAttribute="centerX" secondItem="VOe-vh-67a" secondAttribute="centerX" multiplier="1.5" id="R0j-Bw-Bym"/>
                 <constraint firstItem="7Sh-Ha-nRS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="UEj-hd-Fbz"/>
                 <constraint firstItem="5ao-a8-7hX" firstAttribute="leading" secondItem="7Sh-Ha-nRS" secondAttribute="leading" id="ahj-O4-Rnz"/>
                 <constraint firstItem="5ao-a8-7hX" firstAttribute="top" secondItem="7Sh-Ha-nRS" secondAttribute="top" id="drM-WH-e1A"/>
+                <constraint firstAttribute="bottom" secondItem="Hay-gl-4JR" secondAttribute="bottom" constant="10" id="jk6-SW-BGB"/>
                 <constraint firstAttribute="bottom" secondItem="7Sh-Ha-nRS" secondAttribute="bottom" constant="50" id="lcc-XS-7sG"/>
                 <constraint firstItem="VOe-vh-67a" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="np2-7h-6jG"/>
                 <constraint firstAttribute="trailing" secondItem="7Sh-Ha-nRS" secondAttribute="trailing" constant="5" id="qen-Hq-bnU"/>

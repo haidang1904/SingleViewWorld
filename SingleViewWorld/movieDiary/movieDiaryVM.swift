@@ -22,7 +22,7 @@ class movieDiaryVM {
     var queue: DispatchQueue? = nil
     var nAPIheader : HTTPHeaders? = nil
     var nAPIparameter : Parameters? = nil
-    var resultList : [[String:Any]]? = nil
+    var resultList : [[String:Any]] = [[String:Any]]()
     var resultCount : Int = 0
     var resultDisplay : Int = 0
     let displayCount : Int = 100
@@ -47,7 +47,7 @@ class movieDiaryVM {
     
     func sendSearchAPItoNaver(keyword: String) {
         
-        self.resultList?.removeAll()
+        self.resultList.removeAll()
         self.resultCount = 0
         
         let urlString : String = "\(nAPImovieSearchURLJson)"
@@ -74,7 +74,7 @@ class movieDiaryVM {
                     self.resultList = resultList
                     self.resultCount = resultCount
                     isSearchSubject.onNext(true)
-                    self.storeImageToCache(datas: self.resultList!, count: self.resultCount)
+                    self.storeImageToCache(datas: self.resultList, count: self.resultCount)
                 } else {
                     isSearchSubject.onNext(false)
                 }
@@ -109,8 +109,8 @@ class movieDiaryVM {
     }
     
     func getName(_ index:Int) -> String? {
-        if (self.resultList?.count)! > index {
-            if let title = self.resultList?[index]["title"] as? String {
+        if (self.resultList.count) > index {
+            if let title = self.resultList[index]["title"] as? String {
                 var movieName = title
                 movieName = movieName.replacingOccurrences(of: "<b>", with: "")
                 movieName = movieName.replacingOccurrences(of: "</b>", with: "")
@@ -126,8 +126,8 @@ class movieDiaryVM {
     func getImage(_ index:Int) -> UIImage {
         let placeholder : UIImage = UIImage(named: "poster_placeholder")!
         
-        if (self.resultList?.count)! > index {
-            if let iconPath = self.resultList?[index]["image"] as? String {
+        if (self.resultList.count) > index {
+            if let iconPath = self.resultList[index]["image"] as? String {
                 if let image = customImageManager.sharedInstance.imageCache.imageFromDiskCache(forKey: iconPath) {
                     //Log.test("\(iconPath) image in DiskCache")
                     return image
@@ -142,8 +142,9 @@ class movieDiaryVM {
     
     func getMovieInfo(_ index:Int) -> MovieModel? {
         // to do
-        if let movieData = self.resultList?[index] {
-            return createMovieModel(data: movieData)
+        
+        if (self.resultList.count) > index {
+            return createMovieModel(data: resultList[index])
         } else {
             return nil
         }
@@ -153,9 +154,13 @@ class movieDiaryVM {
         return self.resultCount
     }
     
-    func createMovieModel(data : [String:Any]) -> MovieModel {
+    func createMovieModel(data : [String:Any]) -> MovieModel? {
         let movieModel = MovieModel()
-        movieModel.title = data["title"] as! String!
+        if let title = data["title"] as! String! {
+            movieModel.title = title
+        } else {
+            return nil
+        }
         movieModel.subtitle = data["subtitle"] as? String? ?? "nil"
         movieModel.pubDate = data["pubDate"] as? String? ?? "nil"
         movieModel.director = data["director"] as? String? ?? "nil"
@@ -165,6 +170,7 @@ class movieDiaryVM {
         movieModel.userRating = data["userRating"] as? String? ?? "nil"
         movieModel.comment = data["comment"] as? String? ?? "nil"
         movieModel.dateOfWatch = data["dateOfWatch"] as? String? ?? "nil"
+        Log.test("\(movieModel.title!)")
         return movieModel
     }
     

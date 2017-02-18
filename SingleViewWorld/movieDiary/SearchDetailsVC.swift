@@ -27,18 +27,17 @@ class SearchDetailsVC: UIViewController {
 //        presentingViewController?.dismiss(animated: false, completion: {
 //            Log.test("dismiss SearchDetailsVC")
 //        })
-        performSegue(withIdentifier: "SearchBackSegue", sender: nil)
+        //performSegue(withIdentifier: "SearchBackSegue", sender: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        imageView.sd_setImage(with: URL(string: (viewModel?.movieDetail?.image)!), placeholderImage: UIImage(named: "poster_placeholder"))
+        imageView.sd_setImage(with: URL(string: (viewModel?.movieDetail?.image)!),
+                              placeholderImage: UIImage(named: "poster_placeholder"))
         
         fillOutDetails()
         viewModel?.saveMovie()
-        
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,7 +46,6 @@ class SearchDetailsVC: UIViewController {
     }
     
     func fillOutDetails() {
-        
         titleLabel.text = String(htmlEncodedString: (viewModel?.movieDetail?.title)!)
         if let subtitle = viewModel?.movieDetail?.subtitle {
             subtitleLabel.text = subtitle
@@ -55,14 +53,12 @@ class SearchDetailsVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
+        //self.navigationController?.isNavigationBarHidden = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = false
+        //self.navigationController?.isNavigationBarHidden = false
     }
-
-    
 
     /*
     // MARK: - Navigation
