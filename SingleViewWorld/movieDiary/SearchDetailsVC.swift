@@ -18,26 +18,24 @@ class SearchDetailsVC: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
+    
+    
+    @IBAction func saveButtonAction(_ sender: UIButton) {
+        viewModel?.saveMovie()
+        let _ = self.navigationController?.popViewController(animated: false)
+    }
     
     @IBAction func closeButtonAction(_ sender: UIButton) {
-//        dismiss(animated: false) { 
-//            Log.test("dismiss SearchDetailsVC")
-//        }
-//        
-//        presentingViewController?.dismiss(animated: false, completion: {
-//            Log.test("dismiss SearchDetailsVC")
-//        })
-        //performSegue(withIdentifier: "SearchBackSegue", sender: nil)
+        viewModel?.deleteMovie()
+        let _ = self.navigationController?.popViewController(animated: false)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        imageView.sd_setImage(with: URL(string: (viewModel?.movieDetail?.image)!),
-                              placeholderImage: UIImage(named: "poster_placeholder"))
-        
         fillOutDetails()
-        viewModel?.saveMovie()
+        //viewModel?.saveMovie()
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +48,7 @@ class SearchDetailsVC: UIViewController {
         if let subtitle = viewModel?.movieDetail?.subtitle {
             subtitleLabel.text = subtitle
         }
+        imageView.sd_setImage(with: URL(string: (viewModel?.movieDetail?.image)!),placeholderImage: UIImage(named: "poster_placeholder"))
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -1,5 +1,5 @@
 //
-//  movieDiaryVM.swift
+//  movieSearchVC.swift
 //  SingleViewWorld
 //
 //  Created by Samsung Electronics on 07/02/2017.
@@ -14,7 +14,7 @@ import SDWebImage
 // Client ID : MIxoONv5MR9tqGoUlLrf
 // Client Secret : CwVvqL2Nky
 
-class movieDiaryVM {
+class movieSearchVM {
 
     let nAPIclientID = "MIxoONv5MR9tqGoUlLrf"
     let nAPIclientSecret = "CwVvqL2Nky"
@@ -58,7 +58,7 @@ class movieDiaryVM {
             
             Alamofire.request(url!, method: .get, parameters: self.nAPIparameter, encoding: URLEncoding.default, headers: self.nAPIheader)
                 .response(completionHandler: {[weak self] (data) in
-                    Log.test("request \(data.request?.url?.absoluteString) is received")
+                    //Log.test("request \(data.request?.url?.absoluteString) is received")
                     if let _ = data.response, data.response?.statusCode == 200 {
                         self?.parsingData(data: data.data!, ip:(data.request?.url?.absoluteString)!)
                     }
@@ -170,7 +170,6 @@ class movieDiaryVM {
         movieModel.userRating = data["userRating"] as? String? ?? "nil"
         movieModel.comment = data["comment"] as? String? ?? "nil"
         movieModel.dateOfWatch = data["dateOfWatch"] as? String? ?? "nil"
-        Log.test("\(movieModel.title!)")
         return movieModel
     }
     

@@ -252,7 +252,7 @@ static NSString *cellID = @"MenuCollectionViewCell";
             function_view = [[VarietyTestVC alloc] initWithNibName:@"VarietyTestVC" bundle:nil];
             break;
         case MOVIE_DIARY:
-            function_view = (movieDiaryVC *)[[UIStoryboard storyboardWithName:@"movieDiarySB" bundle:nil] instantiateInitialViewController];
+            function_view = (movieDiaryBaseVC *) [[UIStoryboard storyboardWithName:@"movieDiarySB" bundle:nil] instantiateInitialViewController];
             break;
         default:
             break;

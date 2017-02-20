@@ -14,9 +14,9 @@
 		340E46441D5481350027078C /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 340E46431D5481350027078C /* SpriteKit.framework */; };
 		340E46461D5485340027078C /* SpriteKit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 340E46451D5485340027078C /* SpriteKit.storyboard */; };
 		3416DC041D656FC00028DA76 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3416DC031D656FC00028DA76 /* GameScene.swift */; };
-		34319D8D1E49910700A4731B /* movieDiaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34319D8C1E49910700A4731B /* movieDiaryVC.swift */; };
+		34319D8D1E49910700A4731B /* movieSearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34319D8C1E49910700A4731B /* movieSearchVC.swift */; };
 		34319D8F1E49912400A4731B /* movieDiarySB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34319D8E1E49912400A4731B /* movieDiarySB.storyboard */; };
-		34319D911E49929D00A4731B /* movieDiaryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34319D901E49929D00A4731B /* movieDiaryVM.swift */; };
+		34319D911E49929D00A4731B /* movieSearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34319D901E49929D00A4731B /* movieSearchVM.swift */; };
 		34319D961E49EB8C00A4731B /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34319D951E49EB8C00A4731B /* SearchResultCell.swift */; };
 		34319E4D1E4C449400A4731B /* SmartView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34319E4C1E4C449400A4731B /* SmartView.framework */; };
 		34319E691E4C44A100A4731B /* SmartView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 34319E4C1E4C449400A4731B /* SmartView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -63,6 +63,9 @@
 		34C674F21D65868A000138DD /* Ka-Ching.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34C674EC1D65868A000138DD /* Ka-Ching.wav */; };
 		34C674F31D65868A000138DD /* Mining by Moonlight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 34C674ED1D65868A000138DD /* Mining by Moonlight.mp3 */; };
 		34C674F41D65868A000138DD /* Scrape.wav in Resources */ = {isa = PBXBuildFile; fileRef = 34C674EE1D65868A000138DD /* Scrape.wav */; };
+		34D1640D1E5ACFD60060323C /* movieLibraryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D1640C1E5ACFD60060323C /* movieLibraryVC.swift */; };
+		34DB52D01E5ADA53008EA04A /* movieLibraryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DB52CF1E5ADA53008EA04A /* movieLibraryVM.swift */; };
+		34DB52D21E5ADF49008EA04A /* movieLibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DB52D11E5ADF49008EA04A /* movieLibraryCell.swift */; };
 		34EDBB771D3DC73D001743EF /* JPSVolumeButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EDBB761D3DC73D001743EF /* JPSVolumeButtonHandler.m */; };
 		34F774571D7E979D001ED21E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F774561D7E979D001ED21E /* Accelerate.framework */; };
 		34F774591D7E97A7001ED21E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F774581D7E97A7001ED21E /* AudioToolbox.framework */; };
@@ -159,9 +162,9 @@
 		340E46431D5481350027078C /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		340E46451D5485340027078C /* SpriteKit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SpriteKit.storyboard; path = SpriteKit/SpriteKit.storyboard; sourceTree = "<group>"; };
 		3416DC031D656FC00028DA76 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = CandyCrushGame/GameScene.swift; sourceTree = "<group>"; };
-		34319D8C1E49910700A4731B /* movieDiaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = movieDiaryVC.swift; path = movieDiary/movieDiaryVC.swift; sourceTree = "<group>"; };
+		34319D8C1E49910700A4731B /* movieSearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = movieSearchVC.swift; path = movieDiary/movieSearchVC.swift; sourceTree = "<group>"; };
 		34319D8E1E49912400A4731B /* movieDiarySB.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = movieDiarySB.storyboard; path = movieDiary/movieDiarySB.storyboard; sourceTree = "<group>"; };
-		34319D901E49929D00A4731B /* movieDiaryVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = movieDiaryVM.swift; path = movieDiary/movieDiaryVM.swift; sourceTree = "<group>"; };
+		34319D901E49929D00A4731B /* movieSearchVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = movieSearchVM.swift; path = movieDiary/movieSearchVM.swift; sourceTree = "<group>"; };
 		34319D951E49EB8C00A4731B /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchResultCell.swift; path = movieDiary/SearchResultCell.swift; sourceTree = "<group>"; };
 		34319E4C1E4C449400A4731B /* SmartView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SmartView.framework; sourceTree = "<group>"; };
 		34319E6B1E4C450200A4731B /* installedAppListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = installedAppListCell.swift; path = SDKPrivateTest/installedAppListCell.swift; sourceTree = "<group>"; };
@@ -207,6 +210,9 @@
 		34C674EC1D65868A000138DD /* Ka-Ching.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = "Ka-Ching.wav"; path = "CandyCrushGame/Sound/Ka-Ching.wav"; sourceTree = "<group>"; };
 		34C674ED1D65868A000138DD /* Mining by Moonlight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Mining by Moonlight.mp3"; path = "CandyCrushGame/Sound/Mining by Moonlight.mp3"; sourceTree = "<group>"; };
 		34C674EE1D65868A000138DD /* Scrape.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Scrape.wav; path = CandyCrushGame/Sound/Scrape.wav; sourceTree = "<group>"; };
+		34D1640C1E5ACFD60060323C /* movieLibraryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = movieLibraryVC.swift; path = movieDiary/movieLibraryVC.swift; sourceTree = "<group>"; };
+		34DB52CF1E5ADA53008EA04A /* movieLibraryVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = movieLibraryVM.swift; path = movieDiary/movieLibraryVM.swift; sourceTree = "<group>"; };
+		34DB52D11E5ADF49008EA04A /* movieLibraryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = movieLibraryCell.swift; path = movieDiary/movieLibraryCell.swift; sourceTree = "<group>"; };
 		34EDBB751D3DC73D001743EF /* JPSVolumeButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPSVolumeButtonHandler.h; path = LibFromGithub/JSPVolumeButtonHandler/JPSVolumeButtonHandler.h; sourceTree = "<group>"; };
 		34EDBB761D3DC73D001743EF /* JPSVolumeButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPSVolumeButtonHandler.m; path = LibFromGithub/JSPVolumeButtonHandler/JPSVolumeButtonHandler.m; sourceTree = "<group>"; };
 		34F774561D7E979D001ED21E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -384,14 +390,15 @@
 			isa = PBXGroup;
 			children = (
 				56FE400C1E4A0BC700122B3B /* model */,
-				34319D8C1E49910700A4731B /* movieDiaryVC.swift */,
+				34319D8C1E49910700A4731B /* movieSearchVC.swift */,
 				34319D8E1E49912400A4731B /* movieDiarySB.storyboard */,
-				34319D901E49929D00A4731B /* movieDiaryVM.swift */,
+				34319D901E49929D00A4731B /* movieSearchVM.swift */,
 				3482C4A31E4D5ED300842B9C /* SearchDetailsVC.swift */,
 				3482C4EC1E51C18600842B9C /* SearchDetailsVM.swift */,
-				34319D951E49EB8C00A4731B /* SearchResultCell.swift */,
 				3482C4E81E51BA6000842B9C /* movieDiaryBaseVC.swift */,
 				3482C4EA1E51BAA500842B9C /* movieDiaryBaseVM.swift */,
+				34D1640C1E5ACFD60060323C /* movieLibraryVC.swift */,
+				34DB52CF1E5ADA53008EA04A /* movieLibraryVM.swift */,
 			);
 			name = movieDiary;
 			sourceTree = "<group>";
@@ -502,7 +509,9 @@
 			isa = PBXGroup;
 			children = (
 				34319E771E4C556800A4731B /* customImageManager.swift */,
+				34319D951E49EB8C00A4731B /* SearchResultCell.swift */,
 				56FE402A1E4A0BDF00122B3B /* MovieModel.swift */,
+				34DB52D11E5ADF49008EA04A /* movieLibraryCell.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -986,6 +995,7 @@
 				3452750A1DB5BA4000F7B2E1 /* VarietyTestVC.swift in Sources */,
 				34319E721E4C450200A4731B /* SDKPrivateTestVC.swift in Sources */,
 				F1B73A5B1B8DA0F3003CFF05 /* PhotoListViewCell.m in Sources */,
+				34DB52D21E5ADF49008EA04A /* movieLibraryCell.swift in Sources */,
 				34C674E51D657B65000138DD /* Extensions.swift in Sources */,
 				348F5C501D62CCF400E24FA9 /* CardGameModeVC.swift in Sources */,
 				F1E120351C06EB2900861B08 /* TextInputViewController.m in Sources */,
@@ -996,7 +1006,8 @@
 				3482C4EB1E51BAA500842B9C /* movieDiaryBaseVM.swift in Sources */,
 				34FC7FCD1D6305E50009ED81 /* MenuScene.swift in Sources */,
 				F14F01401B81FC13009190E6 /* BLEDetailViewController.m in Sources */,
-				34319D8D1E49910700A4731B /* movieDiaryVC.swift in Sources */,
+				34319D8D1E49910700A4731B /* movieSearchVC.swift in Sources */,
+				34D1640D1E5ACFD60060323C /* movieLibraryVC.swift in Sources */,
 				F14D943E1B86E1060098E400 /* BLEdbcore.m in Sources */,
 				34319D961E49EB8C00A4731B /* SearchResultCell.swift in Sources */,
 				348F5C531D62CD0A00E24FA9 /* CardGameModeVM.swift in Sources */,
@@ -1005,7 +1016,8 @@
 				34C674BA1D65779F000138DD /* CandyCrushVC.swift in Sources */,
 				F1B73A731B944757003CFF05 /* AudioPlayerViewController.m in Sources */,
 				F109EC821B5E00A40078B366 /* HomeViewController.m in Sources */,
-				34319D911E49929D00A4731B /* movieDiaryVM.swift in Sources */,
+				34319D911E49929D00A4731B /* movieSearchVM.swift in Sources */,
+				34DB52D01E5ADA53008EA04A /* movieLibraryVM.swift in Sources */,
 				34A73A121DE2FE1400645108 /* LocalNotificationVC.swift in Sources */,
 				3482C4A41E4D5ED300842B9C /* SearchDetailsVC.swift in Sources */,
 				F1B73A6D1B9059D7003CFF05 /* DynamicsViewController.m in Sources */,

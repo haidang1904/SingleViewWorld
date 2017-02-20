@@ -1,5 +1,5 @@
 //
-//  movieDiaryVC.swift
+//  movieSearchVC.swift
 //  SingleViewWorld
 //
 //  Created by Samsung Electronics on 07/02/2017.
@@ -10,9 +10,9 @@ import UIKit
 import RxSwift
 import SDWebImage
 
-@objc open class movieDiaryVC: UIViewController {
+@objc open class movieSearchVC: UIViewController {
 
-    let diaryVM = movieDiaryVM()
+    let viewModel = movieSearchVM()
     fileprivate let disposeBag = DisposeBag()
     var showDetailView: ((_ selectedMovie: MovieModel?) -> Void)? = nil
     
@@ -23,7 +23,7 @@ import SDWebImage
     @IBAction func goSearch(_ sender: UIButton) {
         if let keyword = searchTextField.text {
             Log.test("send Text : \(keyword)")
-            self.diaryVM.sendSearchAPItoNaver(keyword: keyword)
+            self.viewModel.sendSearchAPItoNaver(keyword: keyword)
         } else {
             Log.test("No Text : \(searchTextField.text)")
         }
@@ -34,7 +34,7 @@ import SDWebImage
 
         searchTextField.text = "서유기"
         
-        diaryVM.isSearch
+        viewModel.isSearch
             .observeOn(MainScheduler.instance)
             .subscribe(onNext : { [weak self] (mode:Bool) in
                 if mode == true {
@@ -44,7 +44,7 @@ import SDWebImage
             })
             .addDisposableTo(disposeBag)
 
-        diaryVM.isDownloadImage
+        viewModel.isDownloadImage
             .observeOn(MainScheduler.instance)
             .subscribe(onNext : { [weak self] (mode:Bool) in
                 if mode == true {
@@ -88,30 +88,30 @@ import SDWebImage
 
 }
 
-extension movieDiaryVC: UITableViewDelegate,UITableViewDataSource {
+extension movieSearchVC: UITableViewDelegate,UITableViewDataSource {
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
     }
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         tableView.deselectRow(at: indexPath, animated: false)
-        if let movieInfo = diaryVM.getMovieInfo((indexPath as NSIndexPath).row) {
+        if let movieInfo = viewModel.getMovieInfo((indexPath as NSIndexPath).row) {
             self.showDetailView?(movieInfo)
         }
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         var returnValue : Int = 0
-        returnValue = diaryVM.getResultCount()
+        returnValue = viewModel.getResultCount()
         return returnValue
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell : SearchResultCell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
-        if let appName = diaryVM.getName((indexPath as NSIndexPath).row){
+        if let appName = viewModel.getName((indexPath as NSIndexPath).row){
             cell.providerDesc?.text = appName
         }
-        cell.providerIcon?.image = diaryVM.getImage((indexPath as NSIndexPath).row)
+        cell.providerIcon?.image = viewModel.getImage((indexPath as NSIndexPath).row)
         
         return cell
     }

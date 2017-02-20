@@ -9,32 +9,29 @@
 import UIKit
 import RxSwift
 
-class movieDiaryBaseVC: UIViewController {
+@objc open class movieDiaryBaseVC: UIViewController {
 
     let disposeBag = DisposeBag()
     let viewModel = movieDiaryBaseVM()
     var selectedMovieItem : MovieModel?
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         setCustomButtonOnNavigationBar()
-        
-        viewModel.printMovieListInDB()
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "SearchSegue" {
              
-            let vc = segue.destination as! movieDiaryVC
+            let vc = segue.destination as! movieSearchVC
             vc.showDetailView = {
                 [weak self] details in
                 self?.selectedMovieItem = details
@@ -44,15 +41,24 @@ class movieDiaryBaseVC: UIViewController {
         } else if segue.identifier == "SearchDetailSegue" {
             let searchDetailVC = segue.destination as! SearchDetailsVC
             searchDetailVC.viewModel = SearchDetailsVM(detail: self.selectedMovieItem)
+        } else if segue.identifier == "embededSegue" {
+            let vc = segue.destination as! movieLibraryVC
+            vc.showDetailView = {
+                [weak self] details in
+                self?.selectedMovieItem = details
+                self?.performSegue(withIdentifier: "SearchDetailSegue", sender: nil)
+            }
+
         }
     }
     
     @IBAction func backFromOtherController(segue: UIStoryboardSegue) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
+        let vc = self.navigationController?.popViewController(animated: false)
+        Log.test("\(vc)")
     }
     
     func presentSearch(_ sender: AnyObject) {
-        //viewModel.printMovieListInDB()
         performSegue(withIdentifier: "SearchSegue", sender: nil)
     }
     

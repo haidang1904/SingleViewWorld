@@ -19,7 +19,7 @@ class SearchDetailsVM {
     func saveMovie() {
         
         // Query and update from any thread
-        DispatchQueue(label: "background").async {
+        //DispatchQueue(label: "background").async {
             if let movieData = self.movieDetail {
                 let realm = try! Realm()
                 if let movieObject = realm.objects(MovieModel.self).filter("title == %@", movieData.title).first {
@@ -31,6 +31,24 @@ class SearchDetailsVM {
                     Log.test("\(movieData.title) is saved in the DB")
                 }
             }
-        }
+        //}
+    }
+    
+    func deleteMovie() {
+        
+        // Query and update from any thread
+        //DispatchQueue(label: "background").async {
+            if let movieData = self.movieDetail {
+                let realm = try! Realm()
+                if let movieObject = realm.objects(MovieModel.self).filter("title == %@", movieData.title).first {
+                    realm.beginWrite()
+                    realm.delete(movieObject)
+                    try! realm.commitWrite()
+                    //Log.test("\(movieData.title) is deleteed successfully from DB")
+                } else {
+                    Log.test("\(movieData.title) is not exist in the DB")
+                }
+            }
+        //}
     }
 }
