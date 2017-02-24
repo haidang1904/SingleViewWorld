@@ -22,7 +22,7 @@ class movieLibraryCell: UICollectionViewCell {
         
         self.labelView.backgroundColor = UIColor.black
         self.labelView.textColor = UIColor.white
-        self.labelView.alpha = 0.7
+        self.labelView.alpha = 0.65
         
         // Initialization code
     }

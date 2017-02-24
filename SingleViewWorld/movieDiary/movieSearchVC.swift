@@ -32,12 +32,13 @@ import SDWebImage
     override open func viewDidLoad() {
         super.viewDidLoad()
 
-        searchTextField.text = "서유기"
-        
+        //searchTextField.text = ""
+        searchResultTable.isHidden = true
         viewModel.isSearch
             .observeOn(MainScheduler.instance)
             .subscribe(onNext : { [weak self] (mode:Bool) in
                 if mode == true {
+                    self?.searchResultTable.isHidden = false
                     self?.searchResultTable.reloadData()
                     self?.searchTextField.resignFirstResponder()
                 }
@@ -121,3 +122,15 @@ extension movieSearchVC: UITableViewDelegate,UITableViewDataSource {
     }
 }
 
+extension movieSearchVC : UITextFieldDelegate {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let keyword = searchTextField.text {
+            Log.test("send Text : \(keyword)")
+            self.viewModel.sendSearchAPItoNaver(keyword: keyword)
+            textField.resignFirstResponder()
+        } else {
+            Log.test("No Text : \(searchTextField.text)")
+        }
+        return true
+    }
+}
