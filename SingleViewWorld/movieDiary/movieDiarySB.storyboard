@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -124,22 +125,68 @@
                                     <action selector="closeButtonAction:" destination="am9-uu-nuc" eventType="touchUpInside" id="baD-SW-3NP"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="감독 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Yn-tL-v91">
+                                <rect key="frame" x="8" y="189" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="eRJ-bs-Bpg"/>
+                                    <constraint firstAttribute="height" constant="21" id="qpY-6v-YYs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="배우 :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKO-IS-Yyi">
+                                <rect key="frame" x="8" y="218" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="oee-3A-eJN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="감독이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="snx-nJ-QC3">
+                                <rect key="frame" x="58" y="188.5" width="254" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="배우이름" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7l-O1-HWJ">
+                                <rect key="frame" x="58" y="218" width="254" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="Aaf-O8-ef4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="snx-nJ-QC3" firstAttribute="trailing" secondItem="Sg4-rv-Rj4" secondAttribute="trailingMargin" constant="8" id="Bh5-hI-GV1"/>
                             <constraint firstAttribute="trailing" secondItem="sOQ-Bk-9bW" secondAttribute="trailing" id="L8K-Rr-heD"/>
+                            <constraint firstItem="5Yn-tL-v91" firstAttribute="leading" secondItem="Sg4-rv-Rj4" secondAttribute="leading" constant="8" id="Phe-Pu-gg6"/>
+                            <constraint firstItem="snx-nJ-QC3" firstAttribute="leading" secondItem="5Yn-tL-v91" secondAttribute="trailing" constant="8" id="SJc-NI-PYw"/>
+                            <constraint firstItem="d7l-O1-HWJ" firstAttribute="top" secondItem="nKO-IS-Yyi" secondAttribute="top" id="SnB-tj-aIi"/>
                             <constraint firstAttribute="centerX" secondItem="VGC-A2-vX0" secondAttribute="trailing" constant="1" id="VZJ-yZ-s1E"/>
                             <constraint firstItem="sOQ-Bk-9bW" firstAttribute="leading" secondItem="Sg4-rv-Rj4" secondAttribute="leading" id="WJE-UC-Iof"/>
                             <constraint firstItem="4vC-D2-1T1" firstAttribute="leading" secondItem="Sg4-rv-Rj4" secondAttribute="centerX" constant="1" id="djj-B8-l0R"/>
+                            <constraint firstItem="snx-nJ-QC3" firstAttribute="top" secondItem="sOQ-Bk-9bW" secondAttribute="bottom" constant="8" id="eQr-rV-2Ri"/>
+                            <constraint firstItem="d7l-O1-HWJ" firstAttribute="leading" secondItem="nKO-IS-Yyi" secondAttribute="trailing" constant="8" id="ej4-Kd-vmi"/>
                             <constraint firstItem="VGC-A2-vX0" firstAttribute="leading" secondItem="Sg4-rv-Rj4" secondAttribute="leading" id="eqg-39-b7S"/>
                             <constraint firstItem="sOQ-Bk-9bW" firstAttribute="top" secondItem="6eE-Fg-1C4" secondAttribute="bottom" id="g1d-Kc-0Ad"/>
+                            <constraint firstItem="5Yn-tL-v91" firstAttribute="top" secondItem="sOQ-Bk-9bW" secondAttribute="bottom" constant="8" id="iSW-84-hM4"/>
                             <constraint firstItem="xPg-fl-KxI" firstAttribute="top" secondItem="4vC-D2-1T1" secondAttribute="bottom" id="jlX-ty-z89"/>
                             <constraint firstAttribute="trailing" secondItem="4vC-D2-1T1" secondAttribute="trailing" id="kxL-r1-5i9"/>
+                            <constraint firstItem="nKO-IS-Yyi" firstAttribute="top" secondItem="5Yn-tL-v91" secondAttribute="bottom" constant="8" id="nW6-YA-6qf"/>
+                            <constraint firstItem="nKO-IS-Yyi" firstAttribute="leading" secondItem="Sg4-rv-Rj4" secondAttribute="leading" constant="8" id="oQ0-vs-UTP"/>
+                            <constraint firstItem="d7l-O1-HWJ" firstAttribute="trailing" secondItem="Sg4-rv-Rj4" secondAttribute="trailingMargin" constant="8" id="pHT-6u-8uN"/>
                             <constraint firstAttribute="bottom" secondItem="VGC-A2-vX0" secondAttribute="bottom" id="w9f-2R-83U"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="actorLabel" destination="d7l-O1-HWJ" id="6bN-eM-90F"/>
                         <outlet property="closeButton" destination="4vC-D2-1T1" id="PvA-gk-ipV"/>
+                        <outlet property="directorLabel" destination="snx-nJ-QC3" id="s3h-aY-A9x"/>
                         <outlet property="imageView" destination="9Pw-y6-RPl" id="RnP-cd-iov"/>
                         <outlet property="saveButton" destination="VGC-A2-vX0" id="fGW-5Q-Ujv"/>
                         <outlet property="subtitleLabel" destination="X2l-ew-hle" id="uef-oB-InG"/>
@@ -262,7 +309,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="MCa-cE-3xN"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -305,7 +352,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeD-AJ-Ufw">
                                                     <rect key="frame" x="93" y="0.0" width="219" height="109"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>

@@ -13,7 +13,7 @@ class movieDiaryBaseVM {
     
     
     init() {
-        Log.test("movieDiaryBaseVM initialized")
+        //Log.test("movieDiaryBaseVM initialized")
     }
     
     func printMovieListInDB () {

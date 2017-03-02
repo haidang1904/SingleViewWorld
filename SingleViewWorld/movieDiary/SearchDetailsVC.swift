@@ -17,38 +17,37 @@ class SearchDetailsVC: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var directorLabel: UILabel!
+    @IBOutlet weak var actorLabel: UILabel!
+    
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     
-    
     @IBAction func saveButtonAction(_ sender: UIButton) {
-        viewModel?.saveMovie()
-        let _ = self.navigationController?.popViewController(animated: false)
+        if saveButton.currentTitle == "SAVE" {
+            viewModel?.saveMovie()
+        } else {
+            showAlertView()
+        }
     }
     
     @IBAction func closeButtonAction(_ sender: UIButton) {
-        viewModel?.deleteMovie()
+        
         let _ = self.navigationController?.popViewController(animated: false)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        fillOutDetails()
-        //viewModel?.saveMovie()
+        if let model = viewModel {
+            model.movieDelegate = self
+            fillOutDetails(model: model)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func fillOutDetails() {
-        titleLabel.text = String(htmlEncodedString: (viewModel?.movieDetail?.title)!)
-        if let subtitle = viewModel?.movieDetail?.subtitle {
-            subtitleLabel.text = subtitle
-        }
-        imageView.sd_setImage(with: URL(string: (viewModel?.movieDetail?.image)!),placeholderImage: UIImage(named: "poster_placeholder"))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,6 +56,52 @@ class SearchDetailsVC: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         //self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    func fillOutDetails(model : SearchDetailsVM) {
+        titleLabel.text = String(htmlEncodedString: (model.movieDetail?.title)!)
+        
+        if let subtitle = model.movieDetail?.subtitle {
+            subtitleLabel.text = subtitle
+        }
+        if let director = model.movieDetail?.director {
+            directorLabel.text = director.dropLast()
+        }
+        
+        if let actor = model.movieDetail?.actor {
+            actorLabel.text = actor.dropLast()
+        }
+        
+        imageView.sd_setImage(with: URL(string: (model.movieDetail?.image)!),placeholderImage: UIImage(named: "poster_placeholder"))
+        changeText()
+    }
+    
+    func changeText() {
+        if let isSaved = viewModel?.isSaved(), isSaved == true {
+            saveButton.setTitle("DELETE", for: .normal)
+        } else {
+            saveButton.setTitle("SAVE", for: .normal)
+        }
+    }
+    
+    func showAlertView() {
+        let title = String(htmlEncodedString: (viewModel?.movieDetail?.title)!)
+        let message = "REMOVE??"
+        let cancelMsg = "CANCEL"
+        let okMsg = "OK"
+        
+        let alertView = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: okMsg, style: .default) { (UIAlertAction) in
+            self.viewModel?.deleteMovie()
+        }
+        alertView.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: cancelMsg, style: .default) { (UIAlertAction) in
+
+        }
+        alertView.addAction(cancelAction)
+
+        self.present(alertView, animated: true, completion: nil)
     }
 
     /*
@@ -69,6 +114,18 @@ class SearchDetailsVC: UIViewController {
     }
     */
 
+}
+
+extension SearchDetailsVC:SearchDetailDelegate {
+    func didSaveMovie() {
+        Log.test("didSaveMovie()")
+        saveButton.setTitle("DELETE", for: .normal)
+    }
+    
+    func didDeleteMovie() {
+        Log.test("didDeleteMovie()")
+        saveButton.setTitle("SAVE", for: .normal)
+    }
 }
 
 extension String {
@@ -89,5 +146,13 @@ extension String {
         } catch {
             self = htmlEncodedString
         }
+    }
+    
+    func dropLast(_ n: Int = 1) -> String {
+        return String(characters.dropLast(n))
+    }
+    
+    var dropLast: String {
+        return dropLast()
     }
 }

@@ -13,12 +13,12 @@ class movieLibraryVM {
     
     var movieObject : [MovieModel] = [MovieModel]()
     init() {
-        Log.test("movieLibraryVM initialized")
+        //Log.test("movieLibraryVM initialized")
         getFromDB()
     }
     
     func getFromDB() {
-        Log.test("movieLibraryVM getFromDB()")
+        //Log.test("movieLibraryVM getFromDB()")
         movieObject.removeAll()
         let realm = try! Realm()
         let movies = realm.objects(MovieModel.self)

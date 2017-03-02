@@ -41,7 +41,7 @@ class movieSearchVM {
         self.queue = DispatchQueue(label: "movieDiarySearchQueue")
         self.nAPIheader = ["X-Naver-Client-ID":"MIxoONv5MR9tqGoUlLrf","X-Naver-Client-Secret":"CwVvqL2Nky"]
             
-        Log.test("movieDiaryVM initialized")
+        //Log.test("movieDiaryVM initialized")
     }
     
     

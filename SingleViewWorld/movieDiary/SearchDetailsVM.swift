@@ -9,46 +9,64 @@
 import Foundation
 import RealmSwift
 
+
+protocol SearchDetailDelegate {
+    func didSaveMovie()
+    func didDeleteMovie()
+}
+
+
 class SearchDetailsVM {
     var movieDetail: MovieModel?
+    var movieDelegate: SearchDetailDelegate? = nil
     
     init (detail : MovieModel?) {
         self.movieDetail = detail
     }
     
     func saveMovie() {
-        
-        // Query and update from any thread
-        //DispatchQueue(label: "background").async {
-            if let movieData = self.movieDetail {
-                let realm = try! Realm()
-                if let movieObject = realm.objects(MovieModel.self).filter("title == %@", movieData.title).first {
-                    Log.test("\(movieObject.title) is already exist in the DB")
-                } else {
-                    realm.beginWrite()
-                    realm.create(MovieModel.self, value: movieData, update: true)
-                    try! realm.commitWrite()
-                    Log.test("\(movieData.title) is saved in the DB")
-                }
+        Log.test("saveMovie()")
+        if let movieData = self.movieDetail {
+            let realm = try! Realm()
+            if let _ = realm.objects(MovieModel.self).filter("title == %@", movieData.title).first {
+                Log.test("\(movieData.title) is already exist in the DB")
+            } else {
+                realm.beginWrite()
+                realm.create(MovieModel.self, value: movieData, update: true)
+                try! realm.commitWrite()
+                self.movieDelegate?.didSaveMovie()
             }
-        //}
+        }
     }
     
     func deleteMovie() {
-        
-        // Query and update from any thread
-        //DispatchQueue(label: "background").async {
-            if let movieData = self.movieDetail {
-                let realm = try! Realm()
-                if let movieObject = realm.objects(MovieModel.self).filter("title == %@", movieData.title).first {
-                    realm.beginWrite()
-                    realm.delete(movieObject)
-                    try! realm.commitWrite()
-                    //Log.test("\(movieData.title) is deleteed successfully from DB")
-                } else {
-                    Log.test("\(movieData.title) is not exist in the DB")
-                }
+        Log.test("deleteMovie()")
+        if let movieData = self.movieDetail {
+            let realm = try! Realm()
+            if let _ = realm.objects(MovieModel.self).filter("title == %@", movieData.title).first {
+                realm.beginWrite()
+                realm.delete(movieData)
+                try! realm.commitWrite()
+                self.movieDelegate?.didDeleteMovie()
+            } else {
+                Log.test("\(movieData.title) is not exist in the DB")
             }
-        //}
+        }
+    }
+    
+    func isSaved() -> Bool {
+        
+        if let movieData = self.movieDetail {
+            let realm = try! Realm()
+            if let _ = realm.objects(MovieModel.self).filter("title == %@", movieData.title).first {
+                Log.test("\(movieData.title) is already exist in the DB")
+                return true
+            } else {
+                Log.test("\(movieData.title) is not exist in the DB")
+                return false
+            }
+        }
+        
+        return false
     }
 }
