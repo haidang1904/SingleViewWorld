@@ -32,7 +32,6 @@ import SDWebImage
     override open func viewDidLoad() {
         super.viewDidLoad()
 
-        //searchTextField.text = ""
         searchResultTable.isHidden = true
         viewModel.isSearch
             .observeOn(MainScheduler.instance)
@@ -41,6 +40,9 @@ import SDWebImage
                     self?.searchResultTable.isHidden = false
                     self?.searchResultTable.reloadData()
                     self?.searchTextField.resignFirstResponder()
+                } else {
+                    self?.searchResultTable.isHidden = true
+                    Log.test("result is 0")
                 }
             })
             .addDisposableTo(disposeBag)
@@ -58,6 +60,8 @@ import SDWebImage
         backItem.title = "Back to"
         self.navigationItem.backBarButtonItem = backItem
         // Do any additional setup after loading the view.
+        
+        searchTextField.becomeFirstResponder()
     }
 
     override open func didReceiveMemoryWarning() {
@@ -68,24 +72,6 @@ import SDWebImage
     override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-//    override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        Log.test("segue.identifier \(segue.identifier)")
-//        if let navCon = segue.destination as? UINavigationController {
-//            //navCon.navigationBar.barStyle =
-//        }
-//        
-//    }
 
 }
 
@@ -124,7 +110,7 @@ extension movieSearchVC: UITableViewDelegate,UITableViewDataSource {
 
 extension movieSearchVC : UITextFieldDelegate {
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let keyword = searchTextField.text {
+        if let keyword = searchTextField.text, keyword != "" {
             Log.test("send Text : \(keyword)")
             self.viewModel.sendSearchAPItoNaver(keyword: keyword)
             textField.resignFirstResponder()

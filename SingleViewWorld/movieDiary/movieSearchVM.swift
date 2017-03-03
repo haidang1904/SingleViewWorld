@@ -69,13 +69,14 @@ class movieSearchVM {
     func parsingData(data:Data, ip:String) {
         do {
             if let jsonResult = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
-                if let resultList = jsonResult["items"] as? [[String:Any]], let resultCount = jsonResult["total"] as? Int {
+                if let resultList = jsonResult["items"] as? [[String:Any]], let resultCount = jsonResult["total"] as? Int, resultCount > 0 {
                     Log.test("There are \(resultCount) results")
                     self.resultList = resultList
                     self.resultCount = resultCount
                     isSearchSubject.onNext(true)
                     self.storeImageToCache(datas: self.resultList, count: self.resultCount)
                 } else {
+                    Log.test("There are \(resultCount) results")
                     isSearchSubject.onNext(false)
                 }
             }

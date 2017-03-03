@@ -62,7 +62,7 @@ class SearchDetailsVC: UIViewController {
         titleLabel.text = String(htmlEncodedString: (model.movieDetail?.title)!)
         
         if let subtitle = model.movieDetail?.subtitle {
-            subtitleLabel.text = subtitle
+            subtitleLabel.text = String(htmlEncodedString: subtitle)
         }
         if let director = model.movieDetail?.director {
             directorLabel.text = director.dropLast()
