@@ -20,12 +20,14 @@ import RxSwift
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        
+        Log.test("viewDidLoad")
         setCustomButtonOnNavigationBar()
         
         for _ in 0 ..< sizeOfContentVCs {
             contentVCs.append(newContentController())
         }
+        let initialController = contentVCs[0]
+        pageViewController!.setViewControllers([initialController], direction: .forward, animated: false, completion: nil)
     }
 
     override open func didReceiveMemoryWarning() {
@@ -33,6 +35,9 @@ import RxSwift
         // Dispose of any resources that can be recreated.
     }
     
+    override open func viewWillAppear(_ animated: Bool) {
+        Log.test("viewWillAppear")
+    }
 
     override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -59,8 +64,6 @@ import RxSwift
             pageViewController = segue.destination as? UIPageViewController
             pageViewController!.delegate = self
             pageViewController!.dataSource = self
-            let initialController = viewControllerAtIndex(0)
-            pageViewController!.setViewControllers([initialController!], direction: .forward, animated: false, completion: nil)
         }
     }
     
@@ -88,12 +91,6 @@ import RxSwift
         // Pass the selected object to the new view controller.
     }
     */
-    fileprivate func viewControllerAtIndex(_ pageIndex: Int) -> movieLibraryVC? {
-
-        let viewController = contentVCs[pageIndex]
-        
-        return viewController
-    }
 }
 
 extension movieDiaryBaseVC: UIPageViewControllerDelegate {
