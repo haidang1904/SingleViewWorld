@@ -12,6 +12,11 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--movieDiaryBaseVC-->
         <scene sceneID="Gir-AU-cr6">
@@ -28,7 +33,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B8a-Vw-B1F">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <connections>
-                                    <segue destination="zzE-Pm-bjI" kind="embed" identifier="embededSegue" id="8q4-Oq-nCQ"/>
+                                    <segue destination="gsn-cV-h3M" kind="embed" identifier="embededSegue" id="TiQ-Wp-8F2"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -202,17 +207,18 @@
         <!--movieLibraryVC-->
         <scene sceneID="XNS-en-9uE">
             <objects>
-                <viewController id="zzE-Pm-bjI" userLabel="movieLibraryVC" customClass="movieLibraryVC" customModule="SingleViewWorld" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SeO-I9-7R5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="movieLibraryVC" id="zzE-Pm-bjI" userLabel="movieLibraryVC" customClass="movieLibraryVC" customModule="SingleViewWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hiv-oX-6iB"/>
                         <viewControllerLayoutGuide type="bottom" id="eFV-eH-S0U"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="JeA-L5-CFK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eQl-uv-uRC">
-                                <rect key="frame" x="8" y="52" width="304" height="452"/>
+                                <rect key="frame" x="8" y="72" width="304" height="496"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6jo-6j-um7">
                                     <size key="itemSize" width="134" height="154"/>
@@ -264,7 +270,7 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watched Movie" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="blw-DJ-bo0">
-                                <rect key="frame" x="0.0" y="8" width="320" height="36"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="Ljk-Kv-hwR"/>
                                 </constraints>
@@ -288,9 +294,16 @@
                         <outlet property="movieLibraryCollection" destination="eQl-uv-uRC" id="RkJ-8E-moA"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SeO-I9-7R5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1063.125" y="-203.87323943661971"/>
+            <point key="canvasLocation" x="-1776" y="-650"/>
+        </scene>
+        <!--pageVC-->
+        <scene sceneID="HwS-Be-sX7">
+            <objects>
+                <pageViewController storyboardIdentifier="pageVC" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="gsn-cV-h3M" userLabel="pageVC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hvw-kg-qHk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1063" y="-200"/>
         </scene>
         <!--movieSearchVC-->
         <scene sceneID="9Xt-59-ylT">

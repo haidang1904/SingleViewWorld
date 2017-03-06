@@ -1,3 +1,4 @@
+#if PRIVATE_SDK
 //
 //  SDKPrivateTestVC.swift
 //  SingleViewWorld
@@ -5,7 +6,7 @@
 //  Created by samsung on 2016. 5. 30..
 //  Copyright © 2016년 samsung. All rights reserved.
 //
-
+    
 import UIKit
 import SmartView
 import Darwin
@@ -192,3 +193,5 @@ extension SDKPriavteTestVC : UITextFieldDelegate {
         return true
     }
 }
+    
+#endif

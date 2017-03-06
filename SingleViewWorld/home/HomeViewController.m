@@ -11,6 +11,8 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "SingleViewWorld-Swift.h"
 
+#define PRIVATE_SDK 0
+
 NSString *const kKeyMenuName = @"name";
 NSString *const kKeyMenuString = @"string";
 
@@ -24,7 +26,9 @@ typedef enum{
     UDP_SOCKET_MODE,
     LOCAL_NOTIFICATION_MODE,
     SDK_TEST_MODE,
-    //SDK_PRIVATE_TEST_MODE,
+#if PRIVATE_SDK
+    SDK_PRIVATE_TEST_MODE,
+#endif
     SPRITE_KIT_MODE,
     //CARD_GAME_MODE,
     URL_SCHEME_TEST,
@@ -61,7 +65,9 @@ static NSString *cellID = @"MenuCollectionViewCell";
                  @{kKeyMenuName : [NSNumber numberWithInt:UDP_SOCKET_MODE],       kKeyMenuString : @"UDP SOCKET"},
                  @{kKeyMenuName : [NSNumber numberWithInt:LOCAL_NOTIFICATION_MODE],       kKeyMenuString : @"Local Notification"},
                  @{kKeyMenuName : [NSNumber numberWithInt:SDK_TEST_MODE],       kKeyMenuString : @"SmartViewSDK TEST"},
-                 //@{kKeyMenuName : [NSNumber numberWithInt:SDK_PRIVATE_TEST_MODE],       kKeyMenuString : @"SmartViewSDK Private TEST"},
+#if PRIVATE_SDK
+                 @{kKeyMenuName : [NSNumber numberWithInt:SDK_PRIVATE_TEST_MODE],       kKeyMenuString : @"SmartViewSDK Private TEST"},
+#endif
                  @{kKeyMenuName : [NSNumber numberWithInt:SPRITE_KIT_MODE],       kKeyMenuString : @"SpriteKit TEST"},
                  //@{kKeyMenuName : [NSNumber numberWithInt:CARD_GAME_MODE],       kKeyMenuString : @"CARD GAME"},
                  @{kKeyMenuName : [NSNumber numberWithInt:URL_SCHEME_TEST],       kKeyMenuString : @"go to SmartView App"},
@@ -228,9 +234,11 @@ static NSString *cellID = @"MenuCollectionViewCell";
         case SDK_TEST_MODE:
             function_view = [[SDKTestViewController alloc] initWithNibName:@"SDKTestViewController" bundle:nil];
             break;
-//        case SDK_PRIVATE_TEST_MODE:
-//            function_view = [[SDKPriavteTestVC alloc] initWithNibName:@"SDKPrivateTestViewController" bundle:nil];
-//            break;
+#if PRIVATE_SDK
+        case SDK_PRIVATE_TEST_MODE:
+            function_view = [[SDKPriavteTestVC alloc] initWithNibName:@"SDKPrivateTestViewController" bundle:nil];
+            break;
+#endif
         case SPRITE_KIT_MODE:
             sb = [UIStoryboard storyboardWithName:@"SpriteKit" bundle:nil];
             function_view = (SpriteKitVC *)[sb instantiateViewControllerWithIdentifier:@"SpriteKitVC"];
@@ -242,7 +250,7 @@ static NSString *cellID = @"MenuCollectionViewCell";
         //    break;
         case URL_SCHEME_TEST:
             if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"smartview2://"]]) {
-                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"smartview2://"]];
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"smartview2://?ipaddress=192.168.0.1"]];
             }
             break;
         case CANDY_CRUSH_GAME:

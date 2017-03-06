@@ -1,3 +1,4 @@
+#if PRIVATE_SDK
 //
 //  SDKPrivateTestViewModel.swift
 //  SingleViewWorld
@@ -5,7 +6,7 @@
 //  Created by Samsung Electronics on 7/20/16.
 //  Copyright © 2016 samsung. All rights reserved.
 //
-
+    
 import UIKit
 import SmartView
 import RxSwift
@@ -340,3 +341,5 @@ extension SDKPrivateTestVM : ServiceSearchDelegate {
         Log.test("onFoundOnlyBLE : \(NameOfTV)")
     }
 }
+    
+#endif

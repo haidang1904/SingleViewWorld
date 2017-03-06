@@ -14,11 +14,18 @@ import RxSwift
     let disposeBag = DisposeBag()
     let viewModel = movieDiaryBaseVM()
     var selectedMovieItem : MovieModel?
+    var pageViewController: UIPageViewController? = nil
+    var contentVCs = [movieLibraryVC]()
+    let sizeOfContentVCs = 2
     
     override open func viewDidLoad() {
         super.viewDidLoad()
         
         setCustomButtonOnNavigationBar()
+        
+        for _ in 0 ..< sizeOfContentVCs {
+            contentVCs.append(newContentController())
+        }
     }
 
     override open func didReceiveMemoryWarning() {
@@ -42,13 +49,18 @@ import RxSwift
             let searchDetailVC = segue.destination as! SearchDetailsVC
             searchDetailVC.viewModel = SearchDetailsVM(detail: self.selectedMovieItem)
         } else if segue.identifier == "embededSegue" {
-            let vc = segue.destination as! movieLibraryVC
-            vc.showDetailView = {
-                [weak self] details in
-                self?.selectedMovieItem = details
-                self?.performSegue(withIdentifier: "SearchDetailSegue", sender: nil)
-            }
-
+//            let vc = segue.destination as! movieLibraryVC
+//            vc.showDetailView = {
+//                [weak self] details in
+//                self?.selectedMovieItem = details
+//                self?.performSegue(withIdentifier: "SearchDetailSegue", sender: nil)
+//            }
+            Log.test("embededSegue")
+            pageViewController = segue.destination as? UIPageViewController
+            pageViewController!.delegate = self
+            pageViewController!.dataSource = self
+            let initialController = viewControllerAtIndex(0)
+            pageViewController!.setViewControllers([initialController!], direction: .forward, animated: false, completion: nil)
         }
     }
     
@@ -76,5 +88,49 @@ import RxSwift
         // Pass the selected object to the new view controller.
     }
     */
+    fileprivate func viewControllerAtIndex(_ pageIndex: Int) -> movieLibraryVC? {
 
+        let viewController = contentVCs[pageIndex]
+        
+        return viewController
+    }
+}
+
+extension movieDiaryBaseVC: UIPageViewControllerDelegate {
+    
+    public func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+        Log.test("willTransitionTo")
+    }
+    
+    public func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        Log.test("didFinishAnimating")
+    }
+}
+
+extension movieDiaryBaseVC: UIPageViewControllerDataSource {
+    public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        Log.test("viewControllerBefore")
+        let contentVC = viewController as! movieLibraryVC
+
+        return contentVC
+    }
+    
+    public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?  {
+        Log.test("viewControllerAfter")
+        let contentVC = viewController as! movieLibraryVC
+
+        return contentVC
+    }
+    
+    public func presentationCount(for pageViewController: UIPageViewController) -> Int {
+        return sizeOfContentVCs
+    }
+    
+    public func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+        return 0
+    }
+    
+    func newContentController() -> movieLibraryVC {
+        return self.storyboard!.instantiateViewController(withIdentifier: "movieLibraryVC") as! movieLibraryVC
+    }
 }

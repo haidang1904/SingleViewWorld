@@ -42,6 +42,7 @@
 		348F5C501D62CCF400E24FA9 /* CardGameModeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348F5C4E1D62CCF400E24FA9 /* CardGameModeVC.swift */; };
 		348F5C511D62CCF400E24FA9 /* CardGameModeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 348F5C4F1D62CCF400E24FA9 /* CardGameModeVC.xib */; };
 		348F5C531D62CD0A00E24FA9 /* CardGameModeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348F5C521D62CD0A00E24FA9 /* CardGameModeVM.swift */; };
+		34A71E3D1E6D711A001411A4 /* pageContentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A71E3C1E6D711A001411A4 /* pageContentsVC.swift */; };
 		34A73A121DE2FE1400645108 /* LocalNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A73A111DE2FE1400645108 /* LocalNotificationVC.swift */; };
 		34C674671D6570B9000138DD /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 34C674661D6570B9000138DD /* Sprites.atlas */; };
 		34C674BA1D65779F000138DD /* CandyCrushVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C674B81D65779F000138DD /* CandyCrushVC.swift */; };
@@ -189,6 +190,7 @@
 		348F5C4E1D62CCF400E24FA9 /* CardGameModeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardGameModeVC.swift; path = CardGameMode/CardGameModeVC.swift; sourceTree = "<group>"; };
 		348F5C4F1D62CCF400E24FA9 /* CardGameModeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CardGameModeVC.xib; path = CardGameMode/CardGameModeVC.xib; sourceTree = "<group>"; };
 		348F5C521D62CD0A00E24FA9 /* CardGameModeVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardGameModeVM.swift; path = CardGameMode/CardGameModeVM.swift; sourceTree = "<group>"; };
+		34A71E3C1E6D711A001411A4 /* pageContentsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = pageContentsVC.swift; path = movieDiary/pageContentsVC.swift; sourceTree = "<group>"; };
 		34A73A111DE2FE1400645108 /* LocalNotificationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalNotificationVC.swift; path = JsonParser/LocalNotificationVC.swift; sourceTree = "<group>"; };
 		34C674661D6570B9000138DD /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = Sprites.atlas; path = CandyCrushGame/Sprites.atlas; sourceTree = "<group>"; };
 		34C674B81D65779F000138DD /* CandyCrushVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CandyCrushVC.swift; path = CandyCrushGame/CandyCrushVC.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				3482C4EA1E51BAA500842B9C /* movieDiaryBaseVM.swift */,
 				34D1640C1E5ACFD60060323C /* movieLibraryVC.swift */,
 				34DB52CF1E5ADA53008EA04A /* movieLibraryVM.swift */,
+				34A71E3C1E6D711A001411A4 /* pageContentsVC.swift */,
 			);
 			name = movieDiary;
 			sourceTree = "<group>";
@@ -985,6 +988,7 @@
 				F14235A71B871AC600EE2B6D /* BLESingleton.m in Sources */,
 				34C674E71D657E11000138DD /* Swap.swift in Sources */,
 				F1595A231B7ADFE300D2DF42 /* BLETableViewCell.m in Sources */,
+				34A71E3D1E6D711A001411A4 /* pageContentsVC.swift in Sources */,
 				F1FF53891CD21C0E00A3F3BD /* macDbTableViewCell.m in Sources */,
 				F1595A251B7ADFE300D2DF42 /* BLEViewController.m in Sources */,
 				F11148361CD83E2100DCBFF6 /* Model.xcdatamodeld in Sources */,
