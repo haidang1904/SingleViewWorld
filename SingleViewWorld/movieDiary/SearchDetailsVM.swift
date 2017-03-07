@@ -9,12 +9,33 @@
 import Foundation
 import RealmSwift
 
-
-protocol SearchDetailDelegate {
-    func didSaveMovie()
-    func didDeleteMovie()
+public enum SearchDetailErrorType {
+    case saved                  // save successfully into the DB
+    case deleted                // delete successfully from the DB
+    case existWatched           // already exist watched list in the DB
+    case existBucket            // already exist bucket list in the DB
+    case moveToWatched          // move from Bucket to Watched
+    case canNotMoveToBucket     // can not move from Watched to Bucket
+    case notExist               // not exist in the DB
+    
+    case unknown
 }
 
+public enum savedType {
+    case watchedList
+    case bucketList
+    case none
+}
+
+protocol SearchDetailDelegate {
+    func eventHandler(code:SearchDetailErrorType)
+}
+
+extension SearchDetailDelegate {
+    func eventHandler(code:SearchDetailErrorType) {
+        Log.test("")
+    }
+}
 
 class SearchDetailsVM {
     var movieDetail: MovieModel?
@@ -24,17 +45,40 @@ class SearchDetailsVM {
         self.movieDetail = detail
     }
     
-    func saveMovie() {
+    func saveMovie(isWatched : Int) {
         Log.test("saveMovie()")
         if let movieData = self.movieDetail {
             let realm = try! Realm()
-            if let _ = realm.objects(MovieModel.self).filter("title == %@", movieData.title).first {
-                Log.test("\(movieData.title) is already exist in the DB")
+            if let object = realm.objects(MovieModel.self).filter("title == %@", movieData.title).first {
+                
+                if object.isWatched == 0 && isWatched == 0 {
+                    self.movieDelegate?.eventHandler(code: .existWatched)
+                    return
+                }
+                
+                if object.isWatched == 1 && isWatched == 1 {
+                    self.movieDelegate?.eventHandler(code: .existBucket)
+                    return
+                }
+
+                if object.isWatched == 0 && isWatched == 1 {
+                    self.movieDelegate?.eventHandler(code: .canNotMoveToBucket)
+                    return
+                }
+                
+                if object.isWatched == 1 && isWatched == 0 {
+                    try! realm.write {
+                        object.isWatched = 0
+                        realm.add(object, update: true)
+                        self.movieDelegate?.eventHandler(code: .moveToWatched)
+                    }
+                }
             } else {
                 realm.beginWrite()
+                movieData.isWatched = isWatched
                 realm.create(MovieModel.self, value: movieData, update: true)
                 try! realm.commitWrite()
-                self.movieDelegate?.didSaveMovie()
+                self.movieDelegate?.eventHandler(code: .saved)
             }
         }
     }
@@ -47,26 +91,32 @@ class SearchDetailsVM {
                 realm.beginWrite()
                 realm.delete(movieData)
                 try! realm.commitWrite()
-                self.movieDelegate?.didDeleteMovie()
+                self.movieDelegate?.eventHandler(code: .deleted)
             } else {
-                Log.test("\(movieData.title) is not exist in the DB")
+                //self.movieDelegate?.eventHandler(code: .notExist)
             }
         }
     }
     
-    func isSaved() -> Bool {
+    func isSaved() -> savedType {
         
         if let movieData = self.movieDetail {
             let realm = try! Realm()
-            if let _ = realm.objects(MovieModel.self).filter("title == %@", movieData.title).first {
-                Log.test("\(movieData.title) is already exist in the DB")
-                return true
+            if let object = realm.objects(MovieModel.self).filter("title == %@", movieData.title).first {
+                if object.isWatched == 0 {
+                    self.movieDelegate?.eventHandler(code: .existWatched)
+                    return .watchedList
+                } else {
+                    self.movieDelegate?.eventHandler(code: .existBucket)
+                    return .bucketList
+                }
             } else {
-                Log.test("\(movieData.title) is not exist in the DB")
-                return false
+                self.movieDelegate?.eventHandler(code: .notExist)
+                return .none
             }
         }
         
-        return false
+        self.movieDelegate?.eventHandler(code: .unknown)
+        return .none
     }
 }

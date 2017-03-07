@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.3.0)
+  - KCFloatingActionButton (2.1.2)
   - Realm (2.4.2):
     - Realm/Headers (= 2.4.2)
   - Realm/Headers (2.4.2)
@@ -12,17 +13,19 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.3)
+  - KCFloatingActionButton
   - RealmSwift
   - RxSwift (~> 3.2)
   - SDWebImage (~> 3.8)
 
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  KCFloatingActionButton: 1b22ce95d44b51915280df8a8b277eae4a06c3f1
   Realm: d27b758e12d62a3371879a065d4c40aa212c5a54
   RealmSwift: 9556c0fe0f0cfecacfb755ae9e68ff379fc6bead
   RxSwift: 46574f70d416b7923c237195939cc488a7fbf3a0
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
 
-PODFILE CHECKSUM: e9abc2c1cb72d100b3f6921058daedf67ed3330b
+PODFILE CHECKSUM: bafdacb77ecacc208dae631bbe8c904b272d2585
 
 COCOAPODS: 1.1.1

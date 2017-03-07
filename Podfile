@@ -9,6 +9,7 @@ target 'SingleViewWorld' do
   pod 'RealmSwift'
   pod 'RxSwift', '~> 3.2'
   pod 'Alamofire', '~> 4.3'
-  
+  pod 'KCFloatingActionButton'
+
 end
 

@@ -20,6 +20,7 @@ class MovieModel : Object {
     dynamic var userRating: String? = nil
     dynamic var comment: String? = nil
     dynamic var dateOfWatch: String? = nil
+    dynamic var isWatched: Int = 0
     
     override class func primaryKey() -> String? {
         return "title"

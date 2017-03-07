@@ -292,6 +292,7 @@
                     </view>
                     <connections>
                         <outlet property="movieLibraryCollection" destination="eQl-uv-uRC" id="RkJ-8E-moA"/>
+                        <outlet property="titleLabel" destination="blw-DJ-bo0" id="otu-25-7W8"/>
                     </connections>
                 </viewController>
             </objects>

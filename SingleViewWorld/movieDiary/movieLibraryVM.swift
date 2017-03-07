@@ -12,16 +12,18 @@ import RealmSwift
 class movieLibraryVM {
     
     var movieObject : [MovieModel] = [MovieModel]()
-    init() {
+    
+    init(isWatched : Int) {
         //Log.test("movieLibraryVM initialized")
-        getFromDB()
+        getFromDB(isWatched: isWatched)
+        Log.test("movieLibraryVM init")
     }
     
-    func getFromDB() {
+    func getFromDB(isWatched : Int) {
         //Log.test("movieLibraryVM getFromDB()")
         movieObject.removeAll()
         let realm = try! Realm()
-        let movies = realm.objects(MovieModel.self)
+        let movies = realm.objects(MovieModel.self).filter("isWatched = %@", isWatched)
         for movie in movies {
             movieObject.append(movie)
         }
@@ -39,6 +41,15 @@ class movieLibraryVM {
             }
         }
         return "no Title"
+    }
+    
+    func getTitleForPage(index: Int) -> String {
+        
+        if index == 0 {
+            return "Watched Movie"
+        } else {
+            return "Bucket List"
+        }
     }
     
     func getMovieInfo(indexPath: IndexPath) -> MovieModel? {

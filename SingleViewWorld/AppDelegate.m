@@ -33,6 +33,7 @@
     [self.window setBackgroundColor:[UIColor whiteColor]];// background white for animation in app
     [self.window makeKeyAndVisible];
     self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     // Application Setting
     
     if(IS_IOS_8_OR_LATER)

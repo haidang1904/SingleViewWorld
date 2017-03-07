@@ -10,20 +10,24 @@ import UIKit
 
 class movieLibraryVC: UIViewController {
 
-    let viewModel = movieLibraryVM()
+    var pageIndex = 0
+    var viewModel : movieLibraryVM? = nil
     var showDetailView: ((_ selectedMovie: MovieModel?) -> Void)? = nil
     
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var movieLibraryCollection: UICollectionView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.getFromDB()
+        viewModel?.getFromDB(isWatched: pageIndex)
+        titleLabel.text = viewModel?.getTitleForPage(index: pageIndex)
         movieLibraryCollection.reloadData()
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = movieLibraryVM(isWatched: pageIndex)
         // Do any additional setup after loading the view.
     }
         
@@ -50,7 +54,9 @@ extension movieLibraryVC : UICollectionViewDelegate, UICollectionViewDataSource,
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         collectionView.deselectItem(at: indexPath, animated: false)
-        if let movieInfo = viewModel.getMovieInfo(indexPath: indexPath) {
+        Log.test("didSelectItemAt \(indexPath.row)")
+        if let movieInfo = viewModel?.getMovieInfo(indexPath: indexPath) {
+            
             self.showDetailView?(movieInfo)
         }
         
@@ -67,15 +73,15 @@ extension movieLibraryVC : UICollectionViewDelegate, UICollectionViewDataSource,
 
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return viewModel.getCount()
+        return viewModel!.getCount()
     }
     
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell : movieLibraryCell = collectionView.dequeueReusableCell(withReuseIdentifier: "movieLibraryCell", for: indexPath) as! movieLibraryCell
-        cell.imageView.image = viewModel.getImageForIndex(indexPath: indexPath)
-        cell.labelView.text = viewModel.getTitleForIndex(indexPath: indexPath)
+        cell.imageView.image = viewModel!.getImageForIndex(indexPath: indexPath)
+        cell.labelView.text = viewModel!.getTitleForIndex(indexPath: indexPath)
         return cell
     }
     
