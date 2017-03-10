@@ -10,6 +10,7 @@ target 'SingleViewWorld' do
   pod 'RxSwift', '~> 3.2'
   pod 'Alamofire', '~> 4.3'
   pod 'KCFloatingActionButton'
-
+  pod 'Firebase/Core'
+  pod 'Firebase/AdMob'
 end
 

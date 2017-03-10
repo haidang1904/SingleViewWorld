@@ -31,7 +31,7 @@
     self.navigationController = [[UINavigationController alloc] initWithRootViewController:vcHome];
     [self.window setRootViewController:self.navigationController];
     [self.window setBackgroundColor:[UIColor whiteColor]];// background white for animation in app
-    [self.window makeKeyAndVisible];
+    //[self.window makeKeyAndVisible];
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     // Application Setting

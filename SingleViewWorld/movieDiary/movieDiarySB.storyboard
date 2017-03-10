@@ -204,6 +204,40 @@
             </objects>
             <point key="canvasLocation" x="-1063.125" y="450"/>
         </scene>
+        <!--movieDiaryPopUpVC-->
+        <scene sceneID="Gkh-Hm-SyE">
+            <objects>
+                <viewController id="yUY-Lo-SB6" userLabel="movieDiaryPopUpVC" customClass="movieDiaryPopUpVC" customModule="SingleViewWorld" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bHJ-4V-UlY"/>
+                        <viewControllerLayoutGuide type="bottom" id="Js5-m8-p5O"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Ga-Ud-fx9">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="6Sz-XG-TDN">
+                                <rect key="frame" x="0.0" y="333" width="320" height="131"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="date" timeIntervalSinceReferenceDate="510737408.95350301">
+                                    <!--2017-03-09 07:30:08 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="441802800">
+                                    <!--2015-01-01 11:00:00 +0000-->
+                                </date>
+                                <locale key="locale" localeIdentifier="ko_KR"/>
+                            </datePicker>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="PBw-Fe-QDR" kind="presentation" id="qlz-he-9wn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0t9-93-Tul" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2876" y="-293"/>
+        </scene>
         <!--movieLibraryVC-->
         <scene sceneID="XNS-en-9uE">
             <objects>
@@ -246,19 +280,26 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deleteItem" translatesAutoresizingMaskIntoConstraints="NO" id="TzK-AY-3MF" userLabel="deleteImage">
+                                                    <rect key="frame" x="118" y="-15.5" width="32" height="31"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="Xx3-yN-SoT" secondAttribute="bottom" id="4UA-c9-pF8"/>
                                             <constraint firstItem="Xx3-yN-SoT" firstAttribute="top" secondItem="xJF-wN-NSs" secondAttribute="top" id="9hk-UN-Fc1"/>
-                                            <constraint firstAttribute="bottom" secondItem="ejN-Ce-lEu" secondAttribute="bottom" id="DVS-Ld-mRG"/>
                                             <constraint firstAttribute="trailing" secondItem="Xx3-yN-SoT" secondAttribute="trailing" id="GSa-6e-NU7"/>
+                                            <constraint firstItem="TzK-AY-3MF" firstAttribute="centerY" secondItem="Xx3-yN-SoT" secondAttribute="top" id="K6l-nW-5hz"/>
+                                            <constraint firstItem="TzK-AY-3MF" firstAttribute="centerX" secondItem="Xx3-yN-SoT" secondAttribute="trailing" id="Ox7-Me-KRa"/>
+                                            <constraint firstItem="ejN-Ce-lEu" firstAttribute="leading" secondItem="Xx3-yN-SoT" secondAttribute="leading" id="RSM-yh-p0l"/>
+                                            <constraint firstItem="ejN-Ce-lEu" firstAttribute="trailing" secondItem="Xx3-yN-SoT" secondAttribute="trailing" id="TgE-fq-TcI"/>
                                             <constraint firstItem="Xx3-yN-SoT" firstAttribute="leading" secondItem="xJF-wN-NSs" secondAttribute="leading" id="VWT-t0-gJY"/>
-                                            <constraint firstItem="ejN-Ce-lEu" firstAttribute="leading" secondItem="xJF-wN-NSs" secondAttribute="leading" id="dk8-TO-S0c"/>
-                                            <constraint firstAttribute="trailing" secondItem="ejN-Ce-lEu" secondAttribute="trailing" id="voq-mD-qnV"/>
+                                            <constraint firstItem="ejN-Ce-lEu" firstAttribute="bottom" secondItem="Xx3-yN-SoT" secondAttribute="bottom" id="imu-LG-PlZ"/>
                                         </constraints>
                                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                                         <connections>
+                                            <outlet property="deleteImageView" destination="TzK-AY-3MF" id="vmp-6G-Syc"/>
                                             <outlet property="imageView" destination="Xx3-yN-SoT" id="39B-wN-Y4D"/>
                                             <outlet property="labelView" destination="ejN-Ce-lEu" id="PIR-8J-3um"/>
                                         </connections>
@@ -296,7 +337,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="-1776" y="-650"/>
+            <point key="canvasLocation" x="-1777.5" y="-650.70422535211264"/>
         </scene>
         <!--pageVC-->
         <scene sceneID="HwS-Be-sX7">
@@ -423,5 +464,6 @@
     </scenes>
     <resources>
         <image name="BG_Theater" width="640" height="430"/>
+        <image name="deleteItem" width="32" height="31"/>
     </resources>
 </document>

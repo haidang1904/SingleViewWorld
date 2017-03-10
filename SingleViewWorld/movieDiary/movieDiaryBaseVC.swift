@@ -143,17 +143,14 @@ extension movieDiaryBaseVC: UIPageViewControllerDataSource {
     }
     
     func newContentController(pageIndex: Int) -> movieLibraryVC {
-        Log.test("newContentController create start")
         let viewController = self.storyboard!.instantiateViewController(withIdentifier: "movieLibraryVC") as! movieLibraryVC
-        
         viewController.pageIndex = pageIndex
         viewController.showDetailView = {
             [weak self] details in
             self?.selectedMovieItem = details
-            Log.test("performSegue details \(details?.title)")
             self?.performSegue(withIdentifier: "SearchDetailSegue", sender: nil)
         }
-        Log.test("newContentController \(viewController.pageIndex)page create end")
+        //Log.test("newContentController \(viewController.pageIndex)page created")
         return viewController
     }
 }

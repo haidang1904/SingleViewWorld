@@ -68,10 +68,10 @@ class SearchDetailsVC: UIViewController {
         let deleteFromList = KCFloatingActionButtonItem()
         let backToList = KCFloatingActionButtonItem()
         
-        saveWatchedList.title = "Save Watched List"
-        saveBucketList.title = "Save Bucket List"
+        saveWatchedList.title = "Add Watched"
+        saveBucketList.title = "Add Bucket"
         deleteFromList.title = "Delete From List"
-        backToList.title = "Back To List"
+        backToList.title = "Back To Library"
         
         saveWatchedList.handler = { [weak self] items in
             self?.viewModel?.saveMovie(isWatched: 0)
