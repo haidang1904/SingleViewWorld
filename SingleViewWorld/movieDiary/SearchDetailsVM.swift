@@ -46,45 +46,47 @@ class SearchDetailsVM {
     }
     
     func saveMovie(isWatched : Int) {
-        Log.test("saveMovie()")
+        Log.test("saveMovie(\(isWatched))")
         if let movieData = self.movieDetail {
             let realm = try! Realm()
             if let object = realm.objects(MovieModel.self).filter("title == %@", movieData.title).first {
                 
-                if object.isWatched == 0 && isWatched == 0 {
+                if object.isWatched.value == 0 && isWatched == 0 {
                     self.movieDelegate?.eventHandler(code: .existWatched)
                     return
                 }
                 
-                if object.isWatched == 1 && isWatched == 1 {
+                if object.isWatched.value == 1 && isWatched == 1 {
                     self.movieDelegate?.eventHandler(code: .existBucket)
                     return
                 }
 
-                if object.isWatched == 0 && isWatched == 1 {
+                if object.isWatched.value == 0 && isWatched == 1 {
                     self.movieDelegate?.eventHandler(code: .canNotMoveToBucket)
                     return
                 }
                 
-                if object.isWatched == 1 && isWatched == 0 {
+                if object.isWatched.value == 1 && isWatched == 0 {
                     try! realm.write {
-                        object.isWatched = 0
+                        object.isWatched.value = isWatched
                         realm.add(object, update: true)
+                        self.movieDetail?.isWatched.value = isWatched
                         self.movieDelegate?.eventHandler(code: .moveToWatched)
                     }
                 }
             } else {
                 realm.beginWrite()
-                movieData.isWatched = isWatched
+                movieData.isWatched.value = isWatched
                 realm.create(MovieModel.self, value: movieData, update: true)
                 try! realm.commitWrite()
+                self.movieDetail?.isWatched.value = isWatched
                 self.movieDelegate?.eventHandler(code: .saved)
             }
         }
     }
     
     func deleteMovie() {
-        Log.test("deleteMovie()")
+        Log.test("deleteMovie(\(self.movieDetail?.title))")
         if let movieData = self.movieDetail {
             let realm = try! Realm()
             if let _ = realm.objects(MovieModel.self).filter("title == %@", movieData.title).first {
@@ -103,7 +105,7 @@ class SearchDetailsVM {
         if let movieData = self.movieDetail {
             let realm = try! Realm()
             if let object = realm.objects(MovieModel.self).filter("title == %@", movieData.title).first {
-                if object.isWatched == 0 {
+                if object.isWatched.value == 0 {
                     self.movieDelegate?.eventHandler(code: .existWatched)
                     return .watchedList
                 } else {

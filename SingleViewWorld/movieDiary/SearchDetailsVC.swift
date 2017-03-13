@@ -14,7 +14,8 @@ import KCFloatingActionButton
 class SearchDetailsVC: UIViewController {
 
     var viewModel: SearchDetailsVM?
-
+    let fab = KCFloatingActionButton()
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
@@ -62,39 +63,52 @@ class SearchDetailsVC: UIViewController {
         //self.navigationController?.isNavigationBarHidden = false
     }
     func addFloatingActionButton() {
-        let fab = KCFloatingActionButton()
-        let saveWatchedList = KCFloatingActionButtonItem()
-        let saveBucketList = KCFloatingActionButtonItem()
-        let deleteFromList = KCFloatingActionButtonItem()
-        let backToList = KCFloatingActionButtonItem()
         
-        saveWatchedList.title = "Add Watched"
-        saveBucketList.title = "Add Bucket"
-        deleteFromList.title = "Delete From List"
-        backToList.title = "Back To Library"
+        fab.addItem(item: createFloatingButton(title: "Back To Library", handler: { [weak self] items in self?.closeButtonAction(nil)}))
         
-        saveWatchedList.handler = { [weak self] items in
-            self?.viewModel?.saveMovie(isWatched: 0)
+        if let value = viewModel?.movieDetail?.isWatched.value {
+            fab.addItem(item: createFloatingButton(title: "Delete From List", handler: { [weak self] items in self?.viewModel?.deleteMovie()}))
+            if value == 1 {
+                fab.addItem(item: createFloatingButton(title: "Add Watched", handler: { [weak self] items in self?.viewModel?.saveMovie(isWatched: 0)}))
+            }
+        } else {
+            fab.addItem(item: createFloatingButton(title: "Add Bucket", handler: { [weak self] items in self?.viewModel?.saveMovie(isWatched: 1)}))
+            fab.addItem(item: createFloatingButton(title: "Add Watched", handler: { [weak self] items in self?.viewModel?.saveMovie(isWatched: 0)}))
         }
-        saveBucketList.handler = { [weak self] items in
-            self?.viewModel?.saveMovie(isWatched: 1)
-        }
-        deleteFromList.handler = { [weak self] items in
-            self?.viewModel?.deleteMovie()
-        }
-        backToList.handler = { [weak self] items in
-            self?.closeButtonAction(nil)
-        }
-        
-        fab.addItem(item: backToList)
-        fab.addItem(item: deleteFromList)
-        fab.addItem(item: saveBucketList)
-        fab.addItem(item: saveWatchedList)
         
         fab.sticky = true
         fab.openAnimationType = .fade
-        fab.animationSpeed = 0.01
+        fab.animationSpeed = 0.05
         self.view.addSubview(fab)
+    }
+    
+    func reLoadButton() {
+        let views = self.view.subviews
+        var floatingButtonView : KCFloatingActionButton? = nil
+        for view in views {
+            if view.isKind(of: KCFloatingActionButton.classForCoder()) {
+                Log.test("Found!!!")
+                floatingButtonView = view as? KCFloatingActionButton
+                break
+            }
+        }
+        
+        if floatingButtonView != nil {
+            floatingButtonView?.items.removeAll()
+            Log.test("removeAll!!!")
+            floatingButtonView?.removeFromSuperview()
+            Log.test("removeFromSuperview!!!")
+            addFloatingActionButton()
+        }
+        //addFloatingActionButton()
+    }
+    
+    func createFloatingButton(title:String, handler:@escaping ((KCFloatingActionButtonItem) -> Void)) -> KCFloatingActionButtonItem{
+        let button = KCFloatingActionButtonItem()
+        button.title = title
+        button.handler = handler
+        
+        return button
     }
     
     func fillOutDetails(model : SearchDetailsVM) {
@@ -110,15 +124,7 @@ class SearchDetailsVC: UIViewController {
             actorLabel.text = actor.dropLast()
         }
         imageView.sd_setImage(with: URL(string: (model.movieDetail?.image)!),placeholderImage: UIImage(named: "poster_placeholder"))
-        changeText()
-    }
-    
-    func changeText() {
-        if let isSaved = viewModel?.isSaved(), isSaved == .none {
-            saveButton.setTitle("SAVE", for: .normal)
-        } else {
-            saveButton.setTitle("DELETE", for: .normal)
-        }
+
     }
     
     func showAlertView() {
@@ -168,11 +174,13 @@ extension SearchDetailsVC:SearchDetailDelegate {
         switch code {
         case .saved:
             Log.test("save successfully into the DB")
-            saveButton.setTitle("DELETE", for: .normal)
+            reLoadButton()
+            //saveButton.setTitle("DELETE", for: .normal)
             break
         case .deleted:
             Log.test("delete successfully from the DB")
-            saveButton.setTitle("SAVE", for: .normal)
+            closeButtonAction(nil)
+            //saveButton.setTitle("SAVE", for: .normal)
             break
         case .existWatched:
             Log.test("already exist watched list in the DB")

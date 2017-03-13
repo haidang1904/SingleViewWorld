@@ -98,9 +98,8 @@ extension movieSearchVC: UITableViewDelegate,UITableViewDataSource {
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cell : SearchResultCell = tableView.dequeueReusableCell(withIdentifier: "SearchResultCell", for: indexPath) as! SearchResultCell
-        if let appName = viewModel.getName((indexPath as NSIndexPath).row){
-            cell.providerDesc?.text = appName
-        }
+        
+        cell.providerDesc?.text = viewModel.getName((indexPath as NSIndexPath).row)
         cell.providerIcon?.image = viewModel.getImage((indexPath as NSIndexPath).row)
         
         return cell

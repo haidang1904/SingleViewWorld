@@ -56,7 +56,6 @@ extension movieLibraryVC : UICollectionViewDelegate, UICollectionViewDataSource,
         collectionView.deselectItem(at: indexPath, animated: false)
         Log.test("didSelectItemAt \(indexPath.row)")
         if let movieInfo = viewModel?.getMovieInfo(indexPath: indexPath) {
-            
             self.showDetailView?(movieInfo)
         }
         

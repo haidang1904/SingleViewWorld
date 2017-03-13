@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import RxSwift
 import SDWebImage
+import RealmSwift
 
 // Client ID : MIxoONv5MR9tqGoUlLrf
 // Client Secret : CwVvqL2Nky
@@ -109,13 +110,10 @@ class movieSearchVM {
         }
     }
     
-    func getName(_ index:Int) -> String? {
+    func getName(_ index:Int) -> String {
         if (self.resultList.count) > index {
             if let title = self.resultList[index]["title"] as? String {
-                var movieName = title
-                movieName = movieName.replacingOccurrences(of: "<b>", with: "")
-                movieName = movieName.replacingOccurrences(of: "</b>", with: "")
-            return movieName
+                return String(htmlEncodedString: title)
             } else {
                 return ""
             }
@@ -142,7 +140,11 @@ class movieSearchVM {
     }
     
     func getMovieInfo(_ index:Int) -> MovieModel? {
-        // to do
+        let title = getName(index)
+        if let model = isSaved(title: title) {
+            Log.test("\(title) already saved movie in \(model.isWatched.value)")
+            return model
+        }
         
         if (self.resultList.count) > index {
             return createMovieModel(data: resultList[index])
@@ -158,7 +160,7 @@ class movieSearchVM {
     func createMovieModel(data : [String:Any]) -> MovieModel? {
         let movieModel = MovieModel()
         if let title = data["title"] as! String! {
-            movieModel.title = title
+            movieModel.title = String(htmlEncodedString: title)
         } else {
             return nil
         }
@@ -171,7 +173,17 @@ class movieSearchVM {
         movieModel.userRating = data["userRating"] as? String? ?? "nil"
         movieModel.comment = data["comment"] as? String? ?? "nil"
         movieModel.dateOfWatch = data["dateOfWatch"] as? String? ?? "nil"
+        movieModel.isWatched.value = nil
         return movieModel
+    }
+    
+    func isSaved(title:String) -> MovieModel? {
+        
+        let realm = try! Realm()
+        if let object = realm.objects(MovieModel.self).filter("title == %@", title).first {
+            return object
+        }
+        return nil
     }
     
 }

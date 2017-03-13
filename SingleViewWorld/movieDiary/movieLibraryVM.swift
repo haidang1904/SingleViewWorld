@@ -16,11 +16,9 @@ class movieLibraryVM {
     init(isWatched : Int) {
         //Log.test("movieLibraryVM initialized")
         getFromDB(isWatched: isWatched)
-        Log.test("movieLibraryVM init")
     }
     
     func getFromDB(isWatched : Int) {
-        //Log.test("movieLibraryVM getFromDB()")
         movieObject.removeAll()
         let realm = try! Realm()
         let movies = realm.objects(MovieModel.self).filter("isWatched = %@", isWatched)

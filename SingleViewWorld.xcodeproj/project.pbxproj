@@ -399,12 +399,12 @@
 			children = (
 				56FE400C1E4A0BC700122B3B /* model */,
 				34319D8E1E49912400A4731B /* movieDiarySB.storyboard */,
+				34319D8C1E49910700A4731B /* movieSearchVC.swift */,
 				34319D901E49929D00A4731B /* movieSearchVM.swift */,
 				3482C4A31E4D5ED300842B9C /* SearchDetailsVC.swift */,
 				3482C4EC1E51C18600842B9C /* SearchDetailsVM.swift */,
 				3482C4E81E51BA6000842B9C /* movieDiaryBaseVC.swift */,
 				3482C4EA1E51BAA500842B9C /* movieDiaryBaseVM.swift */,
-				34319D8C1E49910700A4731B /* movieSearchVC.swift */,
 				34D1640C1E5ACFD60060323C /* movieLibraryVC.swift */,
 				34DB52CF1E5ADA53008EA04A /* movieLibraryVM.swift */,
 				34A71E3C1E6D711A001411A4 /* pageContentsVC.swift */,
