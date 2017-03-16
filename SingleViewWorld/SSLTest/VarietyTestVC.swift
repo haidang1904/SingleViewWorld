@@ -48,7 +48,7 @@ import RxSwift
 
         VarietyTest.appsData
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext : { [weak self] (mode:Bool) in
+            .subscribe(onNext : { (mode:Bool) in
                 
                 })
             .addDisposableTo(disposeBag)

@@ -379,7 +379,7 @@ SWIFT_CLASS("_TtC9SmartView10BasePlayer")
   \param completionHandler callback handler of OnDisconnect
 
 */
-- (void)disconnect:(BOOL)leaveHostRunning completionHandler:(void (^ _Nullable)(NSError * _Nullable))completionHandler;
+- (void)disconnect:(void (^ _Nullable)(NSError * _Nullable))completionHandler;
 /**
   Play last sent media contents.
 */
@@ -436,7 +436,6 @@ SWIFT_CLASS("_TtC9SmartView10BasePlayer")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
-enum AudioRepeatMode : NSInteger;
 @protocol AudioPlayerDelegate;
 
 /**
@@ -487,18 +486,9 @@ SWIFT_CLASS("_TtC9SmartView11AudioPlayer")
 */
 - (void)repeat;
 /**
-  Set player list mode
-  Supported mode: repeatAll,repeatOff,repeatSingle
-*/
-- (void)setRepeat:(enum AudioRepeatMode)mode;
-/**
   shuffle player list.
 */
 - (void)shuffle;
-/**
-  shuffle player list.
-*/
-- (void)shuffle:(BOOL)mode;
 /**
   request player list i.e currently playing on TV.
 */
@@ -538,25 +528,6 @@ SWIFT_CLASS("_TtC9SmartView11AudioPlayer")
 */
 - (void)onMessage:(NSNotification * _Null_unspecified)notification;
 @end
-
-/**
-  Enum for Player list mode
-  Supported mode: repeatAll,repeatOff,repeatSingle
-*/
-typedef SWIFT_ENUM(NSInteger, AudioRepeatMode) {
-/**
-  Repeat Off
-*/
-  AudioRepeatModeRepeatOff = 0,
-/**
-  Repeat Single
-*/
-  AudioRepeatModeRepeatSingle = 1,
-/**
-  repeat All
-*/
-  AudioRepeatModeRepeatAll = 2,
-};
 
 
 SWIFT_PROTOCOL("_TtP9SmartView19AudioPlayerDelegate_")
@@ -720,10 +691,6 @@ SWIFT_PROTOCOL("_TtP9SmartView19AudioPlayerDelegate_")
 @end
 
 
-@interface Channel (SWIFT_EXTENSION(SmartView))
-@end
-
-
 /**
   A client currently connected to the channel
 */
@@ -818,6 +785,20 @@ SWIFT_PROTOCOL("_TtP9SmartView15ChannelDelegate_")
 - (void)onError:(NSError * _Nonnull)error;
 @end
 
+/**
+  enum or Click type ex. left or right click.
+*/
+typedef SWIFT_ENUM(NSInteger, ClickType) {
+/**
+  left click of remote
+*/
+  ClickTypeLeft = 0,
+/**
+  right click of remote
+*/
+  ClickTypeRight = 1,
+};
+
 
 /**
   The Connection delegate protocol defines the event methods available for channel Connection/DisConnection.
@@ -868,6 +849,157 @@ SWIFT_PROTOCOL("_TtP9SmartView18ConnectionDelegate_")
 */
 - (void)onPlayerNotice:(NSDictionary<NSString *, id> * _Nonnull)messageData;
 @end
+
+enum GamepadkeyValue : NSInteger;
+enum GamepadkeyEventTypes : NSInteger;
+@protocol GamepadControlDelegate;
+
+/**
+  Gamepad Control Class provides handle to the USER through which keys/events can be send to the Game on the TV
+*/
+SWIFT_CLASS("_TtC9SmartView14GamepadControl")
+@interface GamepadControl : NSObject
+@property (nonatomic, weak) id <GamepadControlDelegate> _Nullable delegate;
+@property (nonatomic, readonly) BOOL connected;
+@property (nonatomic) NSUInteger mouseEventsMinInterval;
+@property (nonatomic, readonly, strong) Service * _Nonnull service;
+/**
+  Method to connect to the TV on which Game is played
+  \param attributes Optional - Dictionary with phone details
+
+  \param completionHandler callback handler to check for error or successful runs
+
+*/
+- (void)connectWithAtributes:(NSDictionary<NSString *, NSString *> * _Nullable)attributes completionHandler:(void (^ _Nullable)(NSError * _Nullable))completionHandler;
+/**
+  Disconnect the TV
+  \param completionHandler <#completionHandler description#>
+
+*/
+- (void)disconnect:(void (^ _Nullable)(NSError * _Nullable))completionHandler;
+/**
+  API to send Gamepad keys with there Event types
+  \param key Gamepad key Value.
+
+  \param event Gamepad key Event Types.
+
+  \param keyOperation key Operation.
+
+*/
+- (void)sendGamepadKey:(enum GamepadkeyValue)key event:(enum GamepadkeyEventTypes)event keyOperation:(NSInteger)keyOperation;
+/**
+  API to send joystick coordinates for both left and right joystick
+  \param byX X movement
+
+  \param byY Y movement
+
+  \param event Gamepad key Event Types
+
+*/
+- (void)sendGamepadMoveByX:(NSInteger)byX byY:(NSInteger)byY event:(enum GamepadkeyEventTypes)event;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+@interface GamepadControl (SWIFT_EXTENSION(SmartView)) <ChannelDelegate>
+/**
+  Event Recieved after finishing connecting to channel.
+  <ul>
+    <li>
+      _client: channel client
+    </li>
+  </ul>
+  \param error error object containing the details about the problem if connection fails, otherwise nil.
+
+*/
+- (void)onConnect:(ChannelClient * _Nullable)client error:(NSError * _Nullable)error;
+/**
+  Event Recieved after disconnection from channel.
+  <ul>
+    <li>
+      _client: channel client
+    </li>
+  </ul>
+  \param error error object containing the details about the problem if connection fails, otherwise nil.
+
+*/
+- (void)onDisconnect:(ChannelClient * _Nullable)client error:(NSError * _Nullable)error;
+@end
+
+
+/**
+  Protocol for Gamepad with optional connection and disconnet function
+*/
+SWIFT_PROTOCOL("_TtP9SmartView22GamepadControlDelegate_")
+@protocol GamepadControlDelegate
+@optional
+/**
+  Called after finishing connecting to device.
+  \param error Error object containing the details about the problem if connection fails, otherwise nil.
+
+*/
+- (void)onConnect:(NSError * _Nullable)error;
+/**
+  Called after finishing disconnecting from device.
+  \param error Error object containing the details about the problem if disconnection fails, otherwise nil.
+
+*/
+- (void)onDisconnect:(NSError * _Nullable)error;
+@end
+
+/**
+  Gamepad Valid Key Event Types.
+*/
+typedef SWIFT_ENUM(NSInteger, GamepadkeyEventTypes) {
+  GamepadkeyEventTypesGamepad_key = 0,
+  GamepadkeyEventTypesGamepad_abs = 1,
+  GamepadkeyEventTypesGamepad_left = 2,
+  GamepadkeyEventTypesGamepad_right = 3,
+};
+
+/**
+  Gamepad Valid Key Values expected from USER of Application
+*/
+typedef SWIFT_ENUM(NSInteger, GamepadkeyValue) {
+  GamepadkeyValueAbs_X = 0,
+  GamepadkeyValueAbs_Y = 1,
+  GamepadkeyValueAbs_Z = 2,
+  GamepadkeyValueAbs_RX = 3,
+  GamepadkeyValueAbs_RY = 4,
+  GamepadkeyValueAbs_RZ = 5,
+  GamepadkeyValueAbs_HAT0X = 6,
+  GamepadkeyValueAbs_HAT0Y = 7,
+  GamepadkeyValueBtn_1 = 8,
+  GamepadkeyValueBtn_A = 9,
+  GamepadkeyValueBtn_B = 10,
+  GamepadkeyValueBtn_C = 11,
+  GamepadkeyValueBtn_X = 12,
+  GamepadkeyValueBtn_Y = 13,
+  GamepadkeyValueBtn_Z = 14,
+  GamepadkeyValueBtn_L1 = 15,
+  GamepadkeyValueBtn_R1 = 16,
+  GamepadkeyValueBtn_LB = 17,
+  GamepadkeyValueBtn_RB = 18,
+  GamepadkeyValueBtn_LT = 19,
+  GamepadkeyValueBtn_RT = 20,
+  GamepadkeyValueBtn_SELECT = 21,
+  GamepadkeyValueBtn_START = 22,
+  GamepadkeyValueBtn_MODE = 23,
+  GamepadkeyValueBtn_BACK = 24,
+  GamepadkeyValueBtn_TUMBL = 25,
+  GamepadkeyValueBtn_TUMBR = 26,
+};
+
+typedef SWIFT_ENUM(NSInteger, IMEInputType) {
+/**
+  Input type is default.
+*/
+  IMEInputTypeDefault = 0,
+/**
+  Input type is password.
+*/
+  IMEInputTypePassword = 1,
+};
 
 
 /**
@@ -1143,6 +1275,180 @@ SWIFT_PROTOCOL("_TtP9SmartView19PhotoPlayerDelegate_")
 - (void)onError:(NSError * _Nonnull)error;
 @end
 
+@protocol RemoteControlDelegate;
+
+/**
+  Allows to send remote control commands to device.
+  RemoteControl instance should be created by calling service.createRemoteControl().
+*/
+SWIFT_CLASS("_TtC9SmartView13RemoteControl")
+@interface RemoteControl : NSObject
+/**
+  Delegate to handle remote control events.
+*/
+@property (nonatomic, weak) id <RemoteControlDelegate> _Nullable delegate;
+/**
+  True if remote control is connected to device and ready to use.
+*/
+@property (nonatomic, readonly) BOOL connected;
+/**
+  True if mouse pointer can be used to control device.
+  sendMouseMove and sendMouseClick methods work only when this property has true value.
+*/
+@property (nonatomic, readonly) BOOL pointerEnabled;
+/**
+  True if IME input is currently active (meaning that some text input field is focused on TV and onscreen keyboard is shown).
+*/
+@property (nonatomic, readonly) BOOL IMEActive;
+/**
+  Type of currently active IME text field on TV.
+*/
+@property (nonatomic, readonly) enum IMEInputType IMECurrentType;
+@property (nonatomic, readonly, copy) NSString * _Nonnull IMECurrentText;
+@property (nonatomic, readonly) BOOL voiceSupported;
+@property (nonatomic, readonly) BOOL gamePadSupported;
+@property (nonatomic, readonly) BOOL smartHubAgreement;
+@property (nonatomic, readonly) BOOL imeSyncedSupported;
+@property (nonatomic, readonly) BOOL edenSupported;
+@property (nonatomic, readonly, copy) NSString * _Nullable countryCode;
+/**
+  Sets the minimum time period for which mouse movement events are sent to device, in milliseconds.
+  RemoteControl guarantees that mouse movement events initiated by sendMouseMove will be actually sent to device not more often than given value in milliseconds.
+  In case sendMouseMove is called more often, the (x,y) delta is accumulated for the mouseEventsMinInterval milliseconds and final delta is sent to device
+  after the given time interval passes.
+  Default value is 20 ms.
+*/
+@property (nonatomic) NSUInteger mouseEventsMinInterval;
+/**
+  The Service object linked with device controlled by the RemoteControl instance.
+*/
+@property (nonatomic, readonly, strong) Service * _Nonnull service;
+/**
+  Connect to device. Any commands can be sent to device only after connection succeeds.
+  \param attributes Any attributes you want to associate with the connecting device (client). Currently only “name” attribute is supported,
+  which sets the name of a connecting mobile device to be visible by TV.
+
+  \param completionHandler Optional closure to handle connection result.
+
+*/
+- (void)connectWithAttributes:(NSDictionary<NSString *, NSString *> * _Nullable)attributes completionHandler:(void (^ _Nullable)(NSError * _Nullable))completionHandler;
+/**
+  Disconnect from device.
+  \param completionHandler Optional closure to handle disconnection result
+
+*/
+- (void)disconnect:(void (^ _Nullable)(NSError * _Nullable))completionHandler;
+/**
+  Send given key command to device.
+  \param keyName The name of the key to be sent.
+
+  \param command The type of command to use. Available command types are: “Click”, “Press”, “Release”.
+  Default value is “Click”.
+
+*/
+- (void)sendRemoteKey:(NSString * _Nonnull)keyName command:(NSString * _Nonnull)command;
+/**
+  Send given text for currently active input field on the connected device.
+  \param input The string to be sent as input.
+
+*/
+- (void)sendInputString:(NSString * _Nonnull)input;
+/**
+  Notify connected device that the input for currently active text field has ended (equivalent to pressing “Done” button).
+*/
+- (void)sendInputEnd;
+/**
+  Send mouse movement event to TV.
+  This method does nothing if pointerEnabled property is set to false.
+  \param byX Delta value to move mouse cursor by X axis.
+
+  \param byY Delta value to move mouse cursor by Y axis.
+
+*/
+- (void)sendMouseMoveByX:(NSInteger)byX byY:(NSInteger)byY;
+/**
+  Send mouse click event to TV.
+  This method does nothing if pointerEnabled property is set to false.
+  \param type One of the values of ClickType enum to specify which button clicked. Default value is Left.
+
+*/
+- (void)sendMouseClick:(enum ClickType)type;
+/**
+  Send voice control command to TV.
+  \param payload Raw recorded voice data.
+
+*/
+- (void)sendVoice:(NSData * _Nonnull)payload;
+- (void)setSecurityModeWithSecurity:(BOOL)security completionHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completionHandler;
+- (BOOL)isSecurityMode;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
+@end
+
+
+@interface RemoteControl (SWIFT_EXTENSION(SmartView))
+- (void)publishEdenWithEvent:(NSString * _Nonnull)event message:(id _Nullable)message;
+@end
+
+
+@interface RemoteControl (SWIFT_EXTENSION(SmartView)) <ChannelDelegate>
+- (void)onConnect:(ChannelClient * _Nullable)client error:(NSError * _Nullable)error;
+- (void)onDisconnect:(ChannelClient * _Nullable)client error:(NSError * _Nullable)error;
+- (void)onMessage:(Message * _Nonnull)message;
+@end
+
+
+@interface RemoteControl (SWIFT_EXTENSION(SmartView))
+@end
+
+enum VoiceAppStatus : NSInteger;
+
+/**
+  Remote control delegate for connect,disconnect.input start,input end etc.
+*/
+SWIFT_PROTOCOL("_TtP9SmartView21RemoteControlDelegate_")
+@protocol RemoteControlDelegate
+@optional
+/**
+  Called when connected device started to accept keyboard input (e.g. when focus moved to some text field).
+*/
+- (void)onInputStart:(enum IMEInputType)inputType;
+/**
+  Called when connected device stopped accepting keyboard input (e.g. when a text field lost focus or user exited text input interface).
+*/
+- (void)onInputEnd;
+/**
+  Called when connected device changed text of the currently active input field (e.g. when user entered some text with hardware remote or cleared text field).
+  \param text Current text of the input field on connected device.
+
+*/
+- (void)onInputSync:(NSString * _Nonnull)text;
+/**
+  Called when connected device changes its mode in terms of ability to receive mouse events (mouse pointer movement and clicks).
+  \param enabled True if mouse events are enabled, otherwise false.
+
+*/
+- (void)onPointerEnabled:(BOOL)enabled;
+/**
+  Called after finishing connecting to device.
+  \param error Error object containing the details about the problem if connection fails, otherwise nil.
+
+*/
+- (void)onConnect:(NSError * _Nullable)error;
+/**
+  Called after finishing disconnecting from device.
+  \param error Error object containing the details about the problem if disconnection fails, otherwise nil.
+
+*/
+- (void)onDisconnect:(NSError * _Nullable)error;
+/**
+  Called after status of Voice Control changed.
+  \param status Status of voice control enabled app.
+
+*/
+- (void)onVoiceAppChange:(enum VoiceAppStatus)status;
+- (void)onMessage:(id _Nonnull)payload event:(NSString * _Nonnull)event;
+@end
+
 enum ServiceSearchDiscoveryType : NSInteger;
 @class VideoPlayer;
 @class ServiceSearch;
@@ -1154,7 +1460,6 @@ enum ServiceSearchDiscoveryType : NSInteger;
 SWIFT_CLASS("_TtC9SmartView7Service")
 @interface Service : NSObject
 @property (nonatomic, readonly) enum ServiceSearchDiscoveryType discoveryType;
-@property (nonatomic) BOOL isDummy;
 /**
   The id of the service
 */
@@ -1175,6 +1480,12 @@ SWIFT_CLASS("_TtC9SmartView7Service")
   The type of the service (Samsung SmartTV)
 */
 @property (nonatomic, readonly, copy) NSString * _Nonnull type;
+@property (nonatomic, readonly) BOOL voiceControlSupported;
+@property (nonatomic, readonly) BOOL gamePadSupported;
+@property (nonatomic, readonly) BOOL smartHubAgreement;
+@property (nonatomic, readonly) BOOL edenSupported;
+@property (nonatomic, readonly) BOOL imeSyncedSupported;
+@property (nonatomic, readonly, copy) NSString * _Nullable countryCode;
 /**
   The service description
 */
@@ -1228,6 +1539,20 @@ SWIFT_CLASS("_TtC9SmartView7Service")
   A Channel instance
 */
 - (Channel * _Nonnull)createChannel:(NSString * _Nonnull)channelURI;
+/**
+  Creates remote control for the device represented by the service
+
+  returns:
+  A RemoteControl instance or nil if the service does not support Remote Control API
+*/
+- (RemoteControl * _Nullable)createRemoteControl;
+/**
+  Creates Gamepad Control for the device represented by the service
+
+  returns:
+  A GamepadControl instance to support API
+*/
+- (GamepadControl * _Nullable)createGamepadControl;
 /**
   Creates video player instance
   \param appName 
@@ -1332,10 +1657,6 @@ SWIFT_CLASS("_TtC9SmartView7Service")
 */
 + (void)WakeOnWirelessAndConnect:(NSString * _Nonnull)macAddr uri:(NSString * _Nonnull)uri timeOut:(NSTimeInterval)timeOut completionHandler:(void (^ _Nonnull)(Service * _Nullable, NSError * _Nullable))completionHandler;
 - (void)isSecurityModeSupportedWithCompletionHandler:(void (^ _Nonnull)(BOOL, NSError * _Nullable))completionHandler;
-/**
-  Tries to Remove the standby service from the DB
-*/
-- (void)remove;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 @end
 
@@ -1384,15 +1705,9 @@ SWIFT_CLASS("_TtC9SmartView13ServiceSearch")
 */
 - (void)off:(id _Nonnull)observer;
 /**
-  Start searching for devices
+  Start discovering TV on Network/Bluetooth
 */
 - (void)start;
-/**
-  Start searching for devices, overloaded function
-  \param showStandByTv false if Standby devices not to be shown
-
-*/
-- (void)start:(BOOL)showStandByTv;
 /**
   check bluetooth searching is on or off
 
@@ -1418,7 +1733,6 @@ SWIFT_CLASS("_TtC9SmartView13ServiceSearch")
   Stops the Device discovery.
 */
 - (void)stop;
-- (BOOL)getStandByMode;
 @end
 
 
@@ -1427,16 +1741,6 @@ SWIFT_CLASS("_TtC9SmartView13ServiceSearch")
 
 
 @interface ServiceSearch (SWIFT_EXTENSION(SmartView))
-@end
-
-
-@interface ServiceSearch (SWIFT_EXTENSION(SmartView))
-/**
-  Clear the standby devices from the DB
-  \param None No parameter required
-
-*/
-- (void)clearStandbyDevices;
 @end
 
 
@@ -1494,19 +1798,6 @@ typedef SWIFT_ENUM(NSInteger, ServiceSearchDiscoveryType) {
   ServiceSearchDiscoveryTypeCLOUD = 1,
 };
 
-
-SWIFT_CLASS("_TtC9SmartView13TVDataManager")
-@interface TVDataManager : NSObject
-SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, strong) TVDataManager * _Nonnull sharedInstance;)
-+ (TVDataManager * _Nonnull)sharedInstance;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-@end
-
-
-@interface TVDataManager (SWIFT_EXTENSION(SmartView))
-@end
-
-enum VideoRepeatMode : NSInteger;
 @protocol VideoPlayerDelegate;
 
 /**
@@ -1557,11 +1848,6 @@ SWIFT_CLASS("_TtC9SmartView11VideoPlayer")
 */
 - (void)repeat;
 /**
-  Set player list mode
-  Supported mode: repeatAll,repeatOff,repeatSingle
-*/
-- (void)setRepeat:(enum VideoRepeatMode)mode;
-/**
   resumes TV widget/application from background process.
   \param completionHandler The response completion closure, it will be executed in the request queue i.e. in a backgound thread.
 
@@ -1604,25 +1890,6 @@ SWIFT_CLASS("_TtC9SmartView11VideoPlayer")
 */
 - (void)onMessage:(NSNotification * _Null_unspecified)notification;
 @end
-
-/**
-  Enum for Player list mode
-  Supported mode: repeatAll,repeatOff,repeatSingle
-*/
-typedef SWIFT_ENUM(NSInteger, VideoRepeatMode) {
-/**
-  Repeat Off
-*/
-  VideoRepeatModeRepeatOff = 0,
-/**
-  Repeat Single
-*/
-  VideoRepeatModeRepeatSingle = 1,
-/**
-  repeat All
-*/
-  VideoRepeatModeRepeatAll = 2,
-};
 
 
 /**
@@ -1775,6 +2042,28 @@ SWIFT_PROTOCOL("_TtP9SmartView19VideoPlayerDelegate_")
 */
 - (void)onError:(NSError * _Nonnull)error;
 @end
+
+/**
+  enum for voice app status
+*/
+typedef SWIFT_ENUM(NSInteger, VoiceAppStatus) {
+/**
+  Voice app is in hidden state.
+*/
+  VoiceAppStatusHidden = 0,
+/**
+  voice app is in Recording state.
+*/
+  VoiceAppStatusRecording = 1,
+/**
+  voice app is in Processing mode.
+*/
+  VoiceAppStatusProcessing = 2,
+/**
+  voice app is in Standby mode.
+*/
+  VoiceAppStatusStandby = 3,
+};
 
 @class NSStream;
 

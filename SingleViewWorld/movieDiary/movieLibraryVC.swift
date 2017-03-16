@@ -12,7 +12,7 @@ class movieLibraryVC: UIViewController {
 
     var pageIndex = 0
     var viewModel : movieLibraryVM? = nil
-    var showDetailView: ((_ selectedMovie: MovieModel?) -> Void)? = nil
+    var showDetailViewFromLibrary: ((_ selectedMovie: MovieModel?) -> Void)? = nil
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var movieLibraryCollection: UICollectionView!
@@ -56,7 +56,7 @@ extension movieLibraryVC : UICollectionViewDelegate, UICollectionViewDataSource,
         collectionView.deselectItem(at: indexPath, animated: false)
         Log.test("didSelectItemAt \(indexPath.row)")
         if let movieInfo = viewModel?.getMovieInfo(indexPath: indexPath) {
-            self.showDetailView?(movieInfo)
+            self.showDetailViewFromLibrary?(movieInfo)
         }
         
     }

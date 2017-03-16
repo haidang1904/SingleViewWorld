@@ -14,7 +14,7 @@ import SDWebImage
 
     let viewModel = movieSearchVM()
     fileprivate let disposeBag = DisposeBag()
-    var showDetailView: ((_ selectedMovie: MovieModel?) -> Void)? = nil
+    var showDetailViewFromSearch: ((_ selectedMovie: MovieModel?) -> Void)? = nil
     
     @IBOutlet weak var searchResultTable: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
@@ -59,7 +59,6 @@ import SDWebImage
         let backItem = UIBarButtonItem()
         backItem.title = "Back to"
         self.navigationItem.backBarButtonItem = backItem
-        // Do any additional setup after loading the view.
         
         searchTextField.becomeFirstResponder()
     }
@@ -86,7 +85,7 @@ extension movieSearchVC: UITableViewDelegate,UITableViewDataSource {
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         tableView.deselectRow(at: indexPath, animated: false)
         if let movieInfo = viewModel.getMovieInfo((indexPath as NSIndexPath).row) {
-            self.showDetailView?(movieInfo)
+            self.showDetailViewFromSearch?(movieInfo)
         }
     }
     

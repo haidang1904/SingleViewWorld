@@ -77,13 +77,13 @@ static NSString *cellID = @"MenuCollectionViewCell";
                  ];
     
     self.title = @"Module test";
-    //self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"back" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.view.backgroundColor = [UIColor blackColor];
 
-    // collection view init
+    
     self.MenuView.scrollEnabled =YES;
     self.MenuView.delegate = self;
     self.MenuView.dataSource = self;
-    self.MenuView.backgroundColor = [UIColor whiteColor];
+    self.MenuView.backgroundColor = [UIColor blackColor];
     [self.MenuView registerNib:[UINib nibWithNibName:cellID bundle:nil] forCellWithReuseIdentifier:cellID];
     
     [self.btnChangeAP setTitle:[self currentWifiSSID] forState:UIControlStateNormal];
@@ -100,20 +100,12 @@ static NSString *cellID = @"MenuCollectionViewCell";
 
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};
 }
 
 #pragma mark - UICollectionViewDelegate, UICollectionViewDataSource
-
-//-(void)
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -130,9 +122,6 @@ static NSString *cellID = @"MenuCollectionViewCell";
     _cell.backgroundColor = [UIColor lightGrayColor];
     _cell.label.text = [self dispMenu:indexPath.row];
     
-    //CALayer *mylayer = [_cell layer];
-    //[mylayer setCornerRadius:10];
-   
     return _cell;
 }
 

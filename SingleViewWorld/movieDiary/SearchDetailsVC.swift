@@ -56,10 +56,12 @@ class SearchDetailsVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
         //self.navigationController?.isNavigationBarHidden = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(false)
         //self.navigationController?.isNavigationBarHidden = false
     }
     func addFloatingActionButton() {
@@ -67,7 +69,7 @@ class SearchDetailsVC: UIViewController {
         fab.addItem(item: createFloatingButton(title: "Back To Library", handler: { [weak self] items in self?.closeButtonAction(nil)}))
         
         if let value = viewModel?.movieDetail?.isWatched.value {
-            fab.addItem(item: createFloatingButton(title: "Delete From List", handler: { [weak self] items in self?.viewModel?.deleteMovie()}))
+            fab.addItem(item: createFloatingButton(title: "Delete From List", handler: { [weak self] items in self?.showAlertView()}))
             if value == 1 {
                 fab.addItem(item: createFloatingButton(title: "Add Watched", handler: { [weak self] items in self?.viewModel?.saveMovie(isWatched: 0)}))
             }
@@ -129,7 +131,7 @@ class SearchDetailsVC: UIViewController {
     
     func showAlertView() {
         let title = String(htmlEncodedString: (viewModel?.movieDetail?.title)!)
-        let message = "영화를 삭제합니다."
+        let message = "영화를 리스트에서 삭제하고 이전화면으로 돌아갑니다."
         let cancelMsg = "CANCEL"
         let okMsg = "OK"
         

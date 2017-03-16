@@ -53,7 +53,7 @@
                     </connections>
                 </button>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="7Sh-Ha-nRS">
-                    <rect key="frame" x="5" y="10" width="365" height="607"/>
+                    <rect key="frame" x="5" y="0.0" width="365" height="617"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KJc-L4-7tz">
                         <size key="itemSize" width="100" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -62,7 +62,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5ao-a8-7hX">
-                    <rect key="frame" x="5" y="10" width="365" height="607"/>
+                    <rect key="frame" x="5" y="0.0" width="365" height="617"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -73,7 +73,7 @@
                 <constraint firstItem="sEu-jd-jM7" firstAttribute="top" secondItem="VOe-vh-67a" secondAttribute="top" id="Jhl-ec-Gdh"/>
                 <constraint firstItem="Hay-gl-4JR" firstAttribute="top" secondItem="VOe-vh-67a" secondAttribute="top" id="Nna-N6-nlk"/>
                 <constraint firstItem="sEu-jd-jM7" firstAttribute="centerX" secondItem="VOe-vh-67a" secondAttribute="centerX" multiplier="1.5" id="R0j-Bw-Bym"/>
-                <constraint firstItem="7Sh-Ha-nRS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="UEj-hd-Fbz"/>
+                <constraint firstItem="7Sh-Ha-nRS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="UEj-hd-Fbz"/>
                 <constraint firstItem="5ao-a8-7hX" firstAttribute="leading" secondItem="7Sh-Ha-nRS" secondAttribute="leading" id="ahj-O4-Rnz"/>
                 <constraint firstItem="5ao-a8-7hX" firstAttribute="top" secondItem="7Sh-Ha-nRS" secondAttribute="top" id="drM-WH-e1A"/>
                 <constraint firstAttribute="bottom" secondItem="Hay-gl-4JR" secondAttribute="bottom" constant="10" id="jk6-SW-BGB"/>

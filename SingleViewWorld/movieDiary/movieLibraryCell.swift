@@ -21,6 +21,7 @@ class movieLibraryCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        self.deleteImageView.isHidden = true
         self.labelView.backgroundColor = UIColor.black
         self.labelView.textColor = UIColor.white
         self.labelView.alpha = 0.65

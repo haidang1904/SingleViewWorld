@@ -8,6 +8,8 @@
 
 import UIKit
 import RxSwift
+import GoogleMobileAds
+import Firebase
 
 @objc open class movieDiaryBaseVC: UIViewController {
 
@@ -17,6 +19,9 @@ import RxSwift
     var pageViewController: UIPageViewController? = nil
     var contentVCs = [movieLibraryVC]()
     let sizeOfContentVCs = 2
+    let appID = "ca-app-pub-3940256099942544/1458002511"
+    let unitID = "ca-app-pub-3940256099942544/2934735716"
+    //@IBOutlet weak var bannerView: GADBannerView!
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +45,17 @@ import RxSwift
             self.pageViewController?.view.removeGestureRecognizer(tapGesture!)
         }
         pageViewController!.setViewControllers([initialController], direction: .forward, animated: false, completion: nil)
+        
+//        // Use Firebase library to configure APIs
+//        
+//        FIRApp.configure()
+//        // Initialize Google Mobile Ads SDK
+//        GADMobileAds.configure(withApplicationID: appID)
+//        
+//        print("Google Mobile Ads SDK version: \(GADRequest.sdkVersion())")
+//        bannerView.adUnitID = unitID
+//        bannerView.rootViewController = self
+//        bannerView.load(GADRequest())
     }
 
     override open func didReceiveMemoryWarning() {
@@ -49,6 +65,10 @@ import RxSwift
     
     override open func viewWillAppear(_ animated: Bool) {
         //Log.test("viewWillAppear")
+        
+        pageViewController?.view.backgroundColor = UIColor.darkGray
+        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
+        self.navigationController?.navigationBar.barTintColor = UIColor.darkGray
     }
 
     override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -56,7 +76,7 @@ import RxSwift
         if segue.identifier == "SearchSegue" {
              
             let vc = segue.destination as! movieSearchVC
-            vc.showDetailView = {
+            vc.showDetailViewFromSearch = {
                 [weak self] details in
                 self?.selectedMovieItem = details
                 self?.performSegue(withIdentifier: "SearchDetailSegue", sender: nil)
@@ -85,7 +105,7 @@ import RxSwift
     
     func setCustomButtonOnNavigationBar() {
         let buttonItem : UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "Search_Icon"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(movieDiaryBaseVC.presentSearch(_:)))
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.setRightBarButton(buttonItem, animated: false)
     }
     /*
@@ -145,7 +165,7 @@ extension movieDiaryBaseVC: UIPageViewControllerDataSource {
     func newContentController(pageIndex: Int) -> movieLibraryVC {
         let viewController = self.storyboard!.instantiateViewController(withIdentifier: "movieLibraryVC") as! movieLibraryVC
         viewController.pageIndex = pageIndex
-        viewController.showDetailView = {
+        viewController.showDetailViewFromLibrary = {
             [weak self] details in
             self?.selectedMovieItem = details
             self?.performSegue(withIdentifier: "SearchDetailSegue", sender: nil)

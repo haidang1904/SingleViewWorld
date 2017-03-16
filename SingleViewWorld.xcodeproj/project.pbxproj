@@ -70,6 +70,12 @@
 		34D1640D1E5ACFD60060323C /* movieLibraryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34D1640C1E5ACFD60060323C /* movieLibraryVC.swift */; };
 		34DB52D01E5ADA53008EA04A /* movieLibraryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DB52CF1E5ADA53008EA04A /* movieLibraryVM.swift */; };
 		34DB52D21E5ADF49008EA04A /* movieLibraryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34DB52D11E5ADF49008EA04A /* movieLibraryCell.swift */; };
+		34EAC3191E7926DB0036AD2F /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34EAC3181E7926DB0036AD2F /* AdSupport.framework */; };
+		34EAC31B1E7926E30036AD2F /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34EAC31A1E7926E30036AD2F /* CoreTelephony.framework */; };
+		34EAC31D1E792D3E0036AD2F /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34EAC31C1E792D3E0036AD2F /* MessageUI.framework */; };
+		34EAC31F1E792DA20036AD2F /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34EAC31E1E792DA20036AD2F /* StoreKit.framework */; };
+		34EAC3211E7933730036AD2F /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34EAC3201E7933730036AD2F /* SafariServices.framework */; };
+		34EAC3231E79484C0036AD2F /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34EAC3221E79484C0036AD2F /* AVKit.framework */; };
 		34EDBB771D3DC73D001743EF /* JPSVolumeButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 34EDBB761D3DC73D001743EF /* JPSVolumeButtonHandler.m */; };
 		34F774571D7E979D001ED21E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F774561D7E979D001ED21E /* Accelerate.framework */; };
 		34F774591D7E97A7001ED21E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34F774581D7E97A7001ED21E /* AudioToolbox.framework */; };
@@ -221,6 +227,12 @@
 		34D1640C1E5ACFD60060323C /* movieLibraryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = movieLibraryVC.swift; path = movieDiary/movieLibraryVC.swift; sourceTree = "<group>"; };
 		34DB52CF1E5ADA53008EA04A /* movieLibraryVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = movieLibraryVM.swift; path = movieDiary/movieLibraryVM.swift; sourceTree = "<group>"; };
 		34DB52D11E5ADF49008EA04A /* movieLibraryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = movieLibraryCell.swift; path = movieDiary/movieLibraryCell.swift; sourceTree = "<group>"; };
+		34EAC3181E7926DB0036AD2F /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		34EAC31A1E7926E30036AD2F /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		34EAC31C1E792D3E0036AD2F /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		34EAC31E1E792DA20036AD2F /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		34EAC3201E7933730036AD2F /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		34EAC3221E79484C0036AD2F /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		34EDBB751D3DC73D001743EF /* JPSVolumeButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JPSVolumeButtonHandler.h; path = LibFromGithub/JSPVolumeButtonHandler/JPSVolumeButtonHandler.h; sourceTree = "<group>"; };
 		34EDBB761D3DC73D001743EF /* JPSVolumeButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JPSVolumeButtonHandler.m; path = LibFromGithub/JSPVolumeButtonHandler/JPSVolumeButtonHandler.m; sourceTree = "<group>"; };
 		34F774561D7E979D001ED21E /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
@@ -320,8 +332,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34F774671D7E980E001ED21E /* UIKit.framework in Frameworks */,
+				34EAC3231E79484C0036AD2F /* AVKit.framework in Frameworks */,
+				34EAC3211E7933730036AD2F /* SafariServices.framework in Frameworks */,
+				34EAC31F1E792DA20036AD2F /* StoreKit.framework in Frameworks */,
 				34F774651D7E9805001ED21E /* SystemConfiguration.framework in Frameworks */,
+				34EAC31D1E792D3E0036AD2F /* MessageUI.framework in Frameworks */,
+				34EAC31B1E7926E30036AD2F /* CoreTelephony.framework in Frameworks */,
+				34EAC3191E7926DB0036AD2F /* AdSupport.framework in Frameworks */,
+				F1595A3A1B7C997D00D2DF42 /* CoreData.framework in Frameworks */,
+				34F774671D7E980E001ED21E /* UIKit.framework in Frameworks */,
 				34F774631D7E97FD001ED21E /* QuartzCore.framework in Frameworks */,
 				34F774611D7E97F5001ED21E /* MediaToolbox.framework in Frameworks */,
 				34F7745F1D7E97E9001ED21E /* MediaAccessibility.framework in Frameworks */,
@@ -334,7 +353,6 @@
 				340E46441D5481350027078C /* SpriteKit.framework in Frameworks */,
 				F1B73A761B954431003CFF05 /* MediaPlayer.framework in Frameworks */,
 				F1B73A6F1B942D8A003CFF05 /* AVFoundation.framework in Frameworks */,
-				F1595A3A1B7C997D00D2DF42 /* CoreData.framework in Frameworks */,
 				F16225791B68A654007E7D3E /* CoreBluetooth.framework in Frameworks */,
 				34319E4D1E4C449400A4731B /* SmartView.framework in Frameworks */,
 				F142DBD41B5F90D20076C14C /* AssetsLibrary.framework in Frameworks */,
@@ -531,6 +549,12 @@
 		E673AA006E03A53D14CE3253 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				34EAC3221E79484C0036AD2F /* AVKit.framework */,
+				34EAC3201E7933730036AD2F /* SafariServices.framework */,
+				34EAC31E1E792DA20036AD2F /* StoreKit.framework */,
+				34EAC31C1E792D3E0036AD2F /* MessageUI.framework */,
+				34EAC31A1E7926E30036AD2F /* CoreTelephony.framework */,
+				34EAC3181E7926DB0036AD2F /* AdSupport.framework */,
 				D903D39109D975208FF36BA1 /* libPods-SingleViewWorldTests.a */,
 				B33D26022D48B06F26991505 /* Pods_SingleViewWorld.framework */,
 			);
@@ -1189,8 +1213,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SingleViewWorld",
-					"$(PROJECT_DIR)/FRW/iphoneos+iphonesimulator",
-					"$(PROJECT_DIR)/FRW/iphoneos",
 					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = "${SRCROOT}/SingleViewWorld/SingleViewWorld-Prefix.pch";
@@ -1199,10 +1221,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/SingleViewWorld/CardGameMode/cocos2d",
 					"$(PROJECT_DIR)",
 				);
-				"LIBRARY_SEARCH_PATHS[arch=*]" = "";
 				LINK_WITH_STANDARD_LIBRARIES = YES;
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -1230,8 +1250,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SingleViewWorld",
-					"$(PROJECT_DIR)/FRW/iphoneos+iphonesimulator",
-					"$(PROJECT_DIR)/FRW/iphoneos",
 					"$(PROJECT_DIR)",
 				);
 				GCC_PREFIX_HEADER = "${SRCROOT}/SingleViewWorld/SingleViewWorld-Prefix.pch";
@@ -1240,7 +1258,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/SingleViewWorld/CardGameMode/cocos2d",
 					"$(PROJECT_DIR)",
 				);
 				LINK_WITH_STANDARD_LIBRARIES = YES;

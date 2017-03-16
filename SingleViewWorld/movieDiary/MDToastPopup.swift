@@ -43,7 +43,7 @@ class MDToastPopup: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     func showToastPopup(message:String, onView containerView:UIView) {
-        let popup : MDToastPopup
+        let _ : MDToastPopup
     }
 }
 /*

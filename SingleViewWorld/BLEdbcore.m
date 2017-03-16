@@ -41,7 +41,7 @@ NSString * const kEntityNameWowMac = @"WowMac";
     
     if (self != nil)
     {
-        self.appDelegate = [[UIApplication sharedApplication] delegate];
+        self.appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
         self.context = [self.appDelegate managedObjectContext];
     }
     
