@@ -99,6 +99,16 @@
 		32C1D4A875EB34EE237CE5CE9AE67A83 /* schema.cpp in Sources */ = {isa = PBXBuildFile; fileRef = BC03C78C9E7BAE472A5747869AE68DD0 /* schema.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.4\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		33A8F518ADCBA0D0AAA2C28D8C493685 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DA227884F8EC5C755A1C83EA87EB6B5F /* UIButton+WebCache.m */; };
 		34167FCCE14E8F77F258F7B59FB47102 /* DelaySubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E61E63B3846DAD12371C8D319F6499C /* DelaySubscription.swift */; };
+		343735731E8D212700DCF02A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343735721E8D212700DCF02A /* AVFoundation.framework */; };
+		343735791E8D246300DCF02A /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343735781E8D246300DCF02A /* JavaScriptCore.framework */; };
+		3437357B1E8D247800DCF02A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3437357A1E8D247800DCF02A /* MobileCoreServices.framework */; };
+		3437357D1E8D249200DCF02A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3437357C1E8D249200DCF02A /* CoreVideo.framework */; };
+		3437357F1E8D249B00DCF02A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3437357E1E8D249B00DCF02A /* CoreMotion.framework */; };
+		343735811E8D24AA00DCF02A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343735801E8D24AA00DCF02A /* OpenGLES.framework */; };
+		343735831E8D24B100DCF02A /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343735821E8D24B100DCF02A /* GLKit.framework */; };
+		3437358D1E8D257D00DCF02A /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3437358C1E8D257D00DCF02A /* SafariServices.framework */; };
+		3437358F1E8D258400DCF02A /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3437358E1E8D258400DCF02A /* CoreBluetooth.framework */; };
+		343735911E8D259500DCF02A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343735901E8D259500DCF02A /* CoreMedia.framework */; };
 		3470ED8A8AEEE99890A98BB37EC22B2B /* RLMProperty.mm in Sources */ = {isa = PBXBuildFile; fileRef = F98B355BD05518880C83B061EC3FF1AF /* RLMProperty.mm */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.4\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		3476EF2DD5D918D30AD8844A3F7EC6D1 /* object_notifier.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3D8B38F899A52E500F5D6B28C7BF87C8 /* object_notifier.cpp */; settings = {COMPILER_FLAGS = "-DREALM_HAVE_CONFIG -DREALM_COCOA_VERSION='@\"2.4.4\"' -D__ASSERTMACROS__ -DREALM_ENABLE_SYNC"; }; };
 		35E8CA67DEC919A6152AE88CFBADC41E /* KCFloatingActionButton-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 08087344D016DAC64FB6125CA871D7D1 /* KCFloatingActionButton-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -673,6 +683,16 @@
 		33590DF5D911ABFFD0371CDE5CD9A0AE /* placeholder.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; name = placeholder.cpp; path = Realm/ObjectStore/src/placeholder.cpp; sourceTree = "<group>"; };
 		33BC049A513C53E46C6780E4860E9802 /* RLMSyncConfiguration_Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RLMSyncConfiguration_Private.h; path = include/RLMSyncConfiguration_Private.h; sourceTree = "<group>"; };
 		33E9A8C9E83482C4DEE9DDCAD59FD66A /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		343735721E8D212700DCF02A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		343735781E8D246300DCF02A /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+		3437357A1E8D247800DCF02A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		3437357C1E8D249200DCF02A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/CoreVideo.framework; sourceTree = DEVELOPER_DIR; };
+		3437357E1E8D249B00DCF02A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
+		343735801E8D24AA00DCF02A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/OpenGLES.framework; sourceTree = DEVELOPER_DIR; };
+		343735821E8D24B100DCF02A /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/GLKit.framework; sourceTree = DEVELOPER_DIR; };
+		3437358C1E8D257D00DCF02A /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/SafariServices.framework; sourceTree = DEVELOPER_DIR; };
+		3437358E1E8D258400DCF02A /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/CoreBluetooth.framework; sourceTree = DEVELOPER_DIR; };
+		343735901E8D259500DCF02A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.2.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
 		364ECC8C8282B50EE49D8B4FC8104B9E /* InvocableScheduledItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InvocableScheduledItem.swift; path = RxSwift/Schedulers/Internal/InvocableScheduledItem.swift; sourceTree = "<group>"; };
 		39505DDB5FD126099E59BDD4B460EB27 /* RefCount.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RefCount.swift; path = RxSwift/Observables/Implementations/RefCount.swift; sourceTree = "<group>"; };
 		3966907F206DA988FEAD4604979AA631 /* RxSwift-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RxSwift-prefix.pch"; sourceTree = "<group>"; };
@@ -1007,6 +1027,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				343735911E8D259500DCF02A /* CoreMedia.framework in Frameworks */,
+				3437358F1E8D258400DCF02A /* CoreBluetooth.framework in Frameworks */,
+				3437358D1E8D257D00DCF02A /* SafariServices.framework in Frameworks */,
+				3437357B1E8D247800DCF02A /* MobileCoreServices.framework in Frameworks */,
+				343735831E8D24B100DCF02A /* GLKit.framework in Frameworks */,
+				343735811E8D24AA00DCF02A /* OpenGLES.framework in Frameworks */,
+				3437357F1E8D249B00DCF02A /* CoreMotion.framework in Frameworks */,
+				3437357D1E8D249200DCF02A /* CoreVideo.framework in Frameworks */,
+				343735791E8D246300DCF02A /* JavaScriptCore.framework in Frameworks */,
+				343735731E8D212700DCF02A /* AVFoundation.framework in Frameworks */,
 				0A4557B7D856E5BCE2E0CD501F843155 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1436,6 +1466,16 @@
 		6C714E4BED80B2F82A6DA8A26A88C74F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				343735901E8D259500DCF02A /* CoreMedia.framework */,
+				3437358E1E8D258400DCF02A /* CoreBluetooth.framework */,
+				3437358C1E8D257D00DCF02A /* SafariServices.framework */,
+				343735821E8D24B100DCF02A /* GLKit.framework */,
+				343735801E8D24AA00DCF02A /* OpenGLES.framework */,
+				3437357E1E8D249B00DCF02A /* CoreMotion.framework */,
+				3437357C1E8D249200DCF02A /* CoreVideo.framework */,
+				3437357A1E8D247800DCF02A /* MobileCoreServices.framework */,
+				343735781E8D246300DCF02A /* JavaScriptCore.framework */,
+				343735721E8D212700DCF02A /* AVFoundation.framework */,
 				246EB3837726573E0FFCC0A9481009D3 /* Realm.framework */,
 				88941FBD543E84D5D3172BD48A95290F /* iOS */,
 			);

@@ -82,6 +82,15 @@ class SearchDetailsVC: UIViewController {
         fab.openAnimationType = .fade
         fab.animationSpeed = 0.05
         self.view.addSubview(fab)
+        
+        /*
+         let dateFormatter = DateFormatter()
+         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+         let dateStart = dateFormatter.date(from: startTime)
+         let dateEnd = dateFormatter.date(from: endTime)
+         let dateCurrent = dateFormatter.date(from: currentTime)
+        */
     }
     
     func reLoadButton() {

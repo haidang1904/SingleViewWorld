@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import GoogleMobileAds
 import Firebase
+import AVFoundation
 
 @objc open class movieDiaryBaseVC: UIViewController {
 
@@ -21,7 +22,8 @@ import Firebase
     let sizeOfContentVCs = 2
     let appID = "ca-app-pub-3940256099942544/1458002511"
     let unitID = "ca-app-pub-3940256099942544/2934735716"
-    //@IBOutlet weak var bannerView: GADBannerView!
+    
+    @IBOutlet weak var bannerView: UIView!
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +48,7 @@ import Firebase
         }
         pageViewController!.setViewControllers([initialController], direction: .forward, animated: false, completion: nil)
         
+        bannerView.isHidden = true
 //        // Use Firebase library to configure APIs
 //        
 //        FIRApp.configure()

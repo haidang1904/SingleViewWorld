@@ -57,6 +57,7 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="bannerView" destination="PnF-Qg-OxF" id="j8v-Z1-4G7"/>
                         <segue destination="am9-uu-nuc" kind="show" identifier="SearchDetailSegue" id="bde-OU-cvf"/>
                         <segue destination="8JS-Po-dYr" kind="show" identifier="SearchSegue" id="W1P-dd-Y8O"/>
                     </connections>

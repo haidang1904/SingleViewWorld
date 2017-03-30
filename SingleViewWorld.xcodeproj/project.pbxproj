@@ -26,6 +26,12 @@
 		34319E731E4C450200A4731B /* SDKPrivateTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34319E6E1E4C450200A4731B /* SDKPrivateTestViewController.xib */; };
 		34319E741E4C450200A4731B /* SDKPrivateTestVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34319E6F1E4C450200A4731B /* SDKPrivateTestVM.swift */; };
 		34319E781E4C556800A4731B /* customImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34319E771E4C556800A4731B /* customImageManager.swift */; };
+		343735751E8D238A00DCF02A /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343735741E8D238A00DCF02A /* CoreMedia.framework */; };
+		343735771E8D23CE00DCF02A /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343735761E8D23CE00DCF02A /* JavaScriptCore.framework */; };
+		343735851E8D24B900DCF02A /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343735841E8D24B900DCF02A /* GLKit.framework */; };
+		343735871E8D24C100DCF02A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343735861E8D24C100DCF02A /* OpenGLES.framework */; };
+		343735891E8D24C900DCF02A /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 343735881E8D24C900DCF02A /* CoreMotion.framework */; };
+		3437358B1E8D24CF00DCF02A /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3437358A1E8D24CF00DCF02A /* CoreVideo.framework */; };
 		3452750A1DB5BA4000F7B2E1 /* VarietyTestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345275081DB5BA4000F7B2E1 /* VarietyTestVC.swift */; };
 		3452750B1DB5BA4000F7B2E1 /* VarietyTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 345275091DB5BA4000F7B2E1 /* VarietyTestVC.xib */; };
 		3452750D1DB5BA8700F7B2E1 /* VarietyTestVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3452750C1DB5BA8700F7B2E1 /* VarietyTestVM.swift */; };
@@ -183,6 +189,12 @@
 		34319E6E1E4C450200A4731B /* SDKPrivateTestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SDKPrivateTestViewController.xib; path = SDKPrivateTest/SDKPrivateTestViewController.xib; sourceTree = "<group>"; };
 		34319E6F1E4C450200A4731B /* SDKPrivateTestVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SDKPrivateTestVM.swift; path = SDKPrivateTest/SDKPrivateTestVM.swift; sourceTree = "<group>"; };
 		34319E771E4C556800A4731B /* customImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = customImageManager.swift; path = movieDiary/customImageManager.swift; sourceTree = "<group>"; };
+		343735741E8D238A00DCF02A /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		343735761E8D23CE00DCF02A /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		343735841E8D24B900DCF02A /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		343735861E8D24C100DCF02A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		343735881E8D24C900DCF02A /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		3437358A1E8D24CF00DCF02A /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 		345275081DB5BA4000F7B2E1 /* VarietyTestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VarietyTestVC.swift; path = SSLTest/VarietyTestVC.swift; sourceTree = "<group>"; };
 		345275091DB5BA4000F7B2E1 /* VarietyTestVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VarietyTestVC.xib; path = SSLTest/VarietyTestVC.xib; sourceTree = "<group>"; };
 		3452750C1DB5BA8700F7B2E1 /* VarietyTestVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VarietyTestVM.swift; path = SSLTest/VarietyTestVM.swift; sourceTree = "<group>"; };
@@ -332,12 +344,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34EAC3231E79484C0036AD2F /* AVKit.framework in Frameworks */,
+				348F5C481D62B3D000E24FA9 /* MobileCoreServices.framework in Frameworks */,
+				3437358B1E8D24CF00DCF02A /* CoreVideo.framework in Frameworks */,
+				343735891E8D24C900DCF02A /* CoreMotion.framework in Frameworks */,
+				343735871E8D24C100DCF02A /* OpenGLES.framework in Frameworks */,
+				343735851E8D24B900DCF02A /* GLKit.framework in Frameworks */,
+				343735771E8D23CE00DCF02A /* JavaScriptCore.framework in Frameworks */,
 				34EAC3211E7933730036AD2F /* SafariServices.framework in Frameworks */,
+				343735751E8D238A00DCF02A /* CoreMedia.framework in Frameworks */,
+				34EAC31B1E7926E30036AD2F /* CoreTelephony.framework in Frameworks */,
+				F1B73A6F1B942D8A003CFF05 /* AVFoundation.framework in Frameworks */,
+				34EAC3231E79484C0036AD2F /* AVKit.framework in Frameworks */,
 				34EAC31F1E792DA20036AD2F /* StoreKit.framework in Frameworks */,
 				34F774651D7E9805001ED21E /* SystemConfiguration.framework in Frameworks */,
 				34EAC31D1E792D3E0036AD2F /* MessageUI.framework in Frameworks */,
-				34EAC31B1E7926E30036AD2F /* CoreTelephony.framework in Frameworks */,
 				34EAC3191E7926DB0036AD2F /* AdSupport.framework in Frameworks */,
 				F1595A3A1B7C997D00D2DF42 /* CoreData.framework in Frameworks */,
 				34F774671D7E980E001ED21E /* UIKit.framework in Frameworks */,
@@ -349,10 +369,8 @@
 				F16080031C47573F003C3AE6 /* CoreGraphics.framework in Frameworks */,
 				34F774591D7E97A7001ED21E /* AudioToolbox.framework in Frameworks */,
 				34F774571D7E979D001ED21E /* Accelerate.framework in Frameworks */,
-				348F5C481D62B3D000E24FA9 /* MobileCoreServices.framework in Frameworks */,
 				340E46441D5481350027078C /* SpriteKit.framework in Frameworks */,
 				F1B73A761B954431003CFF05 /* MediaPlayer.framework in Frameworks */,
-				F1B73A6F1B942D8A003CFF05 /* AVFoundation.framework in Frameworks */,
 				F16225791B68A654007E7D3E /* CoreBluetooth.framework in Frameworks */,
 				34319E4D1E4C449400A4731B /* SmartView.framework in Frameworks */,
 				F142DBD41B5F90D20076C14C /* AssetsLibrary.framework in Frameworks */,
@@ -549,6 +567,12 @@
 		E673AA006E03A53D14CE3253 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3437358A1E8D24CF00DCF02A /* CoreVideo.framework */,
+				343735881E8D24C900DCF02A /* CoreMotion.framework */,
+				343735861E8D24C100DCF02A /* OpenGLES.framework */,
+				343735841E8D24B900DCF02A /* GLKit.framework */,
+				343735761E8D23CE00DCF02A /* JavaScriptCore.framework */,
+				343735741E8D238A00DCF02A /* CoreMedia.framework */,
 				34EAC3221E79484C0036AD2F /* AVKit.framework */,
 				34EAC3201E7933730036AD2F /* SafariServices.framework */,
 				34EAC31E1E792DA20036AD2F /* StoreKit.framework */,
