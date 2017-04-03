@@ -121,4 +121,8 @@ class SearchDetailsVM {
         self.movieDelegate?.eventHandler(code: .unknown)
         return .none
     }
+    
+
+    
+    
 }

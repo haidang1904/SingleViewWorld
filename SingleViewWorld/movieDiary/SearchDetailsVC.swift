@@ -22,20 +22,20 @@ class SearchDetailsVC: UIViewController {
     @IBOutlet weak var directorLabel: UILabel!
     @IBOutlet weak var actorLabel: UILabel!
     
+
+    @IBOutlet weak var saveView: UIView!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
-    
-    @IBAction func saveButtonAction(_ sender: UIButton) {
-        if saveButton.currentTitle == "SAVE" {
-            viewModel?.saveMovie(isWatched: 0)
-        } else {
-            showAlertView()
-        }
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var checkButton: UIButton!
+    @IBAction func checkButtonChange(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        Log.test("\(datePicker.date)")
     }
-    
     @IBAction func closeButtonAction(_ sender: UIButton?) {
-        
-        let _ = self.navigationController?.popViewController(animated: false)
+        self.saveView.isHidden = true
+    }
+    @IBAction func saveButtonAction(_ sender: UIButton) {
     }
     
     override func viewDidLoad() {
@@ -46,8 +46,7 @@ class SearchDetailsVC: UIViewController {
             fillOutDetails(model: model)
             addFloatingActionButton()
         }
-        saveButton.isHidden = true
-        closeButton.isHidden = true
+        self.saveView.isHidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,8 +74,10 @@ class SearchDetailsVC: UIViewController {
             }
         } else {
             fab.addItem(item: createFloatingButton(title: "Add Bucket", handler: { [weak self] items in self?.viewModel?.saveMovie(isWatched: 1)}))
-            fab.addItem(item: createFloatingButton(title: "Add Watched", handler: { [weak self] items in self?.viewModel?.saveMovie(isWatched: 0)}))
+            fab.addItem(item: createFloatingButton(title: "Add Watched", handler: { [weak self] items in self?.viewModel?.saveMovie(isWatched: 0)} ))
+            
         }
+        fab.addItem(item: createFloatingButton(title: "POPUP TEST", handler: {[weak self] _ in self?.presentSaveView()} ))
         
         fab.sticky = true
         fab.openAnimationType = .fade
@@ -91,6 +92,7 @@ class SearchDetailsVC: UIViewController {
          let dateEnd = dateFormatter.date(from: endTime)
          let dateCurrent = dateFormatter.date(from: currentTime)
         */
+        
     }
     
     func reLoadButton() {
@@ -167,7 +169,10 @@ class SearchDetailsVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    func presentSaveView() {
+        self.saveView.isHidden = false
+        //self.datePicker.setDate(Date(), animated: true)
+    }
 }
 
 extension SearchDetailsVC:SearchDetailDelegate {

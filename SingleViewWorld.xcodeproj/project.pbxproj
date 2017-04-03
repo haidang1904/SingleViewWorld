@@ -50,8 +50,6 @@
 		348F5C531D62CD0A00E24FA9 /* CardGameModeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 348F5C521D62CD0A00E24FA9 /* CardGameModeVM.swift */; };
 		34A71E3D1E6D711A001411A4 /* pageContentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A71E3C1E6D711A001411A4 /* pageContentsVC.swift */; };
 		34A71E3F1E713DFE001411A4 /* movieDiaryPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A71E3E1E713DFD001411A4 /* movieDiaryPopUpVC.swift */; };
-		34A71E411E7144AD001411A4 /* MDToastPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A71E401E7144AD001411A4 /* MDToastPopup.swift */; };
-		34A71E431E725F24001411A4 /* MDToastPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34A71E421E725F24001411A4 /* MDToastPopup.xib */; };
 		34A73A121DE2FE1400645108 /* LocalNotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A73A111DE2FE1400645108 /* LocalNotificationVC.swift */; };
 		34C674671D6570B9000138DD /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 34C674661D6570B9000138DD /* Sprites.atlas */; };
 		34C674BA1D65779F000138DD /* CandyCrushVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C674B81D65779F000138DD /* CandyCrushVC.swift */; };
@@ -213,8 +211,6 @@
 		348F5C521D62CD0A00E24FA9 /* CardGameModeVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardGameModeVM.swift; path = CardGameMode/CardGameModeVM.swift; sourceTree = "<group>"; };
 		34A71E3C1E6D711A001411A4 /* pageContentsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = pageContentsVC.swift; path = movieDiary/pageContentsVC.swift; sourceTree = "<group>"; };
 		34A71E3E1E713DFD001411A4 /* movieDiaryPopUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = movieDiaryPopUpVC.swift; path = movieDiary/movieDiaryPopUpVC.swift; sourceTree = "<group>"; };
-		34A71E401E7144AD001411A4 /* MDToastPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MDToastPopup.swift; path = movieDiary/MDToastPopup.swift; sourceTree = "<group>"; };
-		34A71E421E725F24001411A4 /* MDToastPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MDToastPopup.xib; path = movieDiary/MDToastPopup.xib; sourceTree = "<group>"; };
 		34A73A111DE2FE1400645108 /* LocalNotificationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocalNotificationVC.swift; path = JsonParser/LocalNotificationVC.swift; sourceTree = "<group>"; };
 		34C674661D6570B9000138DD /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; name = Sprites.atlas; path = CandyCrushGame/Sprites.atlas; sourceTree = "<group>"; };
 		34C674B81D65779F000138DD /* CandyCrushVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CandyCrushVC.swift; path = CandyCrushGame/CandyCrushVC.swift; sourceTree = "<group>"; };
@@ -558,8 +554,6 @@
 				56FE402A1E4A0BDF00122B3B /* MovieModel.swift */,
 				34DB52D11E5ADF49008EA04A /* movieLibraryCell.swift */,
 				34A71E3E1E713DFD001411A4 /* movieDiaryPopUpVC.swift */,
-				34A71E401E7144AD001411A4 /* MDToastPopup.swift */,
-				34A71E421E725F24001411A4 /* MDToastPopup.xib */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -954,7 +948,6 @@
 				F1B73A7C1B959268003CFF05 /* MusicListTableViewCell.xib in Resources */,
 				348F5C511D62CCF400E24FA9 /* CardGameModeVC.xib in Resources */,
 				F1FF538A1CD21C0E00A3F3BD /* macDbTableViewCell.xib in Resources */,
-				34A71E431E725F24001411A4 /* MDToastPopup.xib in Resources */,
 				F12683991B8AD5AE004C92E4 /* BLEDetailViewCell.xib in Resources */,
 				34C674F11D65868A000138DD /* Error.wav in Resources */,
 				34C674DE1D657AC4000138DD /* Level_1.json in Resources */,
@@ -1086,7 +1079,6 @@
 				34319E741E4C450200A4731B /* SDKPrivateTestVM.swift in Sources */,
 				F1B73A7B1B959268003CFF05 /* MusicListTableViewCell.m in Sources */,
 				F1B73A661B9018EE003CFF05 /* MenuCollectionViewCell.m in Sources */,
-				34A71E411E7144AD001411A4 /* MDToastPopup.swift in Sources */,
 				34A71E3F1E713DFE001411A4 /* movieDiaryPopUpVC.swift in Sources */,
 				340E46401D547D110027078C /* ArcheryScene.swift in Sources */,
 				F121A1581D2B91760007BAA0 /* Log.swift in Sources */,
