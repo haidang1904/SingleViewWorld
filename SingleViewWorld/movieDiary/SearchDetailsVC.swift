@@ -21,21 +21,40 @@ class SearchDetailsVC: UIViewController {
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var directorLabel: UILabel!
     @IBOutlet weak var actorLabel: UILabel!
+    @IBOutlet weak var watchedImageView: UIImageView!
+    @IBOutlet weak var watchedDateLabel: UILabel!
     
-
     @IBOutlet weak var saveView: UIView!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var checkButton: UIButton!
+    
     @IBAction func checkButtonChange(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         Log.test("\(datePicker.date)")
     }
+    
     @IBAction func closeButtonAction(_ sender: UIButton?) {
         self.saveView.isHidden = true
     }
+    
     @IBAction func saveButtonAction(_ sender: UIButton) {
+        
+        if checkButton.isSelected == true {
+            
+            viewModel?.saveMovie(watchDate: "")
+            
+        } else {
+        
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            let watchDate = dateFormatter.string(from: datePicker.date)
+            viewModel?.saveMovie(watchDate: watchDate)
+        }
+        self.saveView.isHidden = true
+        self.fillOutDetails(model: viewModel!)
     }
     
     override func viewDidLoad() {
@@ -67,31 +86,21 @@ class SearchDetailsVC: UIViewController {
         
         fab.addItem(item: createFloatingButton(title: "Back To Library", handler: { [weak self] items in self?.closeButtonAction(nil)}))
         
-        if let value = viewModel?.movieDetail?.isWatched.value {
+        if let value = viewModel?.movieDetail?.isBucketList.value {
             fab.addItem(item: createFloatingButton(title: "Delete From List", handler: { [weak self] items in self?.showAlertView()}))
             if value == 1 {
-                fab.addItem(item: createFloatingButton(title: "Add Watched", handler: { [weak self] items in self?.viewModel?.saveMovie(isWatched: 0)}))
+                fab.addItem(item: createFloatingButton(title: "Add Watched", handler: {[weak self] _ in self?.presentSaveView()}))
             }
         } else {
-            fab.addItem(item: createFloatingButton(title: "Add Bucket", handler: { [weak self] items in self?.viewModel?.saveMovie(isWatched: 1)}))
-            fab.addItem(item: createFloatingButton(title: "Add Watched", handler: { [weak self] items in self?.viewModel?.saveMovie(isWatched: 0)} ))
+            fab.addItem(item: createFloatingButton(title: "Add Bucket", handler: { [weak self] items in self?.viewModel?.saveMovieForBucket()}))
+            fab.addItem(item: createFloatingButton(title: "Add Watched", handler: {[weak self] _ in self?.presentSaveView()} ))
             
         }
-        fab.addItem(item: createFloatingButton(title: "POPUP TEST", handler: {[weak self] _ in self?.presentSaveView()} ))
         
         fab.sticky = true
         fab.openAnimationType = .fade
         fab.animationSpeed = 0.05
         self.view.addSubview(fab)
-        
-        /*
-         let dateFormatter = DateFormatter()
-         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-         let dateStart = dateFormatter.date(from: startTime)
-         let dateEnd = dateFormatter.date(from: endTime)
-         let dateCurrent = dateFormatter.date(from: currentTime)
-        */
         
     }
     
@@ -138,6 +147,19 @@ class SearchDetailsVC: UIViewController {
         }
         imageView.sd_setImage(with: URL(string: (model.movieDetail?.image)!),placeholderImage: UIImage(named: "poster_placeholder"))
 
+        if model.movieDetail?.isBucketList.value == 0 {
+            UIView.animate(withDuration: 1.0, animations: {
+                self.watchedImageView.image = UIImage(named: "watch_stamp")
+                if model.movieDetail?.dateOfWatch != "" {
+                    self.watchedDateLabel.text = model.movieDetail?.dateOfWatch
+                } else {
+                    self.watchedDateLabel.text = "Unknown Date"
+                }
+                
+            }, completion: { result in
+                
+            })
+        }
     }
     
     func showAlertView() {
@@ -171,7 +193,6 @@ class SearchDetailsVC: UIViewController {
     */
     func presentSaveView() {
         self.saveView.isHidden = false
-        //self.datePicker.setDate(Date(), animated: true)
     }
 }
 

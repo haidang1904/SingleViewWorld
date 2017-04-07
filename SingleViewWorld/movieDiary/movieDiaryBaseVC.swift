@@ -28,6 +28,7 @@ import AVFoundation
     override open func viewDidLoad() {
         super.viewDidLoad()
         //Log.test("viewDidLoad")
+        self.title = "MOVIE DIARY"
         setCustomButtonOnNavigationBar()
         
         for index in 0 ..< sizeOfContentVCs {

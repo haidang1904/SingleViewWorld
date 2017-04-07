@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SingleViewWorld-Swift.h"
 
 @interface AppDelegate ()
 
@@ -28,7 +29,13 @@
     // Rootview controller Setting
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     HomeViewController *vcHome = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:vcHome];
+    
+    UIViewController *function_view;
+    function_view = (movieDiaryBaseVC *) [[UIStoryboard storyboardWithName:@"movieDiarySB" bundle:nil] instantiateInitialViewController];
+    //[self.navigationController pushViewController:function_view animated:NO];
+    
+    
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:function_view];
     [self.window setRootViewController:self.navigationController];
     [self.window setBackgroundColor:[UIColor blackColor]];// background white for animation in app
     //[self.window makeKeyAndVisible];
@@ -37,6 +44,8 @@
     [self.navigationController.navigationBar setBackgroundColor:[UIColor blackColor]];
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     // Application Setting
+    
+    
     
     if(IS_IOS_8_OR_LATER)
     {

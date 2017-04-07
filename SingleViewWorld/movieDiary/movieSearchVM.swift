@@ -142,7 +142,7 @@ class movieSearchVM {
     func getMovieInfo(_ index:Int) -> MovieModel? {
         let title = getName(index)
         if let model = isSaved(title: title) {
-            Log.test("\(title) already saved movie in \(model.isWatched.value)")
+            Log.test("\(title) already saved movie in \(model.isBucketList.value)")
             return model
         }
         
@@ -173,7 +173,7 @@ class movieSearchVM {
         movieModel.userRating = data["userRating"] as? String? ?? "nil"
         movieModel.comment = data["comment"] as? String? ?? "nil"
         movieModel.dateOfWatch = data["dateOfWatch"] as? String? ?? "nil"
-        movieModel.isWatched.value = nil
+        movieModel.isBucketList.value = nil
         return movieModel
     }
     

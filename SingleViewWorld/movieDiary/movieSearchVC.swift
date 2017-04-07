@@ -57,7 +57,7 @@ import SDWebImage
             .addDisposableTo(disposeBag)
         
         let backItem = UIBarButtonItem()
-        backItem.title = "Back to"
+        backItem.title = "BACK"
         self.navigationItem.backBarButtonItem = backItem
         
         searchTextField.becomeFirstResponder()

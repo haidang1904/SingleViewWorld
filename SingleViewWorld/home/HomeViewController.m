@@ -80,17 +80,21 @@ static NSString *cellID = @"MenuCollectionViewCell";
     self.view.backgroundColor = [UIColor blackColor];
 
     
-    self.MenuView.scrollEnabled =YES;
-    self.MenuView.delegate = self;
-    self.MenuView.dataSource = self;
-    self.MenuView.backgroundColor = [UIColor blackColor];
+    UIViewController *function_view;
+    function_view = (movieDiaryBaseVC *) [[UIStoryboard storyboardWithName:@"movieDiarySB" bundle:nil] instantiateInitialViewController];
+    [self.navigationController pushViewController:function_view animated:NO];
+    
+//    self.MenuView.scrollEnabled =YES;
+//    self.MenuView.delegate = self;
+//    self.MenuView.dataSource = self;
+//    self.MenuView.backgroundColor = [UIColor blackColor];
     [self.MenuView registerNib:[UINib nibWithNibName:cellID bundle:nil] forCellWithReuseIdentifier:cellID];
     
-    [self.btnChangeAP setTitle:[self currentWifiSSID] forState:UIControlStateNormal];
-    
-    self.btnReserved.enabled = YES;
-    self.btnCameraApp.enabled = YES;
-    self.btnChangeAP.enabled = YES;
+//    [self.btnChangeAP setTitle:[self currentWifiSSID] forState:UIControlStateNormal];
+//    
+//    self.btnReserved.enabled = YES;
+//    self.btnCameraApp.enabled = YES;
+//    self.btnChangeAP.enabled = YES;
 }
 
 - (void)didReceiveMemoryWarning {

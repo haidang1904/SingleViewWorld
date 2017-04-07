@@ -20,7 +20,7 @@ class MovieModel : Object {
     dynamic var userRating: String? = nil
     dynamic var comment: String? = nil
     dynamic var dateOfWatch: String? = nil
-    let isWatched = RealmOptional<Int>()
+    let isBucketList = RealmOptional<Int>()
     
     override class func primaryKey() -> String? {
         return "title"

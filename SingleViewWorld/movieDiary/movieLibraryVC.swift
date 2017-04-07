@@ -19,7 +19,7 @@ class movieLibraryVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel?.getFromDB(isWatched: pageIndex)
+        viewModel?.getFromDB(isBucketList: pageIndex)
         titleLabel.text = viewModel?.getTitleForPage(index: pageIndex)
         movieLibraryCollection.reloadData()
         
@@ -27,7 +27,7 @@ class movieLibraryVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = movieLibraryVM(isWatched: pageIndex)
+        viewModel = movieLibraryVM(isBucketList: pageIndex)
         // Do any additional setup after loading the view.
     }
         

@@ -13,15 +13,15 @@ class movieLibraryVM {
     
     var movieObject : [MovieModel] = [MovieModel]()
     
-    init(isWatched : Int) {
+    init(isBucketList : Int) {
         //Log.test("movieLibraryVM initialized")
-        getFromDB(isWatched: isWatched)
+        getFromDB(isBucketList: isBucketList)
     }
     
-    func getFromDB(isWatched : Int) {
+    func getFromDB(isBucketList : Int) {
         movieObject.removeAll()
         let realm = try! Realm()
-        let movies = realm.objects(MovieModel.self).filter("isWatched = %@", isWatched)
+        let movies = realm.objects(MovieModel.self).filter("isBucketList = %@", isBucketList)
         for movie in movies {
             movieObject.append(movie)
         }
