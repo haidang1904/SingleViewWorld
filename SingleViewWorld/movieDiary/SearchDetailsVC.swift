@@ -23,6 +23,7 @@ class SearchDetailsVC: UIViewController {
     @IBOutlet weak var actorLabel: UILabel!
     @IBOutlet weak var watchedImageView: UIImageView!
     @IBOutlet weak var watchedDateLabel: UILabel!
+    @IBOutlet weak var commentTextView: UITextView!
     
     @IBOutlet weak var saveView: UIView!
     @IBOutlet weak var closeButton: UIButton!
@@ -90,6 +91,8 @@ class SearchDetailsVC: UIViewController {
             fab.addItem(item: createFloatingButton(title: "Delete From List", handler: { [weak self] items in self?.showAlertView()}))
             if value == 1 {
                 fab.addItem(item: createFloatingButton(title: "Add Watched", handler: {[weak self] _ in self?.presentSaveView()}))
+            } else {
+                fab.addItem(item: createFloatingButton(title: "Modify Movie", handler: {[weak self] _ in self?.presentSaveView()}))
             }
         } else {
             fab.addItem(item: createFloatingButton(title: "Add Bucket", handler: { [weak self] items in self?.viewModel?.saveMovieForBucket()}))
@@ -135,6 +138,7 @@ class SearchDetailsVC: UIViewController {
     
     func fillOutDetails(model : SearchDetailsVM) {
         titleLabel.text = String(htmlEncodedString: (model.movieDetail?.title)!)
+        watchedDateLabel.text = ""
         if let subtitle = model.movieDetail?.subtitle {
             subtitleLabel.text = String(htmlEncodedString: subtitle)
         }
@@ -193,6 +197,7 @@ class SearchDetailsVC: UIViewController {
     */
     func presentSaveView() {
         self.saveView.isHidden = false
+        
     }
 }
 

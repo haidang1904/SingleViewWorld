@@ -45,7 +45,8 @@ import RxSwift
                 self!.modeChanged();
                 self!.installedApplistTableView.reloadData()
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
+            //.addDisposableTo(disposeBag)
         
         SDKTest.iconData
             .observeOn(MainScheduler.instance)
@@ -58,7 +59,8 @@ import RxSwift
                     Log.lhjtest("hide")
                 }
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
+            //.addDisposableTo(disposeBag)
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardFrameDidChanged), name: NSNotification.Name.UIKeyboardDidChangeFrame, object: nil)

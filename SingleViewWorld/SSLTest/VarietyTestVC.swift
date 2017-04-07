@@ -51,14 +51,16 @@ import RxSwift
             .subscribe(onNext : { (mode:Bool) in
                 
                 })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
+            //.addDisposableTo(disposeBag)
         
         VarietyTest.connectData
             .observeOn(MainScheduler.instance)
             .subscribe(onNext : { [weak self] (mode:Bool) in
                     self!.VarietyList.reloadData()
                 })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
+            //.addDisposableTo(disposeBag)
         
     }
     

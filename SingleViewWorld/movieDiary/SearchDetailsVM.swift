@@ -45,48 +45,46 @@ class SearchDetailsVM {
         self.movieDetail = detail
     }
     
-    func saveMovie(watchDate : String) {
-        self.saveMovie(watchDate: watchDate, isBucketList: 0)
+    func saveMovie(watchDate:String) {
+        self.saveMovie(watchDate:watchDate, comment:"", isBucketList:0)
+    }
+    
+    func saveMovie(watchDate:String, comment:String) {
+        self.saveMovie(watchDate:watchDate, comment:comment, isBucketList:0)
     }
     
     func saveMovieForBucket() {
-        self.saveMovie(watchDate: "", isBucketList: 1)
+        self.saveMovie(watchDate:"", comment:"", isBucketList: 1)
     }
     
-    private func saveMovie(watchDate : String , isBucketList : Int) {
+    private func saveMovie(watchDate : String , comment: String, isBucketList : Int) {
         Log.test("saveMovie to \(isBucketList) date is \"\(watchDate)\"")
         if let movieData = self.movieDetail {
             let realm = try! Realm()
             if let object = realm.objects(MovieModel.self).filter("title == %@", movieData.title).first {
                 
-                if object.isBucketList.value == 0 && isBucketList == 0 {
-                    self.movieDelegate?.eventHandler(code: .existWatched)
-                    return
-                }
-                
-                if object.isBucketList.value == 1 && isBucketList == 1 {
-                    self.movieDelegate?.eventHandler(code: .existBucket)
+                if isBucketList == 1 {
+                    if object.isBucketList.value == 0 {
+                        self.movieDelegate?.eventHandler(code: .canNotMoveToBucket)
+                    } else {
+                        self.movieDelegate?.eventHandler(code: .existBucket)
+                    }
                     return
                 }
 
-                if object.isBucketList.value == 0 && isBucketList == 1 {
-                    self.movieDelegate?.eventHandler(code: .canNotMoveToBucket)
-                    return
+                try! realm.write {
+                    object.isBucketList.value = isBucketList
+                    object.dateOfWatch = watchDate
+                    object.comment = comment
+                    realm.add(object, update: true)
+                    self.movieDetail?.isBucketList.value = isBucketList
                 }
                 
-                if object.isBucketList.value == 1 && isBucketList == 0 {
-                    try! realm.write {
-                        object.isBucketList.value = isBucketList
-                        object.dateOfWatch = watchDate
-                        realm.add(object, update: true)
-                        self.movieDetail?.isBucketList.value = isBucketList
-                        self.movieDelegate?.eventHandler(code: .moveToWatched)
-                    }
-                }
             } else {
                 realm.beginWrite()
                 movieData.isBucketList.value = isBucketList
                 movieData.dateOfWatch = watchDate
+                movieData.comment = comment
                 realm.create(MovieModel.self, value: movieData, update: true)
                 try! realm.commitWrite()
                 self.movieDetail?.isBucketList.value = isBucketList

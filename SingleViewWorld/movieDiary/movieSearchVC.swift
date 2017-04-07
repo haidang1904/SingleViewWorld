@@ -45,7 +45,8 @@ import SDWebImage
                     Log.test("result is 0")
                 }
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
+            //.addDisposableTo(disposeBag)
 
         viewModel.isDownloadImage
             .observeOn(MainScheduler.instance)
@@ -54,7 +55,8 @@ import SDWebImage
                     self?.searchResultTable.reloadData()
                 }
             })
-            .addDisposableTo(disposeBag)
+            .disposed(by: disposeBag)
+            //.addDisposableTo(disposeBag)
         
         let backItem = UIBarButtonItem()
         backItem.title = "BACK"
