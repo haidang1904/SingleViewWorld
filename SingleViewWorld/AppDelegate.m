@@ -30,15 +30,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     HomeViewController *vcHome = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
     
-    UIViewController *function_view;
-    function_view = (movieDiaryBaseVC *) [[UIStoryboard storyboardWithName:@"movieDiarySB" bundle:nil] instantiateInitialViewController];
-    //[self.navigationController pushViewController:function_view animated:NO];
+    //UIViewController *function_view = (movieDiaryBaseVC *) [[UIStoryboard storyboardWithName:@"movieDiarySB" bundle:nil] instantiateInitialViewController];
     
-    
-    self.navigationController = [[UINavigationController alloc] initWithRootViewController:function_view];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:vcHome];
     [self.window setRootViewController:self.navigationController];
     [self.window setBackgroundColor:[UIColor blackColor]];// background white for animation in app
-    //[self.window makeKeyAndVisible];
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barTintColor = [UIColor blackColor];
     [self.navigationController.navigationBar setBackgroundColor:[UIColor blackColor]];
