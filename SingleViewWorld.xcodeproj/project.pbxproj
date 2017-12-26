@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		136079381FEB729500B4452C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 136079371FEB729500B4452C /* GoogleService-Info.plist */; };
 		34061D341D3F676900FD0F86 /* SDKTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34061D331D3F676900FD0F86 /* SDKTestViewModel.swift */; };
 		340E463E1D547BF10027078C /* SpriteKitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E463D1D547BF10027078C /* SpriteKitVC.swift */; };
 		340E46401D547D110027078C /* ArcheryScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E463F1D547D110027078C /* ArcheryScene.swift */; };
@@ -169,6 +170,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		136079371FEB729500B4452C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		34061D331D3F676900FD0F86 /* SDKTestViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SDKTestViewModel.swift; path = SDKTest/SDKTestViewModel.swift; sourceTree = "<group>"; };
 		340E463D1D547BF10027078C /* SpriteKitVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SpriteKitVC.swift; path = SpriteKit/SpriteKitVC.swift; sourceTree = "<group>"; };
 		340E463F1D547D110027078C /* ArcheryScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArcheryScene.swift; path = SpriteKit/ArcheryScene.swift; sourceTree = "<group>"; };
@@ -666,6 +668,7 @@
 		F109ECBE1B5E15E40078B366 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				136079371FEB729500B4452C /* GoogleService-Info.plist */,
 				F11148341CD83E2100DCBFF6 /* Model.xcdatamodeld */,
 				F109EC641B5DE7670078B366 /* Images.xcassets */,
 				F109EC581B5DE7670078B366 /* Info.plist */,
@@ -926,6 +929,7 @@
 				345D99021D5DA313009A2EAF /* BurstParticle.sks in Resources */,
 				34C674F21D65868A000138DD /* Ka-Ching.wav in Resources */,
 				34C674DD1D657AC4000138DD /* Level_0.json in Resources */,
+				136079381FEB729500B4452C /* GoogleService-Info.plist in Resources */,
 				F1EA889B1CD9977D00656C71 /* LocalNotificationView.xib in Resources */,
 				34319E731E4C450200A4731B /* SDKPrivateTestViewController.xib in Resources */,
 				34C674DF1D657AC4000138DD /* Level_2.json in Resources */,
@@ -1253,7 +1257,7 @@
 				);
 				GCC_PREFIX_HEADER = "${SRCROOT}/SingleViewWorld/SingleViewWorld-Prefix.pch";
 				INFOPLIST_FILE = SingleViewWorld/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1264,7 +1268,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hyodolski.moviediary;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyodolski.testApp1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1290,7 +1294,7 @@
 				);
 				GCC_PREFIX_HEADER = "${SRCROOT}/SingleViewWorld/SingleViewWorld-Prefix.pch";
 				INFOPLIST_FILE = SingleViewWorld/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1301,7 +1305,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hyodolski.moviediary;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyodolski.testApp1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;

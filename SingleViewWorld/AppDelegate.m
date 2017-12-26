@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "SingleViewWorld-Swift.h"
 
+
 @interface AppDelegate ()
 
 @end
@@ -40,8 +41,6 @@
     [self.navigationController.navigationBar setBackgroundColor:[UIColor blackColor]];
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     // Application Setting
-    
-    
     
     if(IS_IOS_8_OR_LATER)
     {
