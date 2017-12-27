@@ -183,27 +183,27 @@
 
 - (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
 {
-    if([peripheral state] == CBPeripheralManagerStateUnknown)
+    if([peripheral state] == CBManagerStateUnknown)
     {
         SVLogTEST(@"CBPeripheralManager State Unknown");
     }
-    else if([peripheral state] == CBPeripheralManagerStateResetting)
+    else if([peripheral state] == CBManagerStateResetting)
     {
         SVLogTEST(@"CBPeripheralManager State Resetting");
     }
-    else if([peripheral state] == CBPeripheralManagerStateUnsupported)
+    else if([peripheral state] == CBManagerStateUnsupported)
     {
         SVLogTEST(@"CBPeripheralManager State Unsupported");
     }
-    else if([peripheral state] == CBPeripheralManagerStateUnauthorized)
+    else if([peripheral state] == CBManagerStateUnauthorized)
     {
         SVLogTEST(@"CBPeripheralManager State Unauthorized");
     }
-    else if([peripheral state] == CBPeripheralManagerStatePoweredOff)
+    else if([peripheral state] == CBManagerStatePoweredOff)
     {
         SVLogTEST(@"CBPeripheralManager State PoweredOff");
     }
-    else if([peripheral state] == CBPeripheralManagerStatePoweredOn)
+    else if([peripheral state] == CBManagerStatePoweredOn)
     {
         SVLogTEST(@"CBPeripheralManager State PoweredOn");
         [self startadvertising];

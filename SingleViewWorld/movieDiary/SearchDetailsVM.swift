@@ -94,7 +94,7 @@ class SearchDetailsVM {
     }
     
     func deleteMovie() {
-        Log.test("deleteMovie(\(self.movieDetail?.title))")
+        Log.test("deleteMovie(\(String(describing: self.movieDetail?.title)))")
         if let movieData = self.movieDetail {
             let realm = try! Realm()
             if let _ = realm.objects(MovieModel.self).filter("title == %@", movieData.title).first {

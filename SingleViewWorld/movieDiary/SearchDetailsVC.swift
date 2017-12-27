@@ -266,7 +266,7 @@ extension String {
     }
     
     func dropLast(_ n: Int = 1) -> String {
-        return String(characters.dropLast(n))
+        return self.substring(to: self.index(before: self.endIndex))
     }
     
     var dropLast: String {

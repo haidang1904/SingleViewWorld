@@ -199,7 +199,7 @@ extension SDKTestViewController : UITextFieldDelegate {
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool{
         if (textField.text != "")
         {
-            Log.test("Text Send - \(textField.text)")
+            Log.test("Text Send - \(String(describing: textField.text))")
             SDKTest.sendData(textField.text!)
         }
         return true

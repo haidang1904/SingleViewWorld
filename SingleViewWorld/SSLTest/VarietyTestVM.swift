@@ -67,7 +67,7 @@ class VarietyTestVM : NSObject {
                 Alamofire.request(url! , method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
                     .response(completionHandler: {[weak self] (data) in
                         if let _ = data.response, data.response?.statusCode == 200 {
-                            Log.test("request \(data.request?.url?.absoluteString) is received")
+                            Log.test("request \(String(describing: data.request?.url?.absoluteString)) is received")
                             self?.parsingData(data: data.data!, ip:(data.request?.url?.absoluteString)!)
                         }
                     })
@@ -147,7 +147,7 @@ extension VarietyTestVM : XMLParserDelegate{
     }
     
     @objc public func parser(_ parser: XMLParser, foundAttributeDeclarationWithName attributeName: String, forElement elementName: String, type: String?, defaultValue: String?) {
-        Log.test("foundAttributeDeclarationWithName == attributeName:\(attributeName), elementName:\(elementName), type:\(type)")
+        Log.test("foundAttributeDeclarationWithName == attributeName:\(attributeName), elementName:\(elementName), type:\(String(describing: type))")
     }
     
     @objc public func parser(_ parser: XMLParser, foundElementDeclarationWithName elementName: String, model: String) {
@@ -155,7 +155,7 @@ extension VarietyTestVM : XMLParserDelegate{
     }
     
     @objc public func parser(_ parser: XMLParser, foundInternalEntityDeclarationWithName name: String, value: String?) {
-        Log.test("foundInternalEntityDeclarationWithName == name:\(name), value:\(value)")
+        Log.test("foundInternalEntityDeclarationWithName == name:\(name), value:\(String(describing: value))")
     }
     
     @objc public func parser(_ parser: XMLParser, foundExternalEntityDeclarationWithName name: String, publicID: String?, systemID: String?) {

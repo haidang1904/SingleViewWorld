@@ -111,7 +111,7 @@ class SDKTestViewModel{
     
     func disconnectTV() {
         application?.disconnect(leaveHostRunning: true, completionHandler: { (client, error) in
-            Log.test("\(client) - \(error)")
+            Log.test("\(String(describing: client)) - \(String(describing: error))")
         })
     }
     
@@ -137,7 +137,7 @@ class SDKTestViewModel{
 extension SDKTestViewModel : ChannelDelegate{
     
     @objc internal func onConnect(_ client: SmartView.ChannelClient?, error: NSError?){
-        Log.test("onConnect - \(error)")
+        Log.test("onConnect - \(String(describing: error))")
         if error != nil {
             self.appsDataSubject.onNext(.connectionfail)
         } else {
@@ -180,14 +180,14 @@ extension SDKTestViewModel : ChannelDelegate{
             savedMessage.append(message.data as! String)
             break;
         case "fireMissile":
-            Log.test("fireMissile-\(message.data)")
+            Log.test("fireMissile-\(String(describing: message.data))")
         default:
             break
         }
     }
     @objc internal func onData(_ message: SmartView.Message, payload: Data){
         Log.test("onData")
-        Log.test("data is \(message.data) from \(message.from) with payload \(payload)")
+        Log.test("data is \(String(describing: message.data)) from \(message.from) with payload \(payload)")
     }
     @objc internal func onClientConnect(_ client: SmartView.ChannelClient){
         Log.test("onClientConnect")

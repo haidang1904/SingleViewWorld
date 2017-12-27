@@ -166,7 +166,9 @@ static NSString *cellID = @"MenuCollectionViewCell";
     
     #warning This is Private API
     //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"prefs:root=WIFI"]];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:^(BOOL success) {
+        SVLogTEST(@"openURL success");
+    }];
     SVLogTEST(@"ChangeAP mode Button Click event!!");
 }
 - (IBAction)CameraAppBtn:(id)sender {

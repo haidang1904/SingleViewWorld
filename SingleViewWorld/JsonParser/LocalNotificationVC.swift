@@ -76,7 +76,7 @@ import UserNotifications
             content.categoryIdentifier = "com.elonchan.localNotification"
             // Deliver the notification in five seconds.
             let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: 10.0, repeats: false)
-            Log.test("trigger.nextTriggerDate() is \(trigger.nextTriggerDate())")
+            Log.test("trigger.nextTriggerDate() is \(String(describing: trigger.nextTriggerDate()))")
             let request = UNNotificationRequest.init(identifier: "FiveSecond", content: content, trigger: trigger)
             
             // Schedule the notification.

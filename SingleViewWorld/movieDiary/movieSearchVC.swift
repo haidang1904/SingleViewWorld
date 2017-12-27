@@ -25,7 +25,7 @@ import SDWebImage
             Log.test("send Text : \(keyword)")
             self.viewModel.sendSearchAPItoNaver(keyword: keyword)
         } else {
-            Log.test("No Text : \(searchTextField.text)")
+            Log.test("No Text : \(String(describing: searchTextField.text))")
         }
     }
     
@@ -118,7 +118,7 @@ extension movieSearchVC : UITextFieldDelegate {
             self.viewModel.sendSearchAPItoNaver(keyword: keyword)
             textField.resignFirstResponder()
         } else {
-            Log.test("No Text : \(searchTextField.text)")
+            Log.test("No Text : \(String(describing: searchTextField.text) )")
         }
         return true
     }

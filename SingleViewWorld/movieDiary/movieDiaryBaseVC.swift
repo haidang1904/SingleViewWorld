@@ -100,7 +100,7 @@ import AVFoundation
     @IBAction func backFromOtherController(segue: UIStoryboardSegue) {
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         let vc = self.navigationController?.popViewController(animated: false)
-        Log.test("\(vc)")
+        Log.test("\(String(describing: vc))")
     }
     
     func presentSearch(_ sender: AnyObject) {

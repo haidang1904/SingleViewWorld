@@ -142,7 +142,7 @@ class movieSearchVM {
     func getMovieInfo(_ index:Int) -> MovieModel? {
         let title = getName(index)
         if let model = isSaved(title: title) {
-            Log.test("\(title) already saved movie in \(model.isBucketList.value)")
+            Log.test("\(title) already saved movie in \(String(describing: model.isBucketList.value))")
             return model
         }
         

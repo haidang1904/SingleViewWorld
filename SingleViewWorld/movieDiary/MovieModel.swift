@@ -72,6 +72,6 @@ class MovieModel : Object {
 
 extension MovieModel {
     override var description: String {
-        return "MovieModel title \(title) director \(director) pubDate \(pubDate)"
+        return "MovieModel title \(title) director \(String(describing: director)) pubDate \(String(describing: pubDate))"
     }
 }

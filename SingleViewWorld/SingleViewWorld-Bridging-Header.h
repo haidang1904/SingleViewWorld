@@ -9,5 +9,6 @@
 #ifndef SingleViewWorld_Bridging_Header_h
 #define SingleViewWorld_Bridging_Header_h
 
-#import <Firebase>
+#import <Firebase.h>
+
 #endif /* SingleViewWorld_Bridging_Header_h */

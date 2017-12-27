@@ -8,8 +8,9 @@
 
 #import "AppDelegate.h"
 #import "SingleViewWorld-Swift.h"
+#import <Firebase.h>
 
-
+@import Firebase;
 @interface AppDelegate ()
 
 @end
@@ -42,6 +43,7 @@
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     // Application Setting
     
+    [FIRApp configure];
     if(IS_IOS_8_OR_LATER)
     {
         [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeAlert|UIUserNotificationTypeBadge) categories:nil]];
