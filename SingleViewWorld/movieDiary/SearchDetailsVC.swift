@@ -253,16 +253,24 @@ extension String {
             self = htmlEncodedString
             return
         }
-        let attributedOptions : [String:Any] = [
-            NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType as Any,
-            NSCharacterEncodingDocumentAttribute:String.Encoding.utf8.rawValue as Any
-        ]
-        do {
-            let attributedString = try NSAttributedString(data: encodedData, options: attributedOptions, documentAttributes: nil)
+        //let attributedOptions : [NSAttributedStringKey:Any] = [
+        //    NSAttributedStringKey
+        //    NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType as Any,
+        //    NSCharacterEncodingDocumentAttribute:String.Encoding.utf8.rawValue as Any
+        //]
+        
+        if let attributedString = try? NSAttributedString(data: encodedData, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil) {
             self = attributedString.string
-        } catch {
+        } else {
             self = htmlEncodedString
         }
+        
+//        do {
+//            let attributedString = try NSAttributedString(data: <#T##Data#>, options: [NSAttributedString.DocumentReadingOptionKey : Any], documentAttributes: AutoreleasingUnsafeMutablePointer<NSDictionary?>? //NSAttributedString(data: encodedData, options: nil, documentAttributes: nil)
+//            self = attributedString.string
+//        } catch {
+//            self = htmlEncodedString
+//        }
     }
     
     func dropLast(_ n: Int = 1) -> String {

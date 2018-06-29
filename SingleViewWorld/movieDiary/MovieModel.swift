@@ -10,16 +10,16 @@ import Foundation
 import RealmSwift
 
 class MovieModel : Object {
-    dynamic var title: String! = ""
-    dynamic var subtitle: String? = nil
-    dynamic var pubDate : String? = nil
-    dynamic var director: String? = nil
-    dynamic var actor: String? = nil
-    dynamic var image: String? = nil
-    dynamic var link: String? = nil
-    dynamic var userRating: String? = nil
-    dynamic var comment: String? = nil
-    dynamic var dateOfWatch: String? = nil
+    @objc dynamic var title: String! = ""
+    @objc dynamic var subtitle: String? = nil
+    @objc dynamic var pubDate : String? = nil
+    @objc dynamic var director: String? = nil
+    @objc dynamic var actor: String? = nil
+    @objc dynamic var image: String? = nil
+    @objc dynamic var link: String? = nil
+    @objc dynamic var userRating: String? = nil
+    @objc dynamic var comment: String? = nil
+    @objc dynamic var dateOfWatch: String? = nil
     let isBucketList = RealmOptional<Int>()
     
     override class func primaryKey() -> String? {

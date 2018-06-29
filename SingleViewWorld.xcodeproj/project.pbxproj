@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		081B4EC820E614C9009A72C2 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 081B4EC720E614C9009A72C2 /* GCDAsyncUdpSocket.m */; };
+		081B4ECA20E615D8009A72C2 /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 081B4EC920E615D8009A72C2 /* CocoaAsyncSocket.framework */; };
+		081B4ECB20E615E0009A72C2 /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 081B4EC920E615D8009A72C2 /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		136079381FEB729500B4452C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 136079371FEB729500B4452C /* GoogleService-Info.plist */; };
 		34061D341D3F676900FD0F86 /* SDKTestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34061D331D3F676900FD0F86 /* SDKTestViewModel.swift */; };
 		340E463E1D547BF10027078C /* SpriteKitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 340E463D1D547BF10027078C /* SpriteKitVC.swift */; };
@@ -163,6 +166,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				34319E691E4C44A100A4731B /* SmartView.framework in Embed Frameworks */,
+				081B4ECB20E615E0009A72C2 /* CocoaAsyncSocket.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,6 +174,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		081B4EC620E614C9009A72C2 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GCDAsyncUdpSocket.h; path = LibFromGithub/GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		081B4EC720E614C9009A72C2 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncUdpSocket.m; path = LibFromGithub/GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		081B4EC920E615D8009A72C2 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CocoaAsyncSocket.framework; sourceTree = "<group>"; };
 		136079371FEB729500B4452C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		13A72DE11FF31D6700C21C48 /* SingleViewWorld.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SingleViewWorld.entitlements; sourceTree = "<group>"; };
 		34061D331D3F676900FD0F86 /* SDKTestViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SDKTestViewModel.swift; path = SDKTest/SDKTestViewModel.swift; sourceTree = "<group>"; };
@@ -345,6 +352,7 @@
 			files = (
 				348F5C481D62B3D000E24FA9 /* MobileCoreServices.framework in Frameworks */,
 				3437358B1E8D24CF00DCF02A /* CoreVideo.framework in Frameworks */,
+				081B4ECA20E615D8009A72C2 /* CocoaAsyncSocket.framework in Frameworks */,
 				343735891E8D24C900DCF02A /* CoreMotion.framework in Frameworks */,
 				343735871E8D24C100DCF02A /* OpenGLES.framework in Frameworks */,
 				343735851E8D24B900DCF02A /* GLKit.framework in Frameworks */,
@@ -585,6 +593,7 @@
 		F109EC4B1B5DE7670078B366 = {
 			isa = PBXGroup;
 			children = (
+				081B4EC920E615D8009A72C2 /* CocoaAsyncSocket.framework */,
 				34319E4C1E4C449400A4731B /* SmartView.framework */,
 				34FC825B1D6449DB0009ED81 /* frameworks */,
 				F109ECBE1B5E15E40078B366 /* Resources */,
@@ -705,6 +714,8 @@
 		F14D943F1B8708A90098E400 /* LibFromGithub */ = {
 			isa = PBXGroup;
 			children = (
+				081B4EC620E614C9009A72C2 /* GCDAsyncUdpSocket.h */,
+				081B4EC720E614C9009A72C2 /* GCDAsyncUdpSocket.m */,
 				34EDBB741D3DC733001743EF /* JPSVolumeButtonHandler */,
 				F121A1571D2B91760007BAA0 /* Log.swift */,
 			);
@@ -936,7 +947,6 @@
 				34C674DD1D657AC4000138DD /* Level_0.json in Resources */,
 				136079381FEB729500B4452C /* GoogleService-Info.plist in Resources */,
 				F1EA889B1CD9977D00656C71 /* LocalNotificationView.xib in Resources */,
-				34319E731E4C450200A4731B /* SDKPrivateTestViewController.xib in Resources */,
 				34C674DF1D657AC4000138DD /* Level_2.json in Resources */,
 				340E46461D5485340027078C /* SpriteKit.storyboard in Resources */,
 				F109EC681B5DE7670078B366 /* LaunchScreen.xib in Resources */,
@@ -947,6 +957,7 @@
 				F1B73A741B944757003CFF05 /* AudioPlayerViewController.xib in Resources */,
 				F109EC651B5DE7670078B366 /* Images.xcassets in Resources */,
 				34319D8F1E49912400A4731B /* movieDiarySB.storyboard in Resources */,
+				34319E731E4C450200A4731B /* SDKPrivateTestViewController.xib in Resources */,
 				F1B73A561B8DA0A6003CFF05 /* PhotoListViewController.xib in Resources */,
 				F1B73A671B9018EE003CFF05 /* MenuCollectionViewCell.xib in Resources */,
 				34C674F41D65868A000138DD /* Scrape.wav in Resources */,
@@ -1059,6 +1070,8 @@
 				3452750D1DB5BA8700F7B2E1 /* VarietyTestVM.swift in Sources */,
 				F15BD9051CFC1513001996D3 /* SDKTestViewController.swift in Sources */,
 				F1595A311B7AE04600D2DF42 /* BLEPeripheralViewController.m in Sources */,
+				34319E741E4C450200A4731B /* SDKPrivateTestVM.swift in Sources */,
+				34319E721E4C450200A4731B /* SDKPrivateTestVC.swift in Sources */,
 				F1FF53841CD1F42900A3F3BD /* WowMacInfo.m in Sources */,
 				34C674BD1D657839000138DD /* Cookies.swift in Sources */,
 				34C674C11D657978000138DD /* Level.swift in Sources */,
@@ -1077,7 +1090,6 @@
 				340E463E1D547BF10027078C /* SpriteKitVC.swift in Sources */,
 				56FE402B1E4A0BDF00122B3B /* MovieModel.swift in Sources */,
 				3452750A1DB5BA4000F7B2E1 /* VarietyTestVC.swift in Sources */,
-				34319E721E4C450200A4731B /* SDKPrivateTestVC.swift in Sources */,
 				F1B73A5B1B8DA0F3003CFF05 /* PhotoListViewCell.m in Sources */,
 				34DB52D21E5ADF49008EA04A /* movieLibraryCell.swift in Sources */,
 				34C674E51D657B65000138DD /* Extensions.swift in Sources */,
@@ -1097,6 +1109,7 @@
 				348F5C531D62CD0A00E24FA9 /* CardGameModeVM.swift in Sources */,
 				F1B73A551B8DA0A6003CFF05 /* PhotoListViewController.m in Sources */,
 				34C674BF1D6578D1000138DD /* Array2D.swift in Sources */,
+				081B4EC820E614C9009A72C2 /* GCDAsyncUdpSocket.m in Sources */,
 				34C674BA1D65779F000138DD /* CandyCrushVC.swift in Sources */,
 				F1B73A731B944757003CFF05 /* AudioPlayerViewController.m in Sources */,
 				F109EC821B5E00A40078B366 /* HomeViewController.m in Sources */,
@@ -1105,7 +1118,6 @@
 				34A73A121DE2FE1400645108 /* LocalNotificationVC.swift in Sources */,
 				3482C4A41E4D5ED300842B9C /* SearchDetailsVC.swift in Sources */,
 				F1B73A6D1B9059D7003CFF05 /* DynamicsViewController.m in Sources */,
-				34319E741E4C450200A4731B /* SDKPrivateTestVM.swift in Sources */,
 				F1B73A7B1B959268003CFF05 /* MusicListTableViewCell.m in Sources */,
 				F1B73A661B9018EE003CFF05 /* MenuCollectionViewCell.m in Sources */,
 				34A71E3F1E713DFE001411A4 /* movieDiaryPopUpVC.swift in Sources */,
@@ -1280,7 +1292,7 @@
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1318,7 +1330,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

@@ -93,7 +93,7 @@ import RxSwift
         }
     }
     
-    open func keyboardFrameDidChanged(_ notification : Notification) {
+    @objc open func keyboardFrameDidChanged(_ notification : Notification) {
         if let info : [AnyHashable: Any] = (notification as NSNotification).userInfo {
             if let keyboardFrame = (info[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 textFieldBottomConstraint.constant = UIApplication.shared.keyWindow!.frame.height - keyboardFrame.origin.y

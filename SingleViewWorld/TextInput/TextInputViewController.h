@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "macDbTableViewCell.h"
 #import <SmartView/SmartView.h>
+#import "GCDAsyncUdpSocket.h"
 
 @interface TextInputViewController : UIViewController <GCDAsyncUdpSocketDelegate,UITextFieldDelegate,UITableViewDataSource, UITableViewDelegate>
 
