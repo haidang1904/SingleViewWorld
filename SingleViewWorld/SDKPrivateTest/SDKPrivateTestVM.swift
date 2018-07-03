@@ -127,11 +127,11 @@ class SDKPrivateTestVM{
         /*
             createRemoteControl
         */
-        self.remote = service.createRemoteControl()
-        self.remote?.delegate = self
-        self.remote?.setSecurityMode(security: true, token: "", completionHandler: { (isSecure, error) in
+        service.setSecurityMode(security: true) { (isSecure, error) in
+            self.remote = service.createRemoteControl()
+            self.remote?.delegate = self
             self.remote?.connect()
-        })
+        }
         
         /*
             createApplication
