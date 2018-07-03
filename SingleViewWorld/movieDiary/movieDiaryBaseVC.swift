@@ -103,7 +103,7 @@ import AVFoundation
         Log.test("\(String(describing: vc))")
     }
     
-    func presentSearch(_ sender: AnyObject) {
+    @objc func presentSearch(_ sender: AnyObject) {
         performSegue(withIdentifier: "SearchSegue", sender: nil)
     }
     

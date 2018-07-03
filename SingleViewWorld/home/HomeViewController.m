@@ -11,7 +11,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "SingleViewWorld-Swift.h"
 
-#define PRIVATE_SDK 0
+#define PRIVATE_SDK 1
 
 NSString *const kKeyMenuName = @"name";
 NSString *const kKeyMenuString = @"string";
@@ -226,7 +226,7 @@ static NSString *cellID = @"MenuCollectionViewCell";
             break;
 #if PRIVATE_SDK
         case SDK_PRIVATE_TEST_MODE:
-            function_view = [[SDKPriavteTestVC alloc] initWithNibName:@"SDKPrivateTestViewController" bundle:nil];
+            function_view = [[SDKPrivateTestVC alloc] initWithNibName:@"SDKPrivateTestViewController" bundle:nil];
             break;
 #endif
         case SPRITE_KIT_MODE:

@@ -10,5 +10,6 @@
 #define SingleViewWorld_Bridging_Header_h
 
 #import <Firebase.h>
+#import "GCDAsyncUdpSocket.h"
 
 #endif /* SingleViewWorld_Bridging_Header_h */

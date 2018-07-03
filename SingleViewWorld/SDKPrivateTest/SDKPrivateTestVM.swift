@@ -1,4 +1,4 @@
-#if PRIVATE_SDK
+#if true //PRIVATE_SDK
 //
 //  SDKPrivateTestViewModel.swift
 //  SingleViewWorld
@@ -127,11 +127,11 @@ class SDKPrivateTestVM{
         /*
             createRemoteControl
         */
-        self.remote = service.createRemoteControl()
-        self.remote?.delegate = self
-        self.remote?.setSecurityMode(security: false, completionHandler: { (isSecure, error) in
+        service.setSecurityMode(security: true) { (isSecure, error) in
+            self.remote = service.createRemoteControl()
+            self.remote?.delegate = self
             self.remote?.connect()
-        })
+        }
         
         /*
             createApplication
@@ -153,8 +153,8 @@ class SDKPrivateTestVM{
     }
     
     func disconnectTV() {
-        application?.disconnect({ (err) in
-            Log.test("disconnect error:\(err)")
+        application?.disconnect({ (client, error) in
+            //
         })
     }
     

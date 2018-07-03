@@ -94,7 +94,7 @@ class ArcheryScene: SKScene {
         return arrowNode
     }
     
-    func createBallNode() {
+    @objc func createBallNode() {
         
         let ballNode : SKSpriteNode = SKSpriteNode(imageNamed: "BallTexture")
         ballNode.name = "ballNode"

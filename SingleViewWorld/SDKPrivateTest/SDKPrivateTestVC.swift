@@ -1,4 +1,4 @@
-#if PRIVATE_SDK
+#if true //PRIVATE_SDK
 //
 //  SDKPrivateTestVC.swift
 //  SingleViewWorld
@@ -13,7 +13,7 @@ import Darwin
 import Alamofire
 import RxSwift
 
-@objc open class SDKPriavteTestVC: UIViewController {
+@objc open class SDKPrivateTestVC: UIViewController {
     
     @IBOutlet weak var installedApplistTableView: UITableView!
     @IBOutlet weak var iconDataImageView: UIImageView!
@@ -91,7 +91,7 @@ import RxSwift
         }
     }
     
-    open func keyboardFrameDidChanged(_ notification : Notification) {
+    @objc open func keyboardFrameDidChanged(_ notification : Notification) {
         if let info : [AnyHashable: Any] = (notification as NSNotification).userInfo {
             if let keyboardFrame = (info[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
                 textFieldBottomConstraint.constant = UIApplication.shared.keyWindow!.frame.height - keyboardFrame.origin.y
@@ -113,7 +113,7 @@ import RxSwift
     }
 }
 
-extension SDKPriavteTestVC: UITableViewDelegate,UITableViewDataSource {
+extension SDKPrivateTestVC: UITableViewDelegate,UITableViewDataSource {
     public func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
     }
@@ -180,7 +180,7 @@ extension SDKPriavteTestVC: UITableViewDelegate,UITableViewDataSource {
     }
 }
 
-extension SDKPriavteTestVC : UITextFieldDelegate {
+extension SDKPrivateTestVC : UITextFieldDelegate {
     public func textFieldDidEndEditing(_ textField: UITextField) {
     }
     

@@ -22,7 +22,7 @@
  
  */
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
 //! Project version number for SmartView framework.
 FOUNDATION_EXPORT double SVFVersionNumber;
@@ -30,4 +30,3 @@ FOUNDATION_EXPORT double SVFVersionNumber;
 //! Project version string for SmartView framework.
 FOUNDATION_EXPORT const unsigned char SVFVersionString[];
 
-#import <SmartView/GCDAsyncUdpSocket.h>
